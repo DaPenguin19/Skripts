@@ -1,0 +1,5 @@
+This skript allows you to see which commands everyone is executing.
+
+Commands:
+/commandspy on/enable/true/start    - Turns on CommandSpy for you
+/commandspy off/disable/false/stop  - Turns off CommandSpy for you
