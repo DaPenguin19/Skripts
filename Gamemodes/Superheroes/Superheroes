@@ -1,0 +1,253 @@
+options:
+	P : &8[&aSuperheroes&8]&b
+	IS : &e/superheroes <fall/set/apply/reset>
+	   
+command /superheroes [<text>]:
+	permission: skript.op
+	aliases: /super
+	trigger:
+		if arg 1 is not set:
+			message "{@P}{@IS}"
+		else if arg 1 is equal to "set":
+			if {Teams::*} is not set:
+				message "{@P} There are no teams!"
+				stop trigger
+			else:
+				loop {Teams::*}:
+					if (size of ({Team.%loop-value%::*})) is not equal to 6:
+						message "{@P} &eTeam %loop-value% &9does not have 6 people!"
+						stop trigger
+			loop {Superheroes::SpeedOfTeam::*}:
+				set {_SpeedPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_SpeedPlayer} is online:
+					remove speed from {_SpeedPlayer}
+					remove haste from {_SpeedPlayer}
+				else:
+					set {SuperheroesSchedule::RemoveSpeedEffect::%loop-value%} to true
+			loop {Superheroes::StrengthOfTeam::*}:
+				set {_StrengthPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_StrengthPlayer} is online:
+					remove strength from {_StrengthPlayer}
+				else:
+					set {SuperheroesSchedule::RemoveStrengthEffect::%loop-value%} to true
+			loop {Superheroes::HealthOfTeam::*}:
+				set {_HealthPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_HealthPlayer} is online:
+					set maximum health of {_HealthPlayer} to 10
+					set health of {_HealthPlayer} to 10
+				else:
+					set {SuperheroesSchedule::RemoveHealthEffect::%loop-value%} to true
+			loop {Superheroes::JumpOfTeam::*}:
+				set {_JumpPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_JumpPlayer} is online:
+					remove jump boost from {_JumpPlayer}
+					remove haste from {_JumpPlayer}
+					remove saturation from {_JumpPlayer}
+				else:
+					set {SuperheroesSchedule::RemoveJumpEffect::%loop-value%} to true
+			loop {Superheroes::InvisOfTeam::*}:
+				set {_InvisPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_InvisPlayer} is online:
+					remove invisibility from {_InvisPlayer}
+					remove water breathing from {_InvisPlayer}
+				else:
+					set {SuperheroesSchedule::RemoveInvisEffect::%loop-value%} to true
+			loop {Superheroes::ResOfTeam::*}:
+				set {_ResPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_ResPlayer} is online:
+					remove resistance from {_ResPlayer}
+					remove fire resistance from {_ResPlayer}
+				else:
+					set {SuperheroesSchedule::RemoveResEffect::%loop-value%} to true
+			delete {Superheroes::*}
+			broadcast "{@P} Setting Superheroes!"
+			loop {Teams::*}:
+				set {_Temp.%loop-value%::*} to {Team.%loop-value%::*}
+				set {_Speed} to (random element out of {_Temp.%loop-value%::*})
+				set {Superheroes::IsSpeed::%{_Speed}%} to loop-value
+				set {Superheroes::SpeedOfTeam::%loop-value%} to {_Speed}
+				remove {_Speed} from {_Temp.%loop-value%::*}
+				set {_Strength} to (random element out of {_Temp.%loop-value%::*})
+				set {Superheroes::IsStrength::%{_Strength}%} to loop-value
+				set {Superheroes::StrengthOfTeam::%loop-value%} to {_Strength}
+				remove {_Strength} from {_Temp.%loop-value%::*}
+				set {_Health} to (random element out of {_Temp.%loop-value%::*})
+				set {Superheroes::IsHealth::%{_Health}%} to loop-value
+				set {Superheroes::HealthOfTeam::%loop-value%} to {_Health}
+				remove {_Health} from {_Temp.%loop-value%::*}
+				set {_Jump} to (random element out of {_Temp.%loop-value%::*})
+				set {Superheroes::IsJump::%{_Jump}%} to loop-value
+				set {Superheroes::JumpOfTeam::%loop-value%} to {_Jump}
+				remove {_Jump} from {_Temp.%loop-value%::*}
+				set {_Invis} to (random element out of {_Temp.%loop-value%::*})
+				set {Superheroes::IsInvis::%{_Invis}%} to loop-value
+				set {Superheroes::InvisOfTeam::%loop-value%} to {_Invis}
+				remove {_Invis} from {_Temp.%loop-value%::*}
+				set {_Res} to (random element out of {_Temp.%loop-value%::*})
+				set {Superheroes::IsRes::%{_Res}%} to loop-value
+				set {Superheroes::ResOfTeam::%loop-value%} to {_Res}
+				remove {_Res} from {_Temp.%loop-value%::*}
+				loop {Team.%loop-value%::*}:
+					set {_Player} to ("%loop-value-2%" parsed as offlineplayer)
+					if {_Player} is online:
+						message "&8[&aSuperheroes&8]&9 Speed: &e%{_Speed}%" to {_Player}
+						message "&8[&aSuperheroes&8]&9 Strength: &e%{_Strength}%" to {_Player}
+						message "&8[&aSuperheroes&8]&9 Health: &e%{_Health}%" to {_Player}
+						message "&8[&aSuperheroes&8]&9 Jump: &e%{_Jump}%" to {_Player}
+						message "&8[&aSuperheroes&8]&9 Invis: &e%{_Invis}%" to {_Player}
+						message "&8[&aSuperheroes&8]&9 Res: &e%{_Res}%" to {_Player}												   
+		else if arg 1 is equal to "apply":
+			loop {Teams::*}:
+				set {_Speed} to ({Superheroes::SpeedOfTeam::%loop-value%} parsed as offlineplayer)
+				set {_Strength} to ({Superheroes::StrengthOfTeam::%loop-value%} parsed as offlineplayer)
+				set {_Health} to ({Superheroes::HealthOfTeam::%loop-value%} parsed as offlineplayer)
+				set {_Jump} to ({Superheroes::JumpOfTeam::%loop-value%} parsed as offlineplayer)
+				set {_Invis} to ({Superheroes::InvisOfTeam::%loop-value%} parsed as offlineplayer)
+				set {_Res} to ({Superheroes::ResOfTeam::%loop-value%} parsed as offlineplayer)								   
+				if {_Speed} is online:
+					apply speed 2 to {_Speed} for 999 days
+					apply haste 2 to {_Speed} for 999 days
+				else:
+					set {SuperheroesSchedule::ApplySpeedEffect::%{_Speed}%} to true								   
+				if {_Strength} is online:
+					apply strength 1 to {_Strength} for 999 days
+				else:
+					set {SuperheroesSchedule::ApplyStrengthEffect::%{_Strength}%} to true								   
+				if {_Health} is online:
+					set maximum health of {_Health} to 20
+					set health of {_Health} to 20
+				else:
+					set {SuperheroesSchedule::ApplyHealthEffect::%{_Health}%} to true								   
+				if {_Jump} is online:
+					apply jump boost 4 to {_Jump} for 999 days
+					apply saturation 10 to {_Jump} for 999 days
+					apply haste 2 to {_Jump} for 999 days
+				else:
+					set {SuperheroesSchedule::ApplyJumpEffect::%{_Jump}%} to true
+				set {Superheroes::Fall::%{_Jump}%} to true								   
+				if {_Invis} is online:
+					apply invisibility 1 to {_Invis} for 999 days
+					apply water breathing 1 to {_Invis} for 999 days
+				else:
+					set {SuperheroesSchedule::ApplyInvisEffect::%{_Invis}%} to true								   
+				if {_Res} is online:
+					apply resistance 2 to {_Res} for 999 days
+					apply fire resistance 1 to {_Res} for 999 days
+				else:
+					set {SuperheroesSchedule::ApplyResEffect::%{_Res}%} to true							   
+			broadcast "{@P} Applied Effects!"																
+		else if arg 1 is equal to "reset":
+			loop {Superheroes::SpeedOfTeam::*}:
+				set {_SpeedPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_SpeedPlayer} is online:
+					remove speed from {_SpeedPlayer}
+					remove haste from {_SpeedPlayer}
+				else:
+					set {SuperheroesSchedule::RemoveSpeedEffect::%loop-value%} to true
+			loop {Superheroes::StrengthOfTeam::*}:
+				set {_StrengthPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_StrengthPlayer} is online:
+					remove strength from {_StrengthPlayer}
+				else:
+					set {SuperheroesSchedule::RemoveStrengthEffect::%loop-value%} to true
+			loop {Superheroes::HealthOfTeam::*}:
+				set {_HealthPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_HealthPlayer} is online:
+					set maximum health of {_HealthPlayer} to 10
+					set health of {_HealthPlayer} to 10
+				else:
+					set {SuperheroesSchedule::RemoveHealthEffect::%loop-value%} to true
+			loop {Superheroes::JumpOfTeam::*}:
+				set {_JumpPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_JumpPlayer} is online:
+					remove jump boost from {_JumpPlayer}
+					remove haste from {_JumpPlayer}
+					remove saturation from {_JumpPlayer}
+				else:
+					set {SuperheroesSchedule::RemoveJumpEffect::%loop-value%} to true
+			loop {Superheroes::InvisOfTeam::*}:
+				set {_InvisPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_InvisPlayer} is online:
+					remove invisibility from {_InvisPlayer}
+					remove water breathing from {_InvisPlayer}
+				else:
+					set {SuperheroesSchedule::RemoveInvisEffect::%loop-value%} to true
+			loop {Superheroes::ResOfTeam::*}:
+				set {_ResPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_ResPlayer} is online:
+					remove resistance from {_ResPlayer}
+					remove fire resistance from {_ResPlayer}
+				else:
+					set {SuperheroesSchedule::RemoveResEffect::%loop-value%} to true
+			loop all players:
+				execute console command "/effect %loop-player% reset"						
+			broadcast "{@P} Reset Superheroes!" 							
+			delete {Superheroes::*}
+		else:
+			message "{@P}{@IS}"
+						   
+on death of player:
+	{Superheroes::*} is set
+	execute console command "/effect %victim% clear"
+	set maximum health of player to 10
+						   						   
+on login:
+	if {SuperheroesSchedule::ApplySpeedEffect::%player%} is set:
+		apply speed 2 to the player for 999 days
+		apply haste 2 to the player for 999 days
+		delete {SuperheroesSchedule::ApplySpeedEffect::%player%}
+	if {SuperheroesSchedule::ApplyStrengthEffect::%player%} is set:
+		apply strength 1 to the player for 999 days
+		delete {SuperheroesSchedule::ApplyStrengthEffect::%player%}
+	if {SuperheroesSchedule::ApplyHealthEffect::%player%} is set:
+		set maximum health of player to 20
+		set health of player to 20      
+		delete {SuperheroesSchedule::ApplyHealthEffect::%player%}
+	if {SuperheroesSchedule::ApplyJumpEffect::%player%} is set:
+		apply jump boost 4 to player for 999 days
+		apply haste 2 to player for 999 days
+		apply saturation 10 to player for 999 days
+		delete {SuperheroesSchedule::ApplyJumpEffect::%player%}
+	if {SuperheroesSchedule::ApplyInvisEffect} is set:
+		apply invisibility 1 to player for 999 days
+		apply water breathing 1 to player for 999 days
+		delete {SuperheroesSchedule::ApplyInvisEffect::%player%}
+	if {SuperheroesSchedule::ApplyResEffect::%player%} is set:
+		apply resistance 2 to the player for 999 days
+		apply fire resistance 1 to the player for 999 days
+		delete {SuperheroesSchedule::ApplyResEffect::%player%}
+	if {SuperheroesSchedule::RemoveSpeedEffect::%player%} is set:
+		remove speed from the player
+		remove haste from the player
+		delete {SuperheroesSchedule::RemoveSpeedEffect::%player%}
+	if {SuperheroesSchedule::RemoveStrengthEffect::%player%} is set:
+		remove strength from the player
+		delete {SuperheroesSchedule::RemoveStrengthEffect::%player%}
+	if {SuperheroesSchedule::RemoveHealthEffect::%player%} is set:
+		set maximum health of player to 10
+		set health of player to 10
+		delete {SuperheroesSchedule::RemoveHealthEffect::%player%}
+	if {SuperheroesSchedule::RemoveJumpEffect::%player%} is set:
+		remove jump boost from the player
+		remove haste from the player
+		remove saturation from the player
+		delete {SuperheroesSchedule::RemoveJumpEffect::%player%}
+	if {SuperheroesSchedule::RemoveInvisEffect::%player%} is set:
+		remove invisibility from the player
+		remove water breathing from the player
+		delete {SuperheroesSchedule::RemoveInvisEffect::%player%}
+	if {SuperheroesSchedule::RemoveResEffect::%player%} is set:
+		remove resistance from the player
+		remove fire resistance from the player
+		delete {SuperheroesSchedule::RemoveResEffect::%player%}
+								   
+on damage:    
+	{Superheroes::Fall::%victim%} is set
+	damage cause is fall
+	cancel the event
+				   
+on consume of milk bucket:
+	{Superheroes::*} is set
+	cancel the event
+	remove milk bucket from inventory of player
+	give player 1 bucket
