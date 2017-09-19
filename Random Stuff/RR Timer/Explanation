@@ -1,0 +1,11 @@
+A simple skript to keep track of which episode it is and how much time is left until the next episode.
+
+At the top of the skript it says "PUT PREFIX HERE". This is where you should put the prefix with your RR name. Currently, it is set up 
+so that pvp is enabled at the start of episode 2, perma is enabled at the start of episode 5 and meetup is at the start of episode 6.
+
+Commands:
+Operators only:
+/rrstart    - Starts the timer, heals everyone, clears experience and unfreezes everyone
+/rrstop     - Stops the timer
+Everyone:
+/rrtimer    - Messages you which episode it is and how much time is left until meetup
