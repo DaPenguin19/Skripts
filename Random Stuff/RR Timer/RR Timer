@@ -1,0 +1,55 @@
+options:
+	P: PUT PREFIX HERE
+ 
+command /rrstart:
+	permission: skript.op
+	trigger:
+		set time to 6:00
+		heal all players
+		loop all players:
+			set loop-player's hunger to 20
+			set loop-player's max health to 10
+			clear loop-player's inventory
+			command "/xp -25000L %loop-player%"
+		command "/megabutcher"
+		broadcast "{@P} Starting in 5"
+		wait 20 ticks
+		broadcast "{@P} Starting in 4"
+		wait 20 ticks
+		broadcast "{@P} Starting in 3"
+		wait 20 ticks
+		broadcast "{@P} Starting in 2"
+		command "/freeze"
+		wait 20 ticks
+		broadcast "{@P} Starting in 1"
+		wait 20 ticks
+		broadcast "{@P} Started! Good Luck"				
+		set {RRTimer::Enabled} to true
+		set {RRTimer::Time} to 0
+		set {RRTimer::Episode} to 1
+		while {RRTimer::Enabled} is set:
+			wait 1 minute
+			add 1 to {RRTimer::Time}
+				if {RRTimer::Time} is 20, 40, 60, 80, 120, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320, 340, 360, 380, or 400:
+					broadcast "{@P} End of Episode %{RRTimer::Episode}%!"
+					add 1 to {RRTimer::Episode}
+					broadcast "{@P} %{RRTimer::Time}% minutes have passed!"
+				if {RRTimer::Time} is 20:
+					command "/pvptoggle on"
+				if {RRTimer::Time} is 80:
+					command "/perma on"
+				if {RRTimer::Time} is 100:
+					broadcast "{@P} End of Episode %{RRTimer::Episode}%! It is now Meetup!"
+					add 1 to {RRTimer::Episode}
+					broadcast "{@P} %{RRTimer::Time}% minutes have passed!"
+ 
+command /rrtimer:
+	trigger:
+		if {enabledrrtimer} is true:
+			message "{@P} You are on episode %{RRTimer::Episode}%."
+			message "{@P} %(100-{RRTimer::Time})% minutes left until meetup!"
+ 
+command /rrstop:
+	permission: skript.op
+	trigger:
+		delete {RRTimer::*}
