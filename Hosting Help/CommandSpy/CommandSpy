@@ -1,0 +1,28 @@
+options:
+	P: &f[&7CommandSpy&f]&r
+	P.S: &f[&7CMD&f]&r
+	
+command /commandspy <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {CommandSpy::%command sender%} is not set:
+				set {CommandSpy::%command sender%} to true
+				loop all players:
+					loop-player is op
+					message "{@P} %command sender% enabled his CommandSpy!" to loop-player
+			else:
+				message "{@P} Your CommandSpy is already enabled!"
+		else:
+			if {CommandSpy::%command sender%} is set:
+				delete {CommandSpy::%command sender%}
+				loop all players:
+					loop-player is op
+					message "{@P} %command sender% disabled his CommandSpy!" to loop-player
+			else:
+				message "{@P} Your CommandSpy is already disabled!"
+
+on command:
+	loop all players:
+		{CommandSpy::%loop-player%} is true
+		message "{@P.S} %command sender%: /%full command%" to loop-player
