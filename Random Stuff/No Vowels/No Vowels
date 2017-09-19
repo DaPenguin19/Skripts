@@ -1,0 +1,2 @@
+on chat:
+	replace "e", "a", "i", "u" and "o" with "" in the chat message
