@@ -36,8 +36,8 @@ command /rrstart:
 					broadcast "{@P} %{RRTimer::Time}% minutes have passed!"
 				if {RRTimer::Time} is 20:
 					command "/pvptoggle on"
-				if {RRTimer::Time} is 80:
-					command "/perma on"
+				if {RRTimer::Time} is 85:
+					make random player execute command "/gamerule doDaylightCycle false"
 				if {RRTimer::Time} is 100:
 					broadcast "{@P} End of Episode %{RRTimer::Episode}%! It is now Meetup!"
 					add 1 to {RRTimer::Episode}
@@ -45,9 +45,9 @@ command /rrstart:
  
 command /rrtimer:
 	trigger:
-		if {enabledrrtimer} is true:
-			message "{@P} You are on episode %{RRTimer::Episode}%."
-			message "{@P} %(100-{RRTimer::Time})% minutes left until meetup!"
+		{RRTimer::Enabled} is set
+		message "{@P} You are on episode %{RRTimer::Episode}%."
+		message "{@P} %(100-{RRTimer::Time})% minutes left until meetup!"
  
 command /rrstop:
 	permission: skript.op
