@@ -1,0 +1,23 @@
+options:
+	P: <grey>[<light blue>BloodDiamonds<grey>]&r
+
+command /blooddiamonds <text>:
+	permission: skript.op
+	aliases: /bd
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {BloodDiamonds} is set:
+				message "{@P} Blood Diamonds is already enabled!"
+			else:
+				set {BloodDiamonds} to true
+				broadcast "{@P} Blood Diamonds is now enabled!"
+		if arg-1 is "off" or "disable" or "false" or "stop":
+			if {BloodDiamonds} is not set:
+				message "{@P} Blood Diamonds is already disabled!"
+			else:
+				delete {BloodDiamonds}
+				broadcast "{@P} Blood Diamonds is now disabled!"
+				
+on mine of diamond ore:
+	if {BloodDiamonds} is true:
+		damage the player by 0.5 hearts
