@@ -1,0 +1,32 @@
+There are several empty teams at the beginning, let's call them T1, T2, T3, T4. People in the lobby are randomly chosen to pick 
+which team they would like to join and everyone sees their choice. Let's say person X chooses to join team T1. Now everyone sees 
+that he is on that team and the next person can either choose to join him or any other team.
+
+This skript has a limit of 8 teams, namely blue, purple, green, orange, pink, red, yellow and light blue. If more are needed, please
+let me know! This skript does not use a team manager skript, which means that scattering or team chat will most likely not work. Just
+use your own team manager to add everyone to their team after the picking process is finished to deal with that.
+
+At the top of the skript, there is a list of variables which need to be changed to fit your picked teams arena. Here is a quick summary of what they mean:
+{PickedTeamsWarp}   - The coordinates of where you want to teleport all players to at the beginning of the picking process
+{PickerWarp}        - The coordinates of where you want to teleport the player who is picking their team to
+{BlueTeamWarp}      - The coordinates of where you want to teleport all members of the blue team to
+{PurpleTeamWarp}    - The coordinates of where you want to teleport all members of the purple team to
+{GreenTeamWarp}     - The coordinates of where you want to teleport all members of the green team to
+{OrangeTeamWarp}    - The coordinates of where you want to teleport all members of the orange team to
+{PinkTeamWarp}      - The coordinates of where you want to teleport all members of the pink team to
+{RedTeamWarp}       - The coordinates of where you want to teleport all members of the red team to
+{YellowTeamWarp}    - The coordinates of where you want to teleport all members of the yellow team to
+{LightBlueTeamWarp} - The coordinates of where you want to teleport all members of the light blue team to
+
+You need to use command blocks to let people choose their team. The command block needs to run the following command:
+/pickedteamspick <team colour> @p
+
+Commands:
+/pickedteams start <maximum team size>  - Starts the picking process
+/pickedteams stop                       - Stops the picking process and resets all teams
+/pickedteams pause                      - Stops players from picking a team - effectively pausing the picking process
+/pickedteams resume                     - Allows players to pick their team again after the picking process had been paused
+/pickedteams add <player>               - Adds a player to the list of players who have yet to pick a team
+/pickedteams remove <player>            - Removes a player from the list of players who have yet to pick a team
+/pickedteams list                       - Gives a list of all the players and on which team they are
+/pickedteams skip                       - Skips the player who is currently the one to pick a team
