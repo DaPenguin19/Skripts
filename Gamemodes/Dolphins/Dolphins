@@ -1,0 +1,35 @@
+options:
+	P: <grey>[<aqua>Dolphins<grey>]&r
+
+command /dolphins <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {Dolphins} is not set:
+				set {Dolphins} to true
+				broadcast "{@P} Dolphins is now enabled!"
+			else:
+				message "{@P} Dolphins is already enabled!"
+		else if arg-1 is "off" or "disable" or "false" or "stop":
+			if {Dolphins} is set:
+				delete {Dolphins}
+				broadcast "{@P} Dolphins is now disabled!"
+			else:
+				message "{@P} Dolphins is already disabled!" 
+ 
+on walk on water:
+	{Dolphins} is set
+	push the player forwards with force 0.25
+	block below the player is water:
+		player is sneaking:
+			push the player upwards with force 0.25
+	player's helmet is not enchanted with respiration 3:
+		enchant the player's helmet with respiration 3
+	chance of 0.5%:
+		give player 1 raw fish
+ 
+ 
+on damage:
+	{Dolphins} is set
+	damage was caused by fall or drowning
+	cancel the event
