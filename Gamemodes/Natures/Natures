@@ -1,0 +1,386 @@
+options:
+	P: &7[&2Natures&7] &r
+
+variables:
+	{ExtraNatures} = true
+
+command /natures <text> [<text>]:
+	trigger:
+		if arg-1 is "extra":
+			if command sender is an op:
+				if arg-2 is "on" or "true" or "enable":
+					if {ExtraNatures} is true:
+						send "{@P}&3Extra natures are already true."
+					else:
+						set {ExtraNatures} to true
+						broadcast "{@P}&3Extra natures are now true."
+				else if arg-2 is "off" or "false" or "disable":
+					if {ExtraNatures} is false:
+						send "{@P}&3Extra natures are already false." to command sender
+					else:
+						set {ExtraNatures} to false
+						broadcast "{@P}&3Extra natures are now false."
+				else:
+					send "{@P}&3Use /natures extra <on/off>" to command sender
+			else:
+				send "&cYou do not have the required permission to run this command."
+		else if arg-1 is "setall":
+			if command sender is an op:
+				remove speed from all players
+				remove slowness from all players
+				delete {Natures::*}
+				add "Adamant" to {Natures::List::*}
+				add "Bold" to {Natures::List::*}
+				add "Brave" to {Natures::List::*}
+				add "Calm" to {Natures::List::*}
+				add "Careful" to {Natures::List::*}
+				add "Gentle" to {Natures::List::*}
+				add "Hasty" to {Natures::List::*}
+				add "Impish" to {Natures::List::*}
+				add "Jolly" to {Natures::List::*}
+				add "Lax" to {Natures::List::*}
+				add "Lonely" to {Natures::List::*}
+				add "Mild" to {Natures::List::*}
+				add "Modest" to {Natures::List::*}
+				add "Naive" to {Natures::List::*}
+				add "Naughty" to {Natures::List::*}
+				add "Quiet" to {Natures::List::*}
+				add "Rash" to {Natures::List::*}
+				add "Relaxed" to {Natures::List::*}
+				add "Sassy" to {Natures::List::*}
+				add "Timid" to {Natures::List::*}
+				if {ExtraNatures} is true:
+					add "Bashful" to {Natures::List::*}
+					add "Docile" to {Natures::List::*}
+					add "Hardy" to {Natures::List::*}
+					add "Quirky" to {Natures::List::*}
+					add "Serious" to {Natures::List::*}
+				loop all players:
+					set {Natures::%loop-player%} to a random element of {Natures::List::*}
+					send "{@P}&3Your nature is &6%{Natures::%loop-player%}%&3. Use /natures <nature> to check its abilities." to loop-player
+					if {Natures::%loop-player%} is "Adamant":
+						set {Natures::DealMoreMelee::%loop-player%} to true
+						set {Natures::DealLessRanged::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Bold":
+						set {Natures::TakeLessMelee::%loop-player%} to true
+						set {Natures::DealLessMelee::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Brave":
+						set {Natures::DealMoreMelee::%loop-player%} to true
+						apply slowness 1 to loop-player for 999 days
+					else if {Natures::%loop-player%} is "Calm":
+						set {Natures::TakeLessRanged::%loop-player%} to true
+						set {Natures::DealLessMelee::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Careful":
+						set {Natures::TakeLessRanged::%loop-player%} to true
+						set {Natures::DealLessRanged::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Gentle":
+						set {Natures::TakeLessRanged::%loop-player%} to true
+						set {Natures::TakeMoreMelee::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Hasty":
+						set {Natures::TakeMoreMelee::%loop-player%} to true
+						apply speed 1 to loop-player for 999 days
+					else if {Natures::%loop-player%} is "Impish":
+						set {Natures::TakeLessMelee::%loop-player%} to true
+						set {Natures::DealLessRanged::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Jolly":
+						set {Natures::DealLessRanged::%loop-player%} to true
+						apply speed 1 to loop-player for 999 days
+					else if {Natures::%loop-player%} is "Lax":
+						set {Natures::TakeLessMelee::%loop-player%} to true
+						set {Natures::TakeMoreRanged::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Lonely":
+						set {Natures::DealMoreMelee::%loop-player%} to true
+						set {Natures::TakeMoreMelee::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Mild":
+						set {Natures::DealMoreRanged::%loop-player%} to true
+						set {Natures::TakeMoreMelee::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Modest":
+						set {Natures::DealMoreRanged::%loop-player%} to true
+						set {Natures::DealLessMelee::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Naive":
+						set {Natures::TakeMoreRanged::%loop-player%} to true
+						apply speed 1 to loop-player for 999 days
+					else if {Natures::%loop-player%} is "Naughty":
+						set {Natures::DealMoreMelee::%loop-player%} to true
+						set {Natures::TakeMoreRanged::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Quiet":
+						set {Natures::DealMoreRanged::%loop-player%} to true
+						apply slowness 1 to loop-player for 999 days
+					else if {Natures::%loop-player%} is "Rash":
+						set {Natures::DealMoreRanged::%loop-player%} to true
+						set {Natures::TakeMoreRanged::%loop-player%} to true
+					else if {Natures::%loop-player%} is "Relaxed":
+						set {Natures::TakeLessMelee::%loop-player%} to true
+						apply slowness 1 to loop-player for 999 days
+					else if {Natures::%loop-player%} is "Sassy":
+						set {Natures::TakeLessRanged::%loop-player%} to true
+						apply slowness 1 to loop-player for 999 days
+					else if {Natures::%loop-player%} is "Timid":
+						set {Natures::DealLessMelee::%loop-player%} to true
+						apply speed 1 to loop-player for 999 days
+			else:
+				send "&cYou do not have the required permission to run this command."
+		else if arg-1 is "set":
+			if command sender is an op:
+				if arg-2 is set:
+					set {_arg2} to ("%arg-2%" parsed as offlineplayer)
+					if {_arg2} is online:
+						remove speed from {_arg2}
+						remove slowness from {_arg2}
+						delete {Natures::DealMoreMelee::%{_arg2}%}
+						delete {Natures::DealLessMelee::%{_arg2}%}
+						delete {Natures::DealMoreRanged::%{_arg2}%}
+						delete {Natures::DealLessRanged::%{_arg2}%}
+						delete {Natures::TakeMoreMelee::%{_arg2}%}
+						delete {Natures::TakeLessMelee::%{_arg2}%}
+						delete {Natures::TakeMoreRanged::%{_arg2}%}
+						delete {Natures::TakeLessRanged::%{_arg2}%}
+						delete {Natures::List::*}
+						add "Adamant" to {Natures::List::*}
+						add "Bold" to {Natures::List::*}
+						add "Brave" to {Natures::List::*}
+						add "Calm" to {Natures::List::*}
+						add "Careful" to {Natures::List::*}
+						add "Gentle" to {Natures::List::*}
+						add "Hasty" to {Natures::List::*}
+						add "Impish" to {Natures::List::*}
+						add "Jolly" to {Natures::List::*}
+						add "Lax" to {Natures::List::*}
+						add "Lonely" to {Natures::List::*}
+						add "Mild" to {Natures::List::*}
+						add "Modest" to {Natures::List::*}
+						add "Naive" to {Natures::List::*}
+						add "Naughty" to {Natures::List::*}
+						add "Quiet" to {Natures::List::*}
+						add "Rash" to {Natures::List::*}
+						add "Relaxed" to {Natures::List::*}
+						add "Sassy" to {Natures::List::*}
+						add "Timid" to {Natures::List::*}
+						if {ExtraNatures} is true:
+							add "Bashful" to {Natures::List::*}
+							add "Docile" to {Natures::List::*}
+							add "Hardy" to {Natures::List::*}
+							add "Quirky" to {Natures::List::*}
+							add "Serious" to {Natures::List::*}
+						set {Natures::%{_arg2}%} to a random element of {Natures::List::*}
+						send "{@P}&3Your nature is &6%{Natures::%{_arg2}%}%&3. Use /natures <nature> to check its abilities." to {_arg2}
+						if {Natures::%{_arg2}%} is "Adamant":
+							set {Natures::DealMoreMelee::%{_arg2}%} to true
+							set {Natures::DealLessRanged::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Bold":
+							set {Natures::TakeLessMelee::%{_arg2}%} to true
+							set {Natures::DealLessMelee::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Brave":
+							set {Natures::DealMoreMelee::%{_arg2}%} to true
+							apply slowness 1 to {_arg2} for 999 days
+						else if {Natures::%{_arg2}%} is "Calm":
+							set {Natures::TakeLessRanged::%{_arg2}%} to true
+							set {Natures::DealLessMelee::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Careful":
+							set {Natures::TakeLessRanged::%{_arg2}%} to true
+							set {Natures::DealLessRanged::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Gentle":
+							set {Natures::TakeLessRanged::%{_arg2}%} to true
+							set {Natures::TakeMoreMelee::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Hasty":
+							set {Natures::TakeMoreMelee::%{_arg2}%} to true
+							apply speed 1 to {_arg2} for 999 days
+						else if {Natures::%{_arg2}%} is "Impish":
+							set {Natures::TakeLessMelee::%{_arg2}%} to true
+							set {Natures::DealLessRanged::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Jolly":
+							set {Natures::DealLessRanged::%{_arg2}%} to true
+							apply speed 1 to {_arg2} for 999 days
+						else if {Natures::%{_arg2}%} is "Lax":
+							set {Natures::TakeLessMelee::%{_arg2}%} to true
+							set {Natures::TakeMoreRanged::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Lonely":
+							set {Natures::DealMoreMelee::%{_arg2}%} to true
+							set {Natures::TakeMoreMelee::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Mild":
+							set {Natures::DealMoreRanged::%{_arg2}%} to true
+							set {Natures::TakeMoreMelee::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Modest":
+							set {Natures::DealMoreRanged::%{_arg2}%} to true
+							set {Natures::DealLessMelee::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Naive":
+							set {Natures::TakeMoreRanged::%{_arg2}%} to true
+							apply speed 1 to {_arg2} for 999 days
+						else if {Natures::%{_arg2}%} is "Naughty":
+							set {Natures::DealMoreMelee::%{_arg2}%} to true
+							set {Natures::TakeMoreRanged::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Quiet":
+							set {Natures::DealMoreRanged::%{_arg2}%} to true
+							apply slowness 1 to {_arg2} for 999 days
+						else if {Natures::%{_arg2}%} is "Rash":
+							set {Natures::DealMoreRanged::%{_arg2}%} to true
+							set {Natures::TakeMoreRanged::%{_arg2}%} to true
+						else if {Natures::%{_arg2}%} is "Relaxed":
+							set {Natures::TakeLessMelee::%{_arg2}%} to true
+							apply slowness 1 to {_arg2} for 999 days
+						else if {Natures::%{_arg2}%} is "Sassy":
+							set {Natures::TakeLessRanged::%{_arg2}%} to true
+							apply slowness 1 to {_arg2} for 999 days
+						else if {Natures::%{_arg2}%} is "Timid":
+							set {Natures::DealLessMelee::%{_arg2}%} to true
+							apply speed 1 to {_arg2} for 999 days
+					else:
+						send "{@P}&3That player is not online." to command sender
+				else:
+					send "{@P}&3Use /natures set <player>" to command sender
+			else:
+				send "&cYou do not have the required permission to run this command."
+		else if arg-1 is "reset" or "clear":
+			if command sender is an op:
+				remove speed from all players
+				remove slowness from all players
+				delete {Natures::*}
+				broadcast "{@P}&3Reset all natures."
+		else if arg-1 is "adamant":
+			send "{@P}&3About &6Adamant&3:" to command sender
+			send "{@P}&6Deals more melee damage" to command sender
+			send "{@P}&6Deals less ranged damage" to command sender
+		else if arg-1 is "bashful":
+			send "{@P}&3About &6Bashful&3:" to command sender
+			send "{@P}&6No changes" to command sender
+		else if arg-1 is "bold":
+			send "{@P}&3About &6Bold&3:" to command sender
+			send "{@P}&6Takes less melee damage" to command sender
+			send "{@P}&6Deals less melee damage" to command sender
+		else if arg-1 is "brave":
+			send "{@P}&3About &6Brave&3:" to command sender
+			send "{@P}&6Deals more melee damage" to command sender
+			send "{@P}&6Slowness" to command sender
+		else if arg-1 is "calm":
+			send "{@P}&3About &6Calm&3:" to command sender
+			send "{@P}&6Takes less ranged damage" to command sender
+			send "{@P}&6Deals less melee damage" to command sender
+		else if arg-1 is "careful":
+			send "{@P}&3About &6Careful&3:" to command sender
+			send "{@P}&6Takes less ranged damage" to command sender
+			send "{@P}&6Deals less ranged damage" to command sender
+		else if arg-1 is "docile":
+			send "{@P}&3About &6Docile&3:" to command sender
+			send "{@P}&6No changes" to command sender
+		else if arg-1 is "gentle":
+			send "{@P}&3About &6Gentle&3:" to command sender
+			send "{@P}&6Takes less ranged damage" to command sender
+			send "{@P}&6Takes more melee damage" to command sender
+		else if arg-1 is "hardy":
+			send "{@P}&3About &6Hardy&3:" to command sender
+			send "{@P}&6No changes" to command sender
+		else if arg-1 is "hasty":
+			send "{@P}&3About &6Hasty&3:" to command sender
+			send "{@P}&6Takes more melee damage" to command sender
+			send "{@P}&6Speed" to command sender
+		else if arg-1 is "impish":
+			send "{@P}&3About &6Impish&3:" to command sender
+			send "{@P}&6Takes less melee damage" to command sender
+			send "{@P}&6Deals less ranged damage" to command sender
+		else if arg-1 is "jolly":
+			send "{@P}&3About &6Jolly&3:" to command sender
+			send "{@P}&6Deals less ranged damage" to command sender
+			send "{@P}&6Speed" to command sender
+		else if arg-1 is "lax":
+			send "{@P}&3About &6Lax&3:" to command sender
+			send "{@P}&6Takes less melee damage" to command sender
+			send "{@P}&6Takes more ranged damage" to command sender
+		else if arg-1 is "lonely":
+			send "{@P}&3About &6Lonely&3:" to command sender
+			send "{@P}&6Deals more melee damage" to command sender
+			send "{@P}&6Takes more melee damage" to command sender
+		else if arg-1 is "mild":
+			send "{@P}&3About &6Mild&3:" to command sender
+			send "{@P}&6Deals more ranged damage" to command sender
+			send "{@P}&6Takes more melee damage" to command sender
+		else if arg-1 is "modest":
+			send "{@P}&3About &6Modest&3:" to command sender
+			send "{@P}&6Deals more ranged damage" to command sender
+			send "{@P}&6Deals less melee damage" to command sender
+		else if arg-1 is "naive":
+			send "{@P}&3About &6Naive&3:" to command sender
+			send "{@P}&6Takes more ranged damage" to command sender
+			send "{@P}&6Speed" to command sender
+		else if arg-1 is "naughty":
+			send "{@P}&3About &6Naughty&3:" to command sender
+			send "{@P}&6Deals more melee damage" to command sender
+			send "{@P}&6Takes more ranged damage" to command sender
+		else if arg-1 is "quiet":
+			send "{@P}&3About &6Quiet&3:" to command sender
+			send "{@P}&6Deals more ranged damage" to command sender
+			send "{@P}&6Slowness" to command sender
+		else if arg-1 is "quirky":
+			send "{@P}&3About &6Quirky&3:" to command sender
+			send "{@P}&6No changes" to command sender
+		else if arg-1 is "rash":
+			send "{@P}&3About &6Rash&3:" to command sender
+			send "{@P}&6Deals more ranged damage" to command sender
+			send "{@P}&6Takes more ranged damage" to command sender
+		else if arg-1 is "relaxed":
+			send "{@P}&3About &6Relaxed&3:" to command sender
+			send "{@P}&6Takes less melee damage" to command sender
+			send "{@P}&6Slowness" to command sender
+		else if arg-1 is "sassy":
+			send "{@P}&3About &6Sassy&3:" to command sender
+			send "{@P}&6Takes less ranged damage" to command sender
+			send "{@P}&6Slowness" to command sender
+		else if arg-1 is "serious":
+			send "{@P}&3About &6Serious&3:" to command sender
+			send "{@P}&6No changes" to command sender
+		else if arg-1 is "timid":
+			send "{@P}&3About &6Timid&3:" to command sender
+			send "{@P}&6Deals less melee damage" to command sender
+			send "{@P}&6Speed" to command sender
+		else if arg-1 is "me":
+			send "{@P}&3Your nature is &6%{Natures::%command sender%}%&3. Use /natures <nature> to check its abilities." to command sender
+			
+on damage:
+	if damage is caused by attack or contact:
+		if {Natures::TakeMoreMelee::%victim%} is true:
+			if {Natures::DealMoreMelee::%attacker%} is true:
+				set {_damage} to damage
+				set damage to ({_damage}*1.4)
+			else if {Natures::DealLessMelee::%attacker%} is not set:
+				set {_damage} to damage
+				set damage to ({_damage}*1.2)
+		else if {Natures::TakeLessMelee::%victim%} is true:
+			if {Natures::DealLessMelee::%attacker%} is true:
+				set {_damage} to damage
+				set damage to ({_damage}*0.6)
+			else if {Natures::DealMoreMelee::%attacker%} is not set:
+				set {_damage} to damage
+				set damage to ({_damage}*0.8)
+		else:
+			if {Natures::DealMoreMelee::%attacker%} is true:
+				set {_damage} to damage
+				set damage to ({_damage}*1.2)
+			else if {Natures::DealLessMelee::%attacker%} is true:
+				set {_damage} to damage
+				set damage to ({_damage}*0.8)
+	else if damage is caused by projectile:
+		if projectile is an arrow:
+			if {Natures::TakeMoreRanged::%victim%} is true:
+				if {Natures::DealMoreRanged::%attacker%} is true:
+					set {_damage} to damage
+					set damage to ({_damage}*1.4)
+				else if {Natures::DealLessRanged::%attacker%} is not set:
+					set {_damage} to damage
+					set damage to ({_damage}*1.2)
+			else if {Natures::TakeLessRanged::%victim%} is true:
+				if {Natures::DealLessRanged::%attacker%} is true:
+					set {_damage} to damage
+					set damage to ({_damage}*0.6)
+				else if {Natures::DealMoreRanged::%attacker%} is not set:
+					set {_damage} to damage
+					set damage to ({_damage}*0.8)
+			else:
+				if {Natures::DealMoreRanged::%attacker%} is true:
+					set {_damage} to damage
+					set damage to ({_damage}*1.2)
+				else if {Natures::DealLessRanged::%attacker%} is true:
+					set {_damage} to damage
+					set damage to ({_damage}*0.8)
+					
+on consume of milk:
+	if {Natures::%player%} is set:
+		cancel event
