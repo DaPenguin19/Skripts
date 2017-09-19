@@ -1,0 +1,61 @@
+options:
+	P: <grey>[<gold>BlockRush<grey>]&r
+	
+variables:
+	{BlockRush::Reward} = gold ingot
+
+on break:
+	if {BlockRush::Enabled} is true:
+		set {_Blocktype} to type of block
+		if {BlockRush::Blocks::%{_Blocktype}%} is not set:
+			set {BlockRush::Blocks::%{_Blocktype}%} to true
+			broadcast "{@P} %player% was the first player to break %block%!"
+			message "{@P} Rewarded %{BlockRush::reward}%!" to the player
+			give {BlockRush::Reward} to the player
+	
+command /blockrush <text>:
+	trigger:
+		arg 1 is "enable" or "on" or "true" or "start":
+			if command sender is not op:
+				message "{@P} You must be a server op to use this command!"
+			else:
+				{BlockRush::Enabled} is set:
+					message "{@P} Block Rush is already enabled!"
+				else:
+					set {BlockRush::Enabled} to true
+					delete {BlockRush::Blocks::*}
+					broadcast "{@P} Block Rush is now enabled!"
+		arg 1 is "disable" or "off" or "false" or "stop":	
+			if command sender is not op:
+				message "{@P} You must be a server op to use this command!"
+			else:
+				{BlockRush::Enabled} is not set:
+					message "{@P} Block Rush is already disabled!"
+				else:
+					delete {BlockRush::Enabled}
+					broadcast "{@P} Block Rush is now disabled!"
+		arg 1 is "reset":	
+			if command sender is not op:
+				message "{@P} You must be a server op to use this command!"
+			else:
+				delete {BlockRush::Blocks::*}
+				broadcast "{@P} The block list has been reset!"
+		arg 1 is "list":
+			message "{@P} Blocks that have been mined:"
+			message "{@P} %{BlockRush::Blocks::*}%"
+		arg 1 is "help":
+			message "{@P} /blockrush []"
+			message "{@P} enable; enables the scenario and resets the block list; OP ONLY"
+			message "{@P} disable; disables the scenario; OP ONLY"
+			message "{@P} reset; resets the block list; OP ONLY"
+			message "{@P} list; shows the block list"
+			message "{@P} setreward; sets the reward to held item; OP ONLY"
+			message "{@P} reward; tells the player the current reward"
+		arg 1 is "setreward":
+			if command sender is not op:
+				message "{@P} You must be a server op to use this command!"
+			else:
+				set {BlockRush::Reward} to command sender's tool
+				message "{@P} Set reward to %{BlockRush::Reward}%!"
+		arg 1 is "reward":
+			message "{@P} Current reward is %{BlockRush::reward}%!"
