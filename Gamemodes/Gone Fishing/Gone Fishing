@@ -1,0 +1,28 @@
+options:
+	P: <grey>[<light blue>GoneFishing<grey>]&r
+
+command /gonefishing <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "give":
+			give fishing rod of unbreaking 100 and luck of the sea 250 and lure 3 to all players
+			give 64 anvils to all players
+			set level of all players to 20000
+			broadcast "{@P} Items have been given!"
+		if arg-1 is "enable" or "on" or "true" or "start":
+			if {GoneFishing} is not set:
+				set {GoneFishing} to true
+				broadcast "{@P} Enchantment tables are now disabled!"
+			else:
+				message "{@P} Enchantment tables are already disabled!"
+		if arg-1 is equal to "disable" or "off" or "false" or "stop":
+			if {GoneFishing} is set:
+				delete {GoneFishing}
+				broadcast "{@P} Enchantment tables are now enabled!"
+			else:
+				message "{@P} Enchantment tables are already enabled!"
+
+on craft of enchantment table:
+	{GoneFishing} is set
+	cancel the event
+	message "{@P} Enchantment tables are disabled!"
