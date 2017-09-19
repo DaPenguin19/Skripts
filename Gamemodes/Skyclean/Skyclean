@@ -1,0 +1,30 @@
+options:
+	P: <grey>[<yellow>Skyclean<grey>]&r
+
+command /skyclean <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "enable" or "on" or "true" or "start":
+			if {Skyclean} is set:
+				message "{@P} Skyclean is already enabled!"
+			else:
+				broadcast "{@P} Skyclean is now enabled!"
+				set {Skyclean} to true
+		else if arg-1 is "disable" or "off" or "false" or "stop":
+			if {Skyclean} is not set:
+				message "{@P} Skyclean is already disabled!"
+			else:
+				broadcast "{@P} Skyclean is now disabled!"
+				delete {Skyclean}
+
+on mine of sand:
+	{Skyclean} is set
+	cancel event
+	set block to air
+	give 1 glass to player
+		
+on mine of snow:
+	{Skyclean} is set
+	cancel event
+	set block to air
+	give 1 snow block to player
