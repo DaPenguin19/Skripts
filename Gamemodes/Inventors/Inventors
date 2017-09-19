@@ -1,0 +1,31 @@
+options:
+	P: <grey>[<yellow>Inventors<grey>]&r
+
+command /inventors [<text>]:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {Inventors::Enabled} is not set:
+				set {Inventors::Enabled} to true
+				delete {Inventors::Items::*}
+				broadcast "{@P} Inventors is now enabled!"
+			else:
+				message "{@P} Inventors is already enabled!"
+		else if arg-1 is "off" or "disable" or "false" or "stop":
+			if {Inventors::Enabled} is set:
+				delete {Inventors::*}
+				broadcast "{@P} Inventors is now disabled!"
+			else:
+				message "{@P} Inventors is already disabled!"
+		else if arg-1 is "reset":
+			if {Inventors::Enabled} is set:
+				delete {Inventors::Items::*}
+				broadcast "{@P} Items have been reset!"
+			else:
+				message "{@P} Inventors is not enabled!"
+
+on craft:
+	{Inventors::Enabled} is set
+	{Inventors::Items::%event-item%} is not set
+	set {Inventors::Items::%event-item%} to true
+	broadcast "{@P} %event-player%: %event-item%!"
