@@ -1,0 +1,28 @@
+options:
+	P: <grey>[<lime>InfiniteEnchanter<grey>]&r
+	
+command /infiniteenchanter <text>:
+	permission: skript.op
+	aliases: /ie
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {InfiniteEnchanter} is not set:
+				set {InfiniteEnchanter} to true
+				broadcast "{@P} Infinite Enchanter is now enabled!"
+				give 128 enchantment table to all players
+				give 128 anvil to all players
+				give 128 bookshelf to all players
+				set level of all players to 23000
+			else:
+				message "{@P} Infinite Enchanter is already enabled!"
+		else if arg-1 is "off" or "disable" or "false" or "stop":
+			{InfiniteEnchanter} is set:
+				delete {InfiniteEnchanter}
+				broadcast "{@P} Infinite Enchanter is now disabled!"
+				set level of all players to 0
+				loop all players:
+					remove all enchantment table from inventory of loop-player
+					remove all anvil from inventory of loop-player
+					remove all bookshelf from inventory of loop-player
+			else:
+				message "{@P} Infinite Enchanter is already disabled!"
