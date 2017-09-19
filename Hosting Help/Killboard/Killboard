@@ -1,0 +1,36 @@
+options:
+	P: <grey>[<lime>Killboard<grey>]
+ 
+command /killboard <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "enable" or "on":
+			command "/scoreboard objectives add Kills playerKillCount"
+			command "/scoreboard objectives setdisplay sidebar Kills"
+			broadcast "{@P} &aKillBoard Enabled"
+			delete {Dead::*}
+		if arg-1 is "disable" or "off":
+			command "/scoreboard objectives remove Kills"
+			broadcast "{@P} &cKillBoard Disabled"
+
+on death of player:
+	if {Teams.InTeam::%victim%} is not set:
+		execute console command "/scoreboard players reset %victim%"
+	else:
+		set {_TeamNumber} to {Teams.InTeam::%victim%}
+		set {Dead::%{_TeamNumber}%::%victim%} to true
+		loop {Dead::%{_TeamNumber}%::*}:
+			add 1 to {_DeadAmount}
+		if (amount of {Team.%{_TeamNumber}%::*}) is equal to {_DeadAmount}:
+			loop {Team.%{_TeamNumber}%::*}:
+				execute console command "/scoreboard players reset %loop-value%"
+			execute console command "/team delete %{Teams::%{_TeamNumber}%}%"
+			delete {Dead::%{_TeamNumber}%::*}
+			
+on command:
+	if command is equal to "team":
+		if substring of (full command) from 1 to 10 is "team reset":
+			delete {Dead::*}
+		else if substring of (full command) from 1 to 11 is "team delete":
+			set {_TeamNumber} to (substring of (full command) from 13 to 16)
+			delete {Dead::%{_TeamNumber}%::*}
