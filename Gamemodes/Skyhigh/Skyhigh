@@ -1,0 +1,44 @@
+options:
+	P: <grey>[<light blue>Skyhigh<grey>]&r
+
+command /skyhigh <text> [<player>]:
+	permission: skript.op
+	trigger:
+		if arg-1 is "enable" or "on" or "true" or "start":
+			if {Skyhigh} is set:
+				message "{@P} Skyhigh is already enabled!"
+			else:
+				set {Skyhigh} to true
+				broadcast "{@P} Skyhigh is now enabled!"
+				wait 30 seconds
+				command "/skyhigh damage"
+		else if arg-1 is "disable" or "off" or "false" or "stop":
+			if {Skyhigh} is set:
+				delete {Skyhigh}
+				broadcast "{@P} Skyhigh is now disabled!"
+			else:
+				message "{@P} Skyhigh is already disabled!"
+		else if arg-1 is "give" or "items":
+			if arg-2 is not set:
+				give 128 snow blocks to all players
+				give 3 pumpkin to all players
+				give 1 diamond shovel to all players
+				give 2 string to all players
+				give 16 feathers to all players
+				broadcast "{@P} Skyhigh items have been given!"
+			else:
+				set {_player} to ("%arg-2%" parsed as offlineplayer)
+				give 128 snow blocks to {_player}
+				give 3 pumpkin to {_player}
+				give 1 diamond shovel to {_player}
+				give 2 string to {_player}
+				give 16 feathers to {_player}
+				message "{@P} Skyhigh items have been given!" to {_player}
+		else if arg-1 is "damage":
+			command sender is console
+			{Skyhigh} is set
+			loop all players:
+				loop-player's y-coordinate is between 0 and 100
+				damage loop-player by 0.5 hearts
+			wait 30 seconds
+			command "/skyhigh damage"
