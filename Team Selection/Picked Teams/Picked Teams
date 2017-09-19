@@ -51,7 +51,7 @@ command /pickedteams <text> [<text>]:
 				broadcast "{@P} Picked Teams has been paused!"
 			else:
 				message "{@P} Picked Teams isn't running!"
-		if arg-1 is "continue":
+		if arg-1 is "resume":
 			if {PickedTeams::Enabled} is not set:
 				set {PickedTeams::Enabled} to true
 				broadcast "{@P} Picked Teams has been continued!"
@@ -151,7 +151,6 @@ command /pickedteamspick [<text>] [<player>]:
 	permission: skript.op
 	trigger:
 		{PickedTeams::Enabled} is set
-		{PickedTeams::Picker} is equal to arg-2
 		if arg-1 is not set:
 			if (amount of {PickedTeams::List::*}) is equal to 0:
 				broadcast "{@P} All players have picked a team!"
@@ -166,6 +165,7 @@ command /pickedteamspick [<text>] [<player>]:
 					add {_picker} to {PickedTeams::List::*}
 					command "/pickedteamspick"
 		else:
+			{PickedTeams::Picker} is equal to arg-2
 			if arg-1 is "Blue":
 				(amount of {PickedTeams::BlueTeam::*}) is not equal to {PickedTeams::MaxTeamSize}
 				command "/scoreboard teams add blueteam"
