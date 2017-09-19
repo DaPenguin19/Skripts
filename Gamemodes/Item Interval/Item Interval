@@ -1,0 +1,29 @@
+options:
+	P: <grey>[<blue>ItemInterval<grey>]&r
+	
+command /iteminterval <text>:
+	permission: skript.op
+	aliases: /ii
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {ItemInterval} is not set:
+				set {ItemInterval} to true
+				broadcast "{@P} Item Interval is now enabled!"
+				command "/iteminterval give"
+			else:
+				message "{@P} Item Interval is already enabled!"
+		else if arg-1 is "off" or "disable" or "false" or "stop":
+			if {ItemInterval} is set:
+				broadcast "{@P} Item Interval is now disabled!"
+				delete {ItemInterval}
+			else:
+				message "{@P} Item Interval is already disabled!"
+		else if arg-1 is "give":
+			command sender is console
+			{ItemInterval} is set
+			set {_randomitem} to a random item out of all items
+			set {_randomnumber} to a random integer between 1 and 64
+			give {_randomnumber} of {_randomitem} to all players
+			broadcast "{@P} Items have been given"
+			wait 10 seconds
+			command "/iteminterval give"
