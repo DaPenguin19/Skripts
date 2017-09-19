@@ -1,0 +1,249 @@
+options:
+	P: &8[&3Picked Teams&8]&7
+
+variables:
+	{PickedTeamsWarp} = "x y z"
+	{PickerWarp} = "x y z"
+	{BlueTeamWarp} = "x y z"
+	{PurpleTeamWarp} = "x y z"
+	{GreenTeamWarp} = "x y z"
+	{OrangeTeamWarp} = "x y z"
+	{PinkTeamWarp} = "x y z"
+	{RedTeamWarp} = "x y z"
+	{YellowTeamWarp} = "x y z"
+	{LightBlueTeamWarp} = "x y z"
+	
+command /pickedteams <text> [<text>]:
+	permission: skript.op
+	aliases: /pteams
+	trigger:
+		if arg-1 is "start":
+			if arg-2 is not set:
+				message "{@P} Please define a maximum team size!"
+			else:
+				set {_maxteamsize} to ("%arg-2%" parsed as integer)
+				if {_maxteamsize} is not set:
+					message "{@P} Please define a maximum team size!"
+				else if {_maxteamsize} is smaller than 1:
+					message "{@P} Invalid maximum team size!"
+				else:
+					set {PickedTeams::Enabled} to true
+					broadcast "{@P} Picked Teams is starting! Maximum team size is &a%arg-2%."
+					set {PickedTeams::MaxTeamSize} to {_maxteamsize}
+					loop all players:
+						add loop-player to {PickedTeams::List::*}
+						teleport loop-player to {PickedTeamsWarp}
+					command "/pickedteamspick"
+		if arg-1 is "stop":
+			delete {PickedTeams::*}
+			command "/scoreboard teams remove blueteam"
+			command "/scoreboard teams remove purpleteam"
+			command "/scoreboard teams remove greenteam"
+			command "/scoreboard teams remove orangeteam"
+			command "/scoreboard teams remove pinkteam"
+			command "/scoreboard teams remove redteam"
+			command "/scoreboard teams remove yellowteam"
+			command "/scoreboard teams remove lightblueteam"
+			broadcast "{@P} Picked Teams has been stopped!"
+		if arg-1 is "pause":
+			if {PickedTeams::Enabled} is set:
+				delete {PickedTeams::Enabled}
+				broadcast "{@P} Picked Teams has been paused!"
+			else:
+				message "{@P} Picked Teams isn't running!"
+		if arg-1 is "continue":
+			if {PickedTeams::Enabled} is not set:
+				set {PickedTeams::Enabled} to true
+				broadcast "{@P} Picked Teams has been continued!"
+			else:
+				message "{@P} Picked Teams is already running!"
+		if arg-1 is "add":
+			if arg-2 is not set:
+				message "{@P} Please define an online player you want to add!"
+			else:
+				set {_player} to arg-2
+				if {_player} is not online:
+					message "{@P} &a%arg-2% &7is not online!"
+				if {PickedTeams::Picker} is equal to {_player}:
+					message "{@P} &a%{_player}% &7is the current picker!"
+				else:
+					if {PickedTeams::List::*} contains {_player}:
+						message "{@P} &a%{_player}% &7is already on the list!"
+					else:
+						add {_player} to {PickedTeams::List::*}
+						message "{@P} &a%{_player}% &7has been added to the list."
+		if arg-1 is "remove":
+			if arg-2 is not set:
+				message "{@P} Please define an online player you want to remove!"
+			else:
+				set {_player} to arg-2
+				if {_player} is not online:
+					message "{@P} &a%{_player}% &7is not online!"
+				else:
+					if {PickedTeams::List::*} contains {_player}:
+						remove {_player} from {PickedTeams::List::*}
+						message "{@P} &a%{_player}% &7has been removed from the list."
+					else:
+						message "{@P} &a%{_player}% &7is not on the list!"
+		if arg-1 is "list":
+			message "{@P} People who have yet to pick a team:"
+			loop {PickedTeams::List::*}:
+				if loop-value is online:
+					message "{@P} - &a%loop-value%"
+				else:
+					message "{@P} - &c%loop-value%"
+			message "{@P} &9Blue team:"
+			loop {PickedTeams::BlueTeam::*}:
+				if loop-value is online:
+					message "{@P} - &a%loop-value%"
+				else:
+					message "{@P} - &c%loop-value%"
+			message "{@P} &5Purple team:"
+			loop {PickedTeams::PurpleTeam::*}:
+				if loop-value is online:
+					message "{@P} - &a%loop-value%"
+				else:
+					message "{@P} - &c%loop-value%"
+			message "{@P} &2Green team:"
+			loop {PickedTeams::GreenTeam::*}:
+				if loop-value is online:
+					message "{@P} - &a%loop-value%"
+				else:
+					message "{@P} - &c%loop-value%"
+			message "{@P} &6Orange team:"
+			loop {PickedTeams::OrangeTeam::*}:
+				if loop-value is online:
+					message "{@P} - &a%loop-value%"
+				else:
+					message "{@P} - &c%loop-value%"
+			message "{@P} &dPink team:"
+			loop {PickedTeams::PinkTeam::*}:
+				if loop-value is online:
+					message "{@P} - &a%loop-value%"
+				else:
+					message "{@P} - &c%loop-value%"
+			message "{@P} &4Red team:"
+			loop {PickedTeams::RedTeam::*}:
+				if loop-value is online:
+					message "{@P} - &a%loop-value%"
+				else:
+					message "{@P} - &c%loop-value%"
+			message "{@P} &eYellow team:"
+			loop {PickedTeams::YellowTeam::*}:
+				if loop-value is online:
+					message "{@P} - &a%loop-value%"
+				else:
+					message "{@P} - &c%loop-value%"
+			message "{@P} &bLight blue team:"
+			loop {PickedTeams::LightBlueTeam::*}:
+				if loop-value is online:
+					message "{@P} - &a%loop-value%"
+				else:
+					message "{@P} - &c%loop-value%"
+		if arg-1 is "skip":
+			add {PickedTeams::Picker} to {PickedTeams::List::*}
+			teleport {PickedTeams::Picker} to {PickedTeamsWarp}
+			broadcast "{@P} &a%{PickedTeams::Picker}% &7has been skipped!"
+			command "/pickedteamspick"
+			
+			
+command /pickedteamspick [<text>] [<player>]:
+	permission: skript.op
+	trigger:
+		{PickedTeams::Enabled} is set
+		{PickedTeams::Picker} is equal to arg-2
+		if arg-1 is not set:
+			if (amount of {PickedTeams::List::*}) is equal to 0:
+				broadcast "{@P} All players have picked a team!"
+			else:
+				set {_picker} to (a random element out of {PickedTeams::List::*})
+				remove {_picker} from {PickedTeams::List::*}
+				if {_picker} is online:
+					set {PickedTeams::Picker} to {_picker}
+					teleport {_picker} to {PickerWarp}
+					broadcast "{@P} &a%{_picker}% &7is now picking their team!"
+				else:
+					add {_picker} to {PickedTeams::List::*}
+					command "/pickedteamspick"
+		else:
+			if arg-1 is "Blue":
+				(amount of {PickedTeams::BlueTeam::*}) is not equal to {PickedTeams::MaxTeamSize}
+				command "/scoreboard teams add blueteam"
+				command "/scoreboard teams option blueteam color blue"
+				command "/scoreboard teams join blueteam %arg-2%"
+				broadcast "{@P} &a%arg-2% &7has picked &9blue team&7!"
+				teleport arg-2 to {BlueTeamWarp}
+				add player to {PickedTeams::BlueTeam::*}
+				if (amount of {PickedTeams::BlueTeam::*}) is equal to {PickedTeams::MaxTeamSize}:
+					broadcast "{@P} &9Blue team &7is now full!"
+			else if arg-1 is "Purple":
+				(amount of {PickedTeams::PurpleTeam::*}) is not equal to {PickedTeams::MaxTeamSize}
+				command "/scoreboard teams add purpleteam"
+				command "/scoreboard teams option purpleteam color dark_purple"
+				command "/scoreboard teams join purpleteam %arg-2%"
+				broadcast "{@P} &a%arg-2% &7has picked &5purple team&7!"
+				teleport arg-2 to {PurpleTeamWarp}
+				add player to {PickedTeams::PurpleTeam::*}
+				if (amount of {PickedTeams::PurpleTeam::*}) is equal to {PickedTeams::MaxTeamSize}:
+					broadcast "{@P} &5Purple team &7is now full!"
+			else if arg-1 is "Green":
+				(amount of {PickedTeams::GreenTeam::*}) is not equal to {PickedTeams::MaxTeamSize}
+				command "/scoreboard teams add greenteam"
+				command "/scoreboard teams option greenteam color dark_green"
+				command "/scoreboard teams join greenteam %arg-2%"
+				broadcast "{@P} &a%arg-2% &7has picked &2green team&7!"
+				teleport arg-2 to {GreenTeamWarp}
+				add player to {PickedTeams::GreenTeam::*}
+				if (amount of {PickedTeams::GreenTeam::*}) is equal to {PickedTeams::MaxTeamSize}:
+					broadcast "{@P} &2Green team &7is now full!"
+			else if arg-1 is "Orange":
+				(amount of {PickedTeams::OrangeTeam::*}) is not equal to {PickedTeams::MaxTeamSize}
+				command "/scoreboard teams add orangeteam"
+				command "/scoreboard teams option orangeteam color gold"
+				command "/scoreboard teams join orangeteam %arg-2%"
+				broadcast "{@P} &a%arg-2% has picked &6orange team&7!"
+				teleport arg-2 to {OrangeTeamWarp}
+				add player to {PickedTeams::OrangeTeam::*}
+				if (amount of {PickedTeams::OrangeTeam::*}) is equal to {PickedTeams::MaxTeamSize}:
+					broadcast "{@P} &6Orange team &7is now full!"
+			else if arg-1 is "Pink":
+				(amount of {PickedTeams::PinkTeam::*}) is not equal to {PickedTeams::MaxTeamSize}
+				command "/scoreboard teams add pinkteam"
+				command "/scoreboard teams option pinkteam color light_purple"
+				command "/scoreboard teams join pinkteam %arg-2%"
+				broadcast "{@P} &a%arg-2% &7has picked &dpink team&7!"
+				teleport arg-2 to {PinkTeamWarp}
+				add player to {PickedTeams::PinkTeam::*}
+				if (amount of {PickedTeams::PinkTeam::*}) is equal to {PickedTeams::MaxTeamSize}:
+					broadcast "{@P} &dPink team &7is now full!"
+			else if arg-1 is "Red":
+				(amount of {PickedTeams::RedTeam::*}) is not equal to {PickedTeams::MaxTeamSize}
+				command "/scoreboard teams add redteam"
+				command "/scoreboard teams option redteam color dark_red"
+				command "/scoreboard teams join redteam %arg-2%"
+				broadcast "{@P} &a%arg-2% &7has picked &4red team&7!"
+				teleport arg-2 to {RedTeamWarp}
+				add player to {PickedTeams::RedTeam::*}
+				if (amount of {PickedTeams::RedTeam::*}) is equal to {PickedTeams::MaxTeamSize}:
+					broadcast "{@P} &4Red team &7is now full!"
+			else if arg-1 is "Yellow":
+				(amount of {PickedTeams::YellowTeam::*}) is not equal to {PickedTeams::MaxTeamSize}
+				command "/scoreboard teams add yellowteam"
+				command "/scoreboard teams option yellowteam color yellow"
+				command "/scoreboard teams join yellowteam %arg-2%"
+				broadcast "{@P} &a%arg-2% &7has picked &eyellow team&7!"
+				teleport arg-2 to {YellowTeamWarp}
+				add player to {PickedTeams::YellowTeam::*}
+				if (amount of {PickedTeams::YellowTeam::*}) is equal to {PickedTeams::MaxTeamSize}:
+					broadcast "{@P} &eYellow team &7is now full!"
+			else if arg-1 is "LightBlue":
+				(amount of {PickedTeams::LightBlueTeam::*}) is not equal to {PickedTeams::MaxTeamSize}
+				command "/scoreboard teams add lightblueteam"
+				command "/scoreboard teams option lightblueteam color light_blue"
+				command "/scoreboard teams join lightblueteam %arg-2%"
+				broadcast "{@P} &a%arg-2% &7has picked &blight blue team&7!"
+				teleport arg-2 to {LightBlueTeamWarp}
+				add player to {PickedTeams::LightBlueTeam::*}
+				if (amount of {PickedTeams::LightBlueTeam::*}) is equal to {PickedTeams::MaxTeamSize}:
+					broadcast "{@P} &bLight blue team &7is now full!"
+			command "/pickedteamspick" 
