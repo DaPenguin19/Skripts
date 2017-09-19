@@ -1,0 +1,56 @@
+options:
+	P : <grey>[<light red>Bombers<grey>]&r
+ 
+command /bombers [<text>]:
+	permission: skript.op
+	trigger:
+		if arg 1 is "on" or "true" or "enable" or "start":
+			if {Bombers} is not set:
+				set {Bombers} to true
+				broadcast "{@P} Bombers is now enabled!"
+			else:
+				message "{@P} Bombers is already enabled!"
+		else if arg 1 is "off" or "false" or "disable" or "stop":
+			if {Bombers} is set:
+				delete {Bombers}
+				broadcast "{@P} Bombers is now disabled!"
+			else:
+				message "{@P} Bombers is already disabled!"
+		else if arg 1 is "give":
+			give 1 259 of unbreaking 1000 to all players
+			broadcast "{@P} Flint and Steel Given!"
+
+on death:
+	{Bombers} is set
+	if victim is bat:
+		drop 1 TNT at bat
+	else if victim is pig:
+		drop 1 TNT at pig
+	else if victim is sheep:
+		drop 1 TNT at sheep
+	else if victim is cow:
+		drop 1 TNT at cow
+	else if victim is zombie:
+		drop 3 TNT at zombie
+	else if victim is spider:
+		drop 3 TNT at spider
+	else if victim is creeper:
+		drop 4 TNT at creeper
+	else if victim is skeleton:
+		drop 3 TNT at skeleton
+	else if victim is enderman:
+		drop 3 TNT at enderman
+	else if victim is chicken:
+		drop 1 TNT at chicken
+	else if victim is  horse:
+		drop 1 TNT at horse
+	else if victim is slime:
+		drop 3 TNT at slime
+	else if victim is ghast:
+		drop 3 TNT at ghast
+	else if victim is silverfish:
+		drop 3 TNT at silverfish
+	else if victim is blaze:
+		drop 4 TNT at blaze
+	else if victim is wolf:
+		drop 1 TNT at wolf
