@@ -1,0 +1,59 @@
+options:
+	P: <grey>[<blue>Backpacks<grey>]&r
+
+command /backpacks [<text>]:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {Backpacks} is set:
+				message "{@P} Backpacks is already enabled!"
+			else:
+				set {Backpacks} to true
+				broadcast "{@P} Backpacks is now enabled!"
+		else if arg-1 is "off" or "disable" or "false" or "stop":
+			if {Backpacks} is not set:
+				message "{@P} Backpacks is already disabled!"
+			else:
+				delete {Backpacks}
+				broadcast "{@P} Backpacks is now disabled!"
+
+command /bp [<player>]:
+	aliases: /backpacks
+	trigger:
+		if {Backpacks} is set:
+			if arg-1 is set:
+				command sender is an op
+				open arg-1's ender chest to the command sender
+			else:
+				open the command sender's ender chest to the command sender
+		else:
+			message "{@P} Backpacks is disabled!"
+
+command /bpclear [<player>]:
+	permission: skript.op
+	trigger:
+		if {Backpacks} is set:
+			if arg-1 is set:
+				clear arg-1's ender chest
+				message "{@P} %arg-1%'s backpack has been emptied!"
+			else:
+				loop all players:
+					clear loop-player's ender chest
+				broadcast "{@P} All backpacks have been emptied!"
+		else:
+			message "{@P} Backpacks is disabled!"
+
+on death:
+	if {Backpacks} is set:
+		set {_ender} to the victim's ender chest
+		set {_deathloc} to the block below the player
+		set the block at {_deathloc} to a chest
+		set the inventory of the block at {_deathloc} to {_ender}
+		set {_signloc} to the location 1 meter south of {_deathloc}
+		set the block at {_signloc} to a wall sign
+		set line 1 of the block at {_signloc} to "================="
+		set line 2 of the block at {_signloc} to "%victim%'s"
+		set line 3 of the block at {_signloc} to "<b>Backpack"
+		set line 4 of the block at {_signloc} to "================="
+		clear victim's ender chest
+		message "{@P} Your backpack has been emptied!" to the victim
