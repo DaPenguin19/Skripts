@@ -1,0 +1,32 @@
+options:
+	P: <grey>[<cyan>Depths<grey>]&r
+	
+command /depths <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {Depths} is not set:
+				set {Depths} to true
+				broadcast "{@P} Depths is now enabled!"
+			else:
+				message "{@P} Depths is already enabled!"
+		else if arg-1 is "off" or "disable" or "false" or "stop":
+			if {Depths} is set:
+				delete {Depths}
+				broadcast "{@P} Depths is now disabled!"
+			else:
+				message "{@P} Depths is already disabled!"
+ 
+on damage:
+	{Depths} is set
+	attacker is an entity
+	attacker is not a player
+	set {_damage} to damage
+	if victim's y-coordinate is less than 15:
+		set damage to ({_damage}*5)
+	else if victim's y-coordinate is less than 30:
+		set damage to ({_damage}*3)
+	else if victim's y-coordinate is less than 45:
+		set damage to ({_damage}*2)
+	else if victim's y-coordinate is less than 60:
+		set damage to ({_damage}*1.5)
