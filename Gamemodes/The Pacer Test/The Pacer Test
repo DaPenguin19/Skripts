@@ -1,0 +1,67 @@
+options:
+	P: &7[&2The Pacer Test&7]&r
+	
+variables:
+	{PacerTestMinTime} = 2
+	{PacerTestMaxTime} = 7
+
+command /pacertest [<text>]:
+	trigger:
+		if arg-1 is "start" or "on" or "enable" or "true":
+			command sender is op
+			if {PacerTest::Enabled} is not set:
+				set {PacerTest::Enabled} to true
+				broadcast "{@P} &6The Pacer Test has been enabled!"
+				set {PacerTest::Time} to (a random integer from {PacerTestMinTime} to {PacerTestMaxTime})
+				loop {PacerTest::Time} times:
+					wait 1 second
+				delete {PacerTest::Time}
+				command "/pacertest run"
+			else:
+				message "{@P} &6The Pacer Test is already enabled!"
+		else if arg-1 is "stop" or "off" or "disable" or "false":
+			command sender is op
+			if {PacerTest::Enabled} is set:
+				delete {PacerTest::*}
+				broadcast "{@P} &6The Pacer Test has been disabled!"
+			else:
+				message "{@P} &6The Pacer Test is already disabled!"
+		else if arg-1 is "run":
+			command sender is console
+			{PacerTest::Enabled} is set
+			broadcast "{@P} &6The Pacer Test is starting now! Run 20 blocks within the next 10 seconds!"
+			loop all players:
+				add loop-player to {PacerTest::List::*}
+				set {PacerTest::Location::%loop-player%} to location of loop-player
+			wait 10 seconds
+			loop {PacerTest::List::*}:
+				if loop-value is online:
+					set health of loop-value to ((health of loop-value)/2)
+					delete {PacerTest::Location::%loop-value%}
+					message "{@P} &6You failed to complete The Pacer Test. You lose half of your current health!" to loop-value
+				else:
+					set {PacerTest::Schedule::%loop-value%} to true
+					delete {PacerTest::Location::%loop-value%}
+			delete {PacerTest::List::*}
+			set {PacerTest::Time} to (a random integer from {PacerTestMinTime} to {PacerTestMaxTime})
+			loop {PacerTest::Time} times:
+				wait 1 second
+			delete {PacerTest::Time}
+			command "/pacertest run"
+		else if arg-1 is "info" or "help":
+			message "{@P} &6The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start."
+			
+every second:
+	loop all players:
+		if {PacerTest::Location::%loop-player%} is set:
+			if distance between loop-player and {PacerTest::Location::%loop-player%} is greater than 20:
+				remove loop-player from {PacerTest::List::*}
+				delete {PacerTest::Location::%loop-player%}
+				message "{@P} &6You managed to complete The Pacer Test. Congrats!" to loop-player
+				
+on join:
+	if {PacerTest::Schedule::%player%} is true:
+		wait 1 second
+		set health of player to ((health of player)/2)
+		message "{@P} &6You failed to complete The Pacer Test while you were offline. You lose half of your current health!" to player
+		delete {PacerTest::Schedule::%player%}
