@@ -1,0 +1,15 @@
+This is a normal, vanilla killboard skript. It removes people from the killboard when they die, or in the case of a teams game, when 
+their entire team dies.
+
+This killboard uses the variables from D4's team manager (variatons of his team manager will most likely work too). Players who log 
+out will still be on the team (you might want to remove them from their team if they aren't coming back or else their team's kills 
+won't get removed). Removing people from their team after they die will cause their team's kills to be removed before their entire 
+team is dead.
+
+Commands:
+/killboard on/enable - Turns the killboard on
+/killboard off/disable - Turns the killboard off
+
+This killboard uses the variables from D4's team manager (variatons of his team manager will most likely work too). 
+Players who log out will still be on the team (you might want to remove them from their team if they aren't coming back or else their team's kills won't get removed).
+Removing people from their team after they die will cause their team's kills to be removed before their entire team is dead.
