@@ -1,0 +1,63 @@
+options:
+	P: <grey>[<gold>Cutclean<grey>]&r
+
+
+command /cutclean <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {Cutclean} is not set:
+				set {Cutclean} to true
+				broadcast "{@P} Cutclean is now enabled!"
+			else:
+				message "{@P} Cutclean is already enabled!"
+		if arg-1 is "off" or "disable" or "false" or "stop":
+			if {Cutclean} is set:
+				delete {Cutclean}
+				broadcast "{@P} Cutclean is now disabled!"
+			else:
+				message "{@P} Cutclean is already disabled!"
+
+on mine:
+	{Cutclean} is set
+	event-block is gravel:
+		chance of 75%:
+			give 1 flint to player
+			cancel the event
+			set event-block to air	
+	event-block is oak leaves:
+		chance of 75%:
+			cancel the event
+			set event-block to air
+			give 1 apple to player		
+	event-block is iron ore:
+		cancel the event
+		set event-block to air
+		give 1 iron ingot to player
+	event-block is gold ore:
+		cancel the event
+		set event-block to air
+		give 1 gold ingot to player
+
+on death:
+	{Cutclean} is set
+	victim is pig:
+		clear drops
+		drop ((random integer between 1 and 3) of cooked porkchop) at victim
+	victim is cow:
+		clear drops
+		drop ((random integer between 1 and 2) of steak) at victim
+		drop ((random integer between 0 and 2) of leather) at victim
+	victim is chicken:
+		clear drops
+		drop 1 cooked chicken at victim
+		drop ((random integer between 1 and 2) of feather) at victim
+	victim is sheep:
+		clear drops
+		drop ((random integer between 1 and 2) of mutton) at victim
+		drop 1 wool at victim
+	victim is rabbit:
+		clear drops
+		drop 1 cooked rabbit at victim
+		chance of 40%:
+			drop 1 rabbit's foot at victim
