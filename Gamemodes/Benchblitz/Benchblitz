@@ -1,0 +1,30 @@
+options:
+	P: <grey>[<gold>BenchBlitz<grey>]&r
+
+command /benchblitz <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {BB::Enabled} is not set:
+				set {BB::Enabled} to true 
+				broadcast "{@P} Bench Blitz is now enabled!"
+			else:
+				message "{@P} Bench Blitz is already enabled!"
+		else if arg-1 is "off" or "disable":
+			if {BB::Enabled} is set:
+				delete {BB::*}
+				broadcast "{@P} Bench Blitz is now disabled!"
+			else:
+				message "{@P} Bench Blitz is already disabled!"
+
+on craft of crafting table:
+	if {BB::Enabled} is set:
+		if {BB::%player%} is set:
+			cancel event
+			send "{@P} You are too weak to arrange wood in a square!" to player
+		else:
+			set {BB::%player%} to true
+			wait 2 ticks
+			while player has 2 crafting tables:
+				remove 1 crafting table from player
+			send "{@P} That's your only bench! Don't lose it!" to player
