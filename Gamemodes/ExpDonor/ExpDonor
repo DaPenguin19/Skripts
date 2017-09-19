@@ -1,0 +1,30 @@
+options:
+	P: <grey>[<lime>ExpDonor<grey>]&r
+
+command /expdonor <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {ExpDonor} is not set:
+				set {ExpDonor} to true
+				broadcast "{@P} ExpDonor has been enabled!"
+			else:
+				message "{@P} ExpDonor is already enabled"
+		else if arg-1 is "off" or "disable" or "false" or "stop":
+			if {ExpDonor} is set:	
+				delete {ExpDonor}
+				broadcast "{@P} ExpDonor has been disabled!"
+			else:
+				message "{@P} ExpDonor is already disabled"
+
+command /expgive <player> <integer>:
+	trigger:
+		command sender is not the console
+		if {ExpDonor} is set:	
+			command sender's level is larger than or equal to arg-2
+			reduce command sender's level by arg-2
+			increase arg-1's level by arg-2
+			message "{@P} You succesfully gave %arg-1% %arg-2% levels"
+			message "{@P} %command sender% just gave you %arg-2% levels" to arg-1
+		else:
+			message "{@P} ExpDonor is disabled"
