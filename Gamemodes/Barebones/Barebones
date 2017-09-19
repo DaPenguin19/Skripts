@@ -1,0 +1,47 @@
+options:
+	P: <grey>[<yellow>Barebones<grey>]&r
+
+command /barebones <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "enable" or "on" or "true" or "start":
+			if {Barebones} is set:
+				message "{@P} Barebones is already enabled!"
+			else:
+				set {Barebones} to true
+				broadcast "{@P} Barebones is now enabled!"
+		else if arg-1 is "disable" or "off" or "false" or "stop":
+			if {Barebones} is set:
+				delete {Barebones}
+				broadcast "{@P} Barebones is now disabled!"
+			else:
+				message "{@P} Barebones is already enabled!"
+
+on mine of gold ore:
+	if {Barebones} is set:
+		cancel the event
+		set block to air
+
+on mine of diamond ore:
+	if {Barebones} is set:
+		cancel the event
+		set block to air
+		
+on death of player:
+	if {Barebones} is set:
+		drop 2 string at the player
+		drop 1 diamond at the player
+		drop 1 golden apple at the player
+		drop 32 arrows at the player
+
+on craft of enchantment table:
+	if {Barebones} is set:
+		cancel the event
+
+on craft of anvil:
+	if {Barebones} is set:
+		cancel the event
+
+on craft of golden apple:
+	if {Barebones} is set:
+		cancel the event
