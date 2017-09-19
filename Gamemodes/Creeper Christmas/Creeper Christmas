@@ -1,0 +1,80 @@
+options:
+	P: <grey>[<lime>CreeperChristmas<grey>]&r
+
+variables:
+	{CreeperChristmas::GoldChance} = 60% #1 ingot will always drop, this is only the chance of a second ingot dropping
+	{CreeperChristmas::DiaChance} = 80%
+
+command /creeperchristmas <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {CreeperChristmas::Enabled} is set:
+				message "{@P} Creeper Christmas is already enabled!"
+			else:
+				loop all worlds:
+					kill all creepers in the loop-world
+					kill all spiders in the loop-world
+					kill all zombies in the loop-world
+					kill all skeletons in the loop-world
+					kill all endermen in the loop-world
+					kill all silverfishes in the loop-world
+					kill all slimes in the loop-world
+				broadcast "{@P} Creeper Christmas is now enabled!"
+				set {CreeperChristmas::Enabled} to true
+		if arg-1 is "off" or "disable" or "false" or "stop":
+			if {CreeperChristmas::Enabled} is not set:
+				message "{@P} Creeper Christmas is already disabled!"
+			else:
+				broadcast "{@P} Creeper Christmas is now disabled!"
+				delete {CreeperChristmas::Enabled}
+				
+on spawn of zombie:
+	if {CreeperChristmas::Enabled} is true:
+		cancel the event
+		spawn a creeper at the location
+	
+on spawn of skeleton:
+	if {CreeperChristmas::Enabled} is true:
+		cancel the event
+		spawn a creeper at the location
+
+on spawn of spider:
+	if {CreeperChristmas::Enabled} is true:
+		cancel the event
+		spawn a creeper at the location
+
+on spawn of cave spider:
+	if {CreeperChristmas::Enabled} is true:
+		cancel the event
+		spawn a creeper at the location
+
+on spawn of enderman:
+	if {CreeperChristmas::Enabled} is true:
+		cancel the event
+		spawn a creeper at the location
+	
+on spawn of witch:
+	if {CreeperChristmas::Enabled} is true:
+		cancel the event
+		spawn a creeper at the location
+		
+on mine of diamond ore:
+	if {CreeperChristmas::Enabled} is true:
+		cancel event
+		set block to air
+
+on mine of gold ore:
+	if {CreeperChristmas::Enabled} is true:
+		cancel event
+		set block to air
+	
+on death of creeper:
+	if {CreeperChristmas::Enabled} is true:
+		damage cause is entity explosion or block explosion:
+			attacker is a creeper:
+				drop 1 gold ingot at the creeper
+				chance of {CreeperChristmas::GoldChance}:
+					drop 1 gold ingot at the creeper
+				chance of {CreeperChristmas::DiaChance}:
+					drop 1 diamond at the creeper
