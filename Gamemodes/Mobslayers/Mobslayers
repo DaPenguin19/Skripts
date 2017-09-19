@@ -1,0 +1,178 @@
+options:
+	P:	&8[&cMob Slayers&8]&r	
+
+command /mobslayers <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {MobSlayers::Enabled} is not set:
+				delete {MobSlayers::*}
+				set {MobSlayers::Enabled} to true
+				broadcast "{@P} Mob Slayers is now enabled!"
+			else:
+				message "{@P} Mob Slayers is already enabled!"
+		else if arg-1 is "off" or "disable" or "false" or "stop":
+			if {MobSlayers::Enabled} is set:
+				delete {MobSlayers::*}
+				broadcast "{@P} Mob Slayers is now disabled!"
+			else:
+				message "{@P} Mob Slayers is already disabled!"
+		else if arg-1 is "reset":
+			broadcast "{@P} Mob Slayers has been reset!"
+			delete {MobSlayers::*}
+			set {MobSlayers::Enabled} to true
+				
+on death:
+	{MobSlayers::Enabled} is set
+	attacker is a player
+	if victim is an iron golem:
+		{MobSlayers::IronGolem} is not set
+		set {MobSlayers::IronGolem} to true
+		broadcast "{@P} %attacker% was the first to kill an iron golem!"
+		drop 16 gold ingots at the iron golem
+	else if victim is a snow golem:
+		{MobSlayers::SnowGolem} is not set
+		set {MobSlayers::SnowGolem} to true
+		broadcast "{@P} %attacker% was the first to kill a snow golem!"
+		drop 4 gold ingots at the snow golem
+	else if victim is a slime:
+		{MobSlayers::Slime} is not set
+		set {MobSlayers::Slime} to true
+		broadcast "{@P} %attacker% was the first to kill a slime!"
+		drop 8 gold ingots at the slime
+	else if victim is a chicken:
+		{MobSlayers::Chicken} is not set
+		set {MobSlayers::Chicken} to true
+		broadcast "{@P} %attacker% was the first to kill a chicken!"
+		drop 1 gold ingot at the chicken	
+	else if victim is a cow:
+		{MobSlayers::Cow} is not set
+		set {MobSlayers::Cow} to true
+		broadcast "{@P} %attacker% was the first to kill a cow!"
+		drop 1 gold ingot at the cow	
+	else if victim is a mooshroom:
+		{MobSlayers::Mooshroom} is not set
+		set {MobSlayers::Mooshroom} to true
+		broadcast "{@P} %attacker% was the first to kill a mooshroom!"
+		drop 2 diamonds at the mooshroom				
+	else if victim is a pig:
+		{MobSlayers::Pig} is not set
+		set {MobSlayers::Pig} to true
+		broadcast "{@P} %attacker% was the first to kill a pig!"
+		drop 1 gold ingot at the pig	
+	else if victim is a sheep:
+		{MobSlayers::Sheep} is not set
+		set {MobSlayers::Sheep} to true
+		broadcast "{@P} %attacker% was the first to kill a sheep!"
+		drop 1 gold ingot at the sheep	
+	else if victim is a squid:
+		{MobSlayers::Squid} is not set
+		set {MobSlayers::Squid} to true
+		broadcast "{@P} %attacker% was the first to kill a squid!"
+		drop 10 iron ingots at the squid	
+	else if victim is a villager:
+		{MobSlayers::Villager} is not set
+		set {MobSlayers::Villager} to true
+		broadcast "{@P} %attacker% was the first to kill a villager!"
+		drop 8 gold ingots at the villager
+		drop 1 diamond at the villager
+	else if victim is a bat:
+		{MobSlayers::Bat} is not set
+		set {MobSlayers::Bat} to true
+		broadcast "{@P} %attacker% was the first to kill a bat!"
+		drop 2 gold ingots at the bat	
+	else if victim is an ocelot:
+		{MobSlayers::Ocelot} is not set
+		set {MobSlayers::Ocelot} to true
+		broadcast "{@P} %attacker% was the first to kill an ocelot!"
+		drop 4 diamonds at the ocelot	
+	else if victim is a horse:
+		{MobSlayers::Horse} is not set
+		set {MobSlayers::Horse} to true
+		broadcast "{@P} %attacker% was the first to kill a horse!"
+		drop 4 gold ingots at the horse	
+	else if victim is a wolf:
+		{MobSlayers::Wolf} is not set
+		set {MobSlayers::Wolf} to true
+		broadcast "{@P} %attacker% was the first to kill a wolf!"
+		drop 4 gold ingots at the wolf	
+	else if victim is an enderman:
+		{MobSlayers::Enderman} is not set
+		set {MobSlayers::Enderman} to true
+		broadcast "{@P} %attacker% was the first to kill an enderman!"
+		clear drops
+		drop 5 gold ingots at the enderman
+		drop 1 ender pearl at the enderman
+	else if victim is a zombie pigman:
+		{MobSlayers::ZombiePigman} is not set
+		set {MobSlayers::ZombiePigman} to true
+		broadcast "{@P} %attacker% was the first to kill a zombie pigman!"
+		drop 16 gold ingots at the zombie pigman	
+	else if victim is a spider:
+		{MobSlayers::Spider} is not set
+		set {MobSlayers::Spider} to true
+		broadcast "{@P} %attacker% was the first to kill a spider!"
+		clear drops
+		drop 2 gold ingots at the spider
+		drop 5 string at the spider
+	else if victim is a blaze:
+		{MobSlayers::Blaze} is not set
+		set {MobSlayers::Blaze} to true
+		broadcast "{@P} %attacker% was the first to kill a blaze!"
+		drop 5 diamonds at the blaze	
+	else if victim is a cave spider:
+		{MobSlayers::CaveSpider} is not set
+		set {MobSlayers::CaveSpider} to true
+		broadcast "{@P} %attacker% was the first to kill a cave spider!"
+		drop 4 gold ingots at the cave spider	
+	else if victim is a creeper:
+		{MobSlayers::Creeper} is not set
+		set {MobSlayers::Creeper} to true
+		broadcast "{@P} %attacker% was the first to kill a creeper!"
+		drop 3 gold ingots at the creeper	
+	else if victim is a ghast:
+		{MobSlayers::Ghast} is not set
+		set {MobSlayers::Ghast} to true
+		broadcast "{@P} %attacker% was the first to kill a ghast!"
+		drop 3 diamonds at the ghast	
+	else if victim is a silverfish:
+		{MobSlayers::Silverfish} is not set
+		set {MobSlayers::Silverfish} to true
+		broadcast "{@P} %attacker% was the first to kill a silverfish!"
+		drop 3 gold ingots at the silverfish	
+	else if victim is a skeleton:
+		{MobSlayers::Skeleton} is not set
+		set {MobSlayers::Skeleton} to true
+		broadcast "{@P} %attacker% was the first to kill a skeleton!"
+		drop 3 gold ingots at the skeleton	
+	else if victim is a zombie:
+		{MobSlayers::Zombie} is not set
+		set {MobSlayers::Zombie} to true
+		broadcast "{@P} %attacker% was the first to kill a zombie!"
+		drop 3 gold ingots at the zombie
+	else if victim is a wither skeleton:
+		{MobSlayers::WitherSkeleton} is not set
+		set {MobSlayers::WitherSkeleton} to true
+		broadcast "{@P} %attacker% was the first to kill a wither skeleton!"
+		drop 16 gold ingots at the wither skeleton
+	else if victim is a witch:
+		{MobSlayers::Witch} is not set
+		set {MobSlayers::Witch} to true
+		broadcast "{@P} %attacker% was the first to kill a witch!"
+		drop 1 saddle at the witch
+	else if victim is an enderdragon:
+		{MobSlayers::Enderdragon} is not set
+		set {MobSlayers::Enderdragon} to true
+		broadcast "{@P} %attacker% was the first to kill the enderdragon!"
+		drop 24 diamonds at the enderdragon
+	else if victim is a wither:
+		{MobSlayers::Wither} is not set
+		set {MobSlayers::Wither} to true
+		broadcast "{@P} %attacker% was the first to kill a wither!"
+		drop 128 gold ingots at the wither
+	else if victim is a player:
+		{MobSlayers::Player} is not set
+		set {MobSlayers::Player} to true
+		broadcast "{@P} %attacker% was the first to kill a player!"
+		drop 1 diamond shovel at the player
+		drop 1 diamond axe at the player
