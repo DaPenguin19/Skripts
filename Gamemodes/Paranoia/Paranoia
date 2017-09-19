@@ -1,0 +1,42 @@
+options:
+	P: &8[&cParanoia&8]&f
+
+command /paranoia <text>:
+	permission: skript.op
+	trigger:
+		if arg 1 is "enable" or "on" or "true" or "start":
+			if {Paranoia} is not set:
+				set {Paranoia} to true
+				broadcast "{@P} Paranoia is now enabled!"
+			else:
+				message "{@P} Paranoia is already enabled!"
+		else if arg 1 is "disable" or "off" or "false" or "stop":
+			if {Paranoia} is set:
+				delete {Paranoia}
+				broadcast "{@P} Paranoia is now disabled!"
+			else:
+				message "{@P} Paranoia is already disabled!"
+
+on mine:
+	{Paranoia} is set
+	if event-block is diamond ore:
+		broadcast "{@P} &e%player% &fmined &bDiamond &fOre at %location of player%!"
+	else if event-block is gold ore:
+		broadcast "{@P} &e%player% &fmined &6Gold &fOre at %location of player%!"
+
+on craft:
+	{Paranoia} is set
+	if event-item is anvil:
+		broadcast "{@P} &e%player% &fcrafted an &7Anvil &fat %location of player%!"
+	else if event-item is enchantment table:
+		broadcast "{@P} &e%player% &fcrafted an &5Enchantment Table &fat %location of player%!"
+	else if event-item is golden apple:
+		broadcast "{@P} &e%player% &fcrafted a &6Golden Apple &fat %location of player%!"
+
+on consume of golden apple:
+	{Paranoia} is set
+	broadcast "{@P} &e%player% &fate a &6Golden Apple &fat %location of player%!"
+
+on death of player:
+	{Paranoia} is set
+	broadcast "{@P} &e%player% &4died &fat %location of player%!"
