@@ -1,0 +1,91 @@
+options:
+	P: <grey>[<blue>DamageCycle<grey>]&r
+
+command /damagecycle <text>:
+	permission: skript.op
+	aliases: /dcycle
+	trigger:
+		if arg-1 is "off" or "disable" or "false" or "stop":
+			if {DamageCycle::Enabled} is set:
+				broadcast "{@P} Damage Cycle is now disabled!"
+				delete {DamageCycle::*}
+			else:
+				message "{@P} Damage Cycle is already disabled!"
+		if arg-1 is "on" or "enable" or "true" or "start":
+			if {DamageCycle::Enabled} is set:
+				message "{@P} Damage Cycle is already enabled!"
+			else:
+				set {DamageCycle::Enabled} to true
+				broadcast "{@P} Damage Cycle is now enabled!"
+				while {DamageCycle::Enabled} is true:
+					wait 1200 ticks
+					add 1 to {DamageCycle::Minutes}
+					if {DamageCycle::Minutes} is 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145 or 150:
+						set {DamageCycle::Current} to a random integer between 1 and 10
+						if {DamageCycle::Current} is 1:
+							broadcast "{@P} Damage Cycle has been swapped to skeletons!"
+							broadcast "{@P} All damage from skeletons will now OHKO you!"
+						if {DamageCycle::Current} is 2:	
+							broadcast "{@P} Damage Cycle has been swapped to fall damage!"
+							broadcast "{@P} All fall damage will now OHKO you!"	
+						if {DamageCycle::Current} is 3:
+							broadcast "{@P} Damage Cycle has been swapped to zombies!"
+							broadcast "{@P} All damage from zombies and zombie pigmen will now OHKO you!"	
+						if {DamageCycle::Current} is 4:
+							broadcast "{@P} Damage Cycle has been swapped to side effects!"
+							broadcast "{@P} All potion and poison damage will now OHKO you!"	
+						if {DamageCycle::Current} is 5:
+							broadcast "{@P} Damage Cycle has been swapped to spiders!"
+							broadcast "{@P} All damage from spiders and cave spiders will now OHKO you!"	
+						if {DamageCycle::Current} is 6:
+							broadcast "{@P} Damage Cycle has been swapped to explosions!"
+							broadcast "{@P} All damage from explosions will now OHKO you!"	
+						if {DamageCycle::Current} is 7:
+							broadcast "{@P} Damage Cycle has been swapped to suffocation!"
+							broadcast "{@P} All damage from suffocation will now OHKO you!"	
+						if {DamageCycle::Current} is 8:
+							broadcast "{@P} Damage Cycle has been swapped to stupidity!"
+							broadcast "{@P} All damage from drowning, cacti and starvation will now OHKO you!"	
+						if {DamageCycle::Current} is 9:
+							broadcast "{@P} Damage Cycle has been swapped to endermen and silverfish!"
+							broadcast "{@P} All damage from endermen and silverfish will now OHKO you!"	
+						if {DamageCycle::Current} is 10:
+							broadcast "{@P} Damage Cycle has been swapped to wolves!"
+							broadcast "{@P} All damage from wolves will now OHKO you!"
+
+on damage of a player:
+	{DamageCycle::Enabled} is set
+	if {DamageCycle::Current} is 1:
+		attacker is a skeleton
+		damage victim by 200 hearts
+	if {DamageCycle::Current} is 2:
+		damage is caused by fall
+		damage victim by 200 hearts 
+	if {DamageCycle::Current} is 3:
+		attacker is a zombie or zombie pigman
+		damage victim by 200 hearts 
+	if {DamageCycle::Current} is 4:
+		if damage is caused by potion:
+			damage victim by 200 hearts 
+		if damage is caused by poison:
+			damage victim by 200 hearts 
+	if {DamageCycle::Current} is 5:
+		attacker is a spider or cave spider
+		damage victim by 200 hearts
+	if {DamageCycle::Current} is 6:
+		if attacker is a creeper or ghast:
+			damage victim by 200 hearts
+		if damage is caused by block explosion or entity explosion:
+			damage victim by 200 hearts
+	if {DamageCycle::Current} is 7:
+		damage is caused by suffocation
+		damage victim by 200 hearts
+	if {DamageCycle::Current} is 8:
+		damage is caused by thorns, drowning or starvation
+		damage victim by 200 hearts
+	if {DamageCycle::Current} is 9:
+		attacker is a enderman or silverfish
+		damage victim by 200 hearts
+	if {DamageCycle::Current} is 10:
+		attacker is a wolf
+		damage victim by 200 hearts
