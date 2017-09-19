@@ -11,7 +11,6 @@ command /rrstart:
 			set loop-player's max health to 10
 			clear loop-player's inventory
 			command "/xp -25000L %loop-player%"
-		command "/megabutcher"
 		broadcast "{@P} Starting in 5"
 		wait 20 ticks
 		broadcast "{@P} Starting in 4"
@@ -19,10 +18,10 @@ command /rrstart:
 		broadcast "{@P} Starting in 3"
 		wait 20 ticks
 		broadcast "{@P} Starting in 2"
-		command "/freeze"
 		wait 20 ticks
 		broadcast "{@P} Starting in 1"
 		wait 20 ticks
+		command "/ffg off"
 		broadcast "{@P} Started! Good Luck"				
 		set {RRTimer::Enabled} to true
 		set {RRTimer::Time} to 0
@@ -35,9 +34,9 @@ command /rrstart:
 					add 1 to {RRTimer::Episode}
 					broadcast "{@P} %{RRTimer::Time}% minutes have passed!"
 				if {RRTimer::Time} is 20:
-					command "/pvptoggle on"
-				if {RRTimer::Time} is 85:
-					make random player execute command "/gamerule doDaylightCycle false"
+					command "/uhc enable pvp"
+				if {RRTimer::Time} is 80:
+					make random player execute command "/permaday"
 				if {RRTimer::Time} is 100:
 					broadcast "{@P} End of Episode %{RRTimer::Episode}%! It is now Meetup!"
 					add 1 to {RRTimer::Episode}
