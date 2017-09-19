@@ -1,0 +1,41 @@
+options:
+	P: <grey>[<red>Flower<yellow>Power<grey>]&r
+
+variables:
+	{FlowerPower::Percent} = 100
+	{FlowerPower::MaxNumber} = 64
+	
+command /flowerpower <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "disable" or "off" or "false" or "stop":
+			if {FlowerPower::Enabled} is set:
+				delete {FlowerPower::Enabled}
+				broadcast "{@P} FlowerPower is now disabled!"
+			else:
+				message "{@P} FlowerPower is already disabled!"
+		else if arg-1 is "enable" or "on" or "true" or "start":
+			if {FlowerPower::Enabled} is not set:
+				set {FlowerPower::Enabled} to true
+				broadcast "{@P} FlowerPower is now enabled!"
+			else:
+				message "{@P} FlowerPower is already enabled!"
+
+command /setflowerpercent <integer>:
+	permission: skript.op
+	trigger:
+		set {FlowerPower::Percent} to arg-1
+		broadcast "{@P} Flower drop rate has been set to %arg-1% percent!"
+
+command /setmaxfloweritems <integer>:
+	permission: skript.op
+	trigger:
+		set {FlowerPower::MaxNumber} to arg-1
+		broadcast "{@P} Maximum number of flower drops set to %arg-1%!"
+
+on item spawning of all flowers:
+	{FlowerPower::Enabled} is set
+	cancel the event
+	set {_randnum} to random number between 0 and 100
+	if {_randnum} is less than or equal to {FlowerPower::Percent}:
+		drop (random number between 1 and {FlowerPower::MaxNumber}) of random item out of all items
