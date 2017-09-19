@@ -1,0 +1,73 @@
+options:
+	P: &6[&4Kings&6]&r
+
+command /kings <text> [<player>]:
+	trigger:
+		if arg-1 is "set":
+			command sender is op
+			if arg-2 is set:
+				if {Teams.InTeam::%arg-2%} is set:
+					if {Kings::List::%{Teams.InTeam::%arg-2%}%} is not set:
+						if {Kings::Player::%arg-2%} is not set:
+							set {Kings::List::%{Teams.InTeam::%arg-2%}%} to ("%arg-2%" parsed as offlineplayer)
+							set {Kings::Player::%arg-2%} to true
+							broadcast "{@P} The king of Team %{Teams.InTeam::%arg-2%}% is now %arg-2%"
+						else:
+							message "{@P} %arg-2% is already a king on a different team. Remove them and add them again"
+					else:
+						message "{@P} Team %{Teams.InTeam::%arg-2%}% already has a king: %{Kings::List::%{Teams.InTeam::%arg-2%}%}%"
+				else:
+					message "{@P} %arg-2% is not on a team"
+			else:
+				message "{@P} Please specify who you want to set as a king"
+		else if arg-1 is "removeking":
+			command sender is op
+			if arg-2 is set:
+				if {Kings::Player::%arg-2%} is set:
+					delete {Kings::List::%{Teams.InTeam::%arg-2%}%}
+					delete {Kings::Player::%arg-2%}
+					broadcast "{@P} %arg-2% was removed as king of Team %{Teams.InTeam::%arg-2%}%"
+				else:
+					message "{@P} This player is not a king"
+			else:
+				message "{@P} Please specify who you want to remove as a king"
+		else if arg-1 is "reset":
+			command sender is op
+			loop {Kings::List::*}:
+				set {_player} to loop-value
+				remove strength from {_player}
+				remove resistance from {_player}
+				set max health of {_player} to 10
+			delete {Kings::*}
+			broadcast "{@P} All kings have been reset"
+		else if arg-1 is "apply":
+			command sender is op
+			loop {Kings::List::*}:
+				apply resistance 1 to loop-value for 999 days
+				set max health of loop-value to 15
+				heal loop-value
+			broadcast "{@P} Effects have been applied"
+		else if arg-1 is "list":
+			if (amount of {Kings::List::*}) is greater than 0:
+				message "{@P} The kings:"
+				loop {Kings::List::*}:
+					message "{@P} Team %{Teams.InTeam::%loop-value%}%: %loop-value%"
+			else:
+				message "{@P} No kings defined"
+				
+on death of player:
+	if {Kings::Player::%victim%} is set:
+		delete {Kings::List::%{Teams.InTeam::%victim%}%}
+		delete {Kings::Player::%victim%}
+		broadcast "{@P} The king of Team %{Teams.InTeam::%victim%}% has died! The remaining members of this team will have weakness for the rest of the game"
+		loop {Team.%{Teams.InTeam::%victim%}%::*}:
+			set {_player} to ("%loop-value%" parsed as offlineplayer)
+			if {_player} is online:
+				apply weakness 1 to {_player} for 999 days
+			else:
+				set {Kings::Schedule::%{_player}%} to true
+				
+on join:
+	if {Kings::Schedule::%player%} is set:
+		apply weakness 1 to player for 999 days
+		delete {Kings::Schedule::%player%}
