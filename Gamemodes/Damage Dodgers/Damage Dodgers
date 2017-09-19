@@ -1,0 +1,55 @@
+options:
+	P: <grey>[<dark grey>DamageDodgers<grey>]&r
+
+command /damagedodgers <text> [<integer>]:
+	permission: skript.op
+	trigger:
+		if arg-1 is "start" or "enable" or "on" or "true":
+			if {DamageDodgers::Enabled} is not set:
+				if arg-2 is not set:
+					message "{@P} Please provide the number of people who have to die"
+				else if arg-2 is less than 1:
+					message "{@P} Must input a positive, nonzero integer!" to command sender
+				else:
+					broadcast "{@P} Damage Dodgers is now enabled! %arg-2% players must die..."
+					set {DamageDodgers::Enabled} to true
+					set {DamageDodgers::Needed} to arg-2
+			else:
+				message "{@P} Damage Dodgers is already enabled!"
+		else if arg-1 is "end" or "stop" or "disable" or "off" or "false":
+			if {DamageDodgers::Enabled} is set:
+				delete {DamageDodgers::*}
+				broadcast "{@P} Damage Dodgers is now disabled!"
+			else:
+				message "{@P} Damage Dodgers is already disabled!"
+		else if arg-1 is "display":
+			if {DamageDodgers::Deaths} is not set:
+				message "{@P} No players have died!"
+			else:
+				message "{@P} %{DamageDodgers::Deaths}% players have died!"
+			message "{@P} %{DamageDodgers::Needed}% players must die in total!"
+		else if arg-1 is "reset":
+			delete {DamageDodgers::Deaths}
+			broadcast "{@P} Deaths have been cleared!"
+
+on damage of player:
+	{DamageDodgers::Enabled} is set
+	if damage was caused by projectile:
+		projectile is not snowball or egg or fishing rod:
+			if attacker is a player:
+				broadcast "{@P} %victim% failed to avoid damage!"
+				damage victim by 200 hearts
+				add 1 to {DamageDodgers::Deaths}
+				broadcast "{@P} %{DamageDodgers::Deaths}% players have perished!"
+			else:
+				broadcast "{@P} %victim% failed to avoid damage!"
+				damage victim by 200 hearts
+				add 1 to {DamageDodgers::Deaths}
+				broadcast "{@P} %{DamageDodgers::Deaths}% players have perished!"
+	else:
+		broadcast "{@P} %victim% failed to avoid damage!"
+		damage victim by 200 hearts
+		add 1 to {DamageDodgers::Deaths}
+		broadcast "{@P} %{DamageDodgers::Deaths}% players have perished!"
+	if {DamageDodgers::Deaths} is equal to {DamageDodgers::Needed}:
+		command "/damagedodgers stop"
