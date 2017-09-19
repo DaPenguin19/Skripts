@@ -1,0 +1,72 @@
+options:
+	P: <grey>[<lime>BigCrack<grey>]&r
+	Start1: %command sender% in %arg-3%: Radius: %arg-1% | Width: %arg-2%
+	Start2: Get away from the BigCrack! Your game may crash!
+	Cancel: Crack generation cancelled by %{BigCrack.Cancel}%!
+	Cancelling: Cancelling BigCrack generation!
+	MessageDelay: 5 seconds
+
+command /bigcrack <text> [<integer>] [<world>]:
+	usage: /bigcrack <map radius> <crack radius> <world> | /bigcrack cancel
+	permission: skript.bigCrack
+	trigger:
+		if arg-1 is "cancel" or "stop":
+			if {BigCrack::Running} is true:
+				set {BigCrack::Cancel} to true
+				stop trigger
+			else:
+				message "{@P} No BigCrack generation is in progress!"
+				stop trigger
+		if arg-1 is set:
+			if arg-2 is not set:
+				message "{@P} /bigCrack <map radius> <crack radius> <world>"
+				stop trigger
+
+		broadcast "{@P} {@Start1}"
+		broadcast "{@P} {@Start2}"
+		set {BigCrack::Running} to true
+		set {_MapRadius} to arg-1 parsed as integer
+		set {_CrackRadius} to arg-2
+		set {_World} to arg-3
+		set {_TotalSlice} to 0
+		set {_Slice} to 0
+		if {_MapRadius} is less than 250:
+			set {_Buffer} to 10
+		else if {_MapRadius} is less than 500:
+			set {_Buffer} to 6
+		else if {_MapRadius} is less than 1000:
+			set {_Buffer} to 4
+		else:
+			set {_Buffer} to 2
+		wait 5 ticks
+		set {_Tick} to now
+		set {_Notify} to now
+		
+		loop 256 times:
+			if {BigCrack::Cancel} is set:
+				set {BigCrack::Cancel} to (name of command sender)
+				message "{@P} {@Cancelling}"
+				broadcast "{@P} {@Cancel}"
+				delete {BigCrack::*}
+				stop trigger
+
+			loop blocks from (block at (the location at ({_MapRadius}-0.5), (256-(loop-number)), ({_CrackRadius}-0.5) of the world {_World})) to (block at (the location at ({_MapRadius}-0.5), (256-(loop-number)), (0-{_CrackRadius}+0.5) of the world {_World})):
+				loop blocks from loop-block-1 to (block (({_MapRadius}*2)-1) west of loop-block-1):
+					set loop-block-2 to air
+		
+				add 1 to {_Slice}
+				if {_Slice} is equal to {_Buffer}:
+					add {_Slice} to {_TotalSlice}
+					set {_Slice} to 0
+					if {_Notify} was more than {@MessageDelay} ago:
+						set {_Notify} to now
+						broadcast "{@P} Progress: Slice %(loop-number)%/256"
+					wait 1 tick
+	
+		broadcast "{@P} Crack generation finished!"
+		delete {BigCrack::*}
+
+
+on physics:
+	{BigCrack::Running} is true
+	cancel the event
