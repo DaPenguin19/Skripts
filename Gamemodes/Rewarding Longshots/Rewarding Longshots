@@ -1,0 +1,42 @@
+options:
+	P: &7[&9Rewarding Longshots&7]&r
+	
+command /longshots <text>:
+	permission: skript.op
+	trigger:
+		if arg 1 is equal to "enable" or "on" or "true" or "start":
+			if {RewardingLongshots} is set:
+				message "{@P} Rewarding Longshots is already enabled!"
+			else:
+				set {RewardingLongshots} to true
+				broadcast "{@P} Rewarding Longshots is now enabled!"
+		else if arg 1 is equal to "disable" or "off" or "false" or "stop":
+			if {RewardingLongshots} is not set:
+				message "{@P} Rewarding Longshots is already disabled!"
+			else:
+				delete {RewardingLongshots}
+				broadcast "{@P} Rewarding Longshots is now disabled!"
+				
+on damage of player:
+	{RewardingLongshots} is set
+	projectile exists
+	projectile is an arrow
+	attacker is a player
+	set {_dist} to the distance between the victim and the attacker
+	if {_dist} is between 30 and 49:
+		broadcast "{@P} %attacker% just got a longshot of %{_dist}% metres!"
+		give attacker 1 iron ingot
+	else if {_dist} is between 50 and 99:
+		broadcast "{@P} %attacker% just got a longshot of %{_dist}% metres!"
+		give attacker 1 iron ingot
+		give attacker 1 gold ingot
+	else if {_dist} is between 100 and 199:
+		broadcast "{@P} %attacker% just got a longshot of %{_dist}% metres!"
+		give attacker 1 iron ingot
+		give attacker 1 gold ingot
+		give attacker 1 diamond
+	else if {_dist} is greater than 200:
+		broadcast "{@P} %attacker% just got a longshot of %{_dist}% metres!"
+		give attacker 2 iron ingots
+		give attacker 3 gold ingots
+		give attacker 5 diamonds
