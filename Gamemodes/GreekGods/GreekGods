@@ -1,0 +1,393 @@
+options:
+		P : &8[&aGreekGods&8]&r   
+       
+command /greekgods [<text>]:
+	permission: skript.op
+	aliases: /gods
+	trigger:
+		if arg 1 is equal to "set":
+			if {Teams::*} is not set:
+				message "{@P} There are no teams!"
+			else:
+				loop {Teams::*}:
+					if (size of ({Team.%loop-value%::*})) is not equal to 6:
+						message "{@P} Team %loop-value% does not have 6 people!"
+						stop trigger
+				loop {Gods::ZeusOfTeam::*}:
+					set {_ZeusPlayer} to ("%loop-value%" parsed as offlineplayer)
+					if {_ZeusPlayer} is online:
+						remove speed from {_ZeusPlayer}
+						set maximum health of {_ZeusPlayer} to 10
+						set health of {_ZeusPlayer} to 10
+						remove stick named "&fZeus' Staff" from the inventory of {_ZeusPlayer}
+					else:
+						set {Gods::ZeusScheduleRemoveEffect::%loop-value%} to true
+				loop {Gods::ApolloOfTeam::*}:
+					set {_ApolloPlayer} to ("%loop-value%" parsed as offlineplayer)
+					if {_ApolloPlayer} is online:
+						remove weakness from {_ApolloPlayer}
+						remove speed from {_ApolloPlayer}
+						remove fire resistance from {_ApolloPlayer}
+						set maximum health of {_ApolloPlayer} to 10
+						remove bow named "&8Apollo's Bow" from the inventory of {_ApolloPlayer}
+					else:
+						set {Gods::ApolloScheduleRemoveEffect::%loop-value%} to true
+				loop {Gods::ArtemisOfTeam::*}:
+					set {_ArtemisPlayer} to ("%loop-value%" parsed as offlineplayer)
+					if {_ArtemisPlayer} is online:
+						remove night vision from {_ArtemisPlayer}
+						remove speed from {_ArtemisPlayer}
+						remove wolf spawn eggs from the inventory of {_ArtemisPlayer}
+						remove bow named "&dArtemis' Bow" from the inventory of {_ArtemisPlayer}
+					else:
+						set {Gods::ArtemisScheduleRemoveEffect::%loop-value%} to true
+				loop {Gods::AresOfTeam::*}:
+					set {_AresPlayer} to ("%loop-value%" parsed as offlineplayer)
+					if {_AresPlayer} is online:
+						remove strength from {_AresPlayer}
+						remove resistance from {_AresPlayer}
+						remove slowness from {_AresPlayer}
+						set maximum health of {_AresPlayer} to 10
+						set health of {_AresPlayer} to 10
+						remove diamond sword named "&3Ares' Sword" from the inventory of {_AresPlayer}
+					else:
+						set {Gods::AresScheduleRemoveEffect::%loop-value%} to true
+				loop {Gods::HadesOfTeam::*}:
+					set {_HadesPlayer} to ("%loop-value%" parsed as offlineplayer)
+					if {_HadesPlayer} is online:
+						remove strength from {_HadesPlayer}
+						remove fire resistance from {_HadesPlayer}
+						remove saturation from {_HadesPlayer}
+						remove blaze rod named "&7Hades' Staff" from the inventory of {_HadesPlayer}
+						remove zombie spawn eggs from the inventory of {_HadesPlayer}
+					else:
+						set {Gods::HadesScheduleRemoveEffect::%loop-value%} to true
+				loop {Gods::PoseidonOfTeam::*}:
+					set {_PoseidonPlayer} to ("%loop-value%" parsed as offlineplayer)
+					if {_PoseidonPlayer} is online:
+						remove water breathing from {_PoseidonPlayer}
+						remove slowness from {_PoseidonPlayer}
+						remove strength from {_PoseidonPlayer}
+						remove diamond hoe named "&bPoseidon's Trident" from the inventory of {_PoseidonPlayer}
+					else:
+						set {Gods::PoseidonScheduleRemoveEffect::%loop-value%} to true
+				delete {Gods::ZeusOfTeam::*}
+				delete {Gods::IsZeus::*}
+				delete {Gods::ApolloOfTeam::*}
+				delete {Gods::IsApollo::*}
+				delete {Gods::ArtemisOfTeam::*}
+				delete {Gods::IsArtemis::*}
+				delete {Gods::AresOfTeam::*}
+				delete {Gods::IsAres::*}
+				delete {Gods::HadesOfTeam::*}
+				delete {Gods::IsHades::*}
+				delete {Gods::PoseidonOfTeam::*}
+				delete {Gods::IsPoseidon::*}
+				delete {Gods::Stick::*}
+				delete {Gods::Staff::*}
+				delete {Gods::Trident::*}       
+				broadcast "{@P} Setting Greek Gods!"
+				loop {Teams::*}:
+					set {_Temp.%loop-value%::*} to {Team.%loop-value%::*}
+					set {_Zeus} to (random element out of {_Temp.%loop-value%::*})
+					set {Gods::IsZeus::%{_Zeus}%} to loop-value
+					set {Gods::ZeusOfTeam::%loop-value%} to {_Zeus}
+					remove {_Zeus} from {_Temp.%loop-value%::*}
+					set {_Apollo} to (random element out of {_Temp.%loop-value%::*})
+					set {Gods::IsApollo::%{_Apollo}%} to loop-value
+					set {Gods::ApolloOfTeam::%loop-value%} to {_Apollo}
+					remove {_Apollo} from {_Temp.%loop-value%::*}
+					set {_Artemis} to (random element out of {_Temp.%loop-value%::*})
+					set {Gods::IsArtemis::%{_Artemis}%} to loop-value
+					set {Gods::ArtemisOfTeam::%loop-value%} to {_Artemis}
+					remove {_Artemis} from {_Temp.%loop-value%::*}
+					set {_Ares} to (random element out of {_Temp.%loop-value%::*})
+					set {Gods::IsAres::%{_Ares}%} to loop-value
+					set {Gods::AresOfTeam::%loop-value%} to {_Ares}
+					remove {_Ares} from {_Temp.%loop-value%::*}
+					set {_Hades} to (random element out of {_Temp.%loop-value%::*})
+					set {Gods::IsHades::%{_Hades}%} to loop-value
+					set {Gods::HadesOfTeam::%loop-value%} to {_Hades}
+					remove {_Hades} from {_Temp.%loop-value%::*}
+					set {_Poseidon} to (random element out of {_Temp.%loop-value%::*})
+					set {Gods::IsPoseidon::%{_Poseidon}%} to loop-value
+					set {Gods::PoseidonOfTeam::%loop-value%} to {_Poseidon}
+					remove {_Poseidon} from {_Temp.%loop-value%::*}
+					loop {Team.%loop-value%::*}:
+						set {_Player} to ("%loop-value-2%" parsed as offlineplayer)
+						if {_Player} is online:
+							message "{@P} Zeus: %{_Zeus}%" to {_Player}
+							message "{@P} Apollo: %{_Apollo}%" to {_Player}
+							message "{@P} Artemis: %{_Artemis}%" to {_Player}
+							message "{@P} Ares: %{_Ares}%" to {_Player}
+							message "{@P} Hades: %{_Hades}%" to {_Player}
+							message "{@P} Poseidon: %{_Poseidon}%" to {_Player}
+		else if arg 1 is equal to "apply":
+			loop {Teams::*}:
+				set {_Zeus} to ({Gods::ZeusOfTeam::%loop-value%} parsed as offlineplayer)
+				set {_Apollo} to ({Gods::ApolloOfTeam::%loop-value%} parsed as offlineplayer)
+				set {_Artemis} to ({Gods::ArtemisOfTeam::%loop-value%} parsed as offlineplayer)
+				set {_Ares} to ({Gods::AresOfTeam::%loop-value%} parsed as offlineplayer)
+				set {_Hades} to ({Gods::HadesOfTeam::%loop-value%} parsed as offlineplayer)
+				set {_Poseidon} to ({Gods::PoseidonOfTeam::%loop-value%} parsed as offlineplayer)
+				if {_Zeus} is online:
+					give a stick named "&fZeus' Staff" to {_Zeus}
+					set maximum health of {_Zeus} to 13
+					set health of {_Zeus} to 13
+				else:
+					set {Gods::ZeusScheduler::%{_Zeus}%} to true
+				if {_Apollo} is online:
+					give a bow of power 2 and infinity 1 named "&8Apollo's Bow" to {_Apollo}
+					apply weakness 1 to {_Apollo} for 999 days
+					apply speed 2 to {_Apollo} for 999 days
+					set maximum health of {_Apollo} to 16
+				else:
+					set {Gods::ApolloScheduler::%{_Apollo}%} to true
+				if {_Artemis} is online:
+					apply speed 2 to {_Artemis} for 999 days
+					give 5 wolf spawn eggs to {_Artemis}
+					give a bow of power 2 and punch 1 named "&dArtemis' Bow" to {_Artemis}
+				else:
+					set {Gods::ArtemisScheduler::%{_Artemis}%} to true
+				if {_Ares} is online:
+					apply strength 1 to {_Ares} for 999 days
+					apply resistance 1 to {_Ares} for 999 days
+					apply slowness 1 to {_Ares} for 999 days
+					set maximum health of {_Ares} to 8
+					set health of {_Ares} to 8
+					give a diamond sword of sharpness 1 named "&3Ares' Sword" to {_Ares}
+				else:
+					set {Gods::AresScheduler::%{_Ares}%} to true
+				if {_Hades} is online:
+					apply fire resistance to {_Hades} for 999 days
+					apply saturation to {_Hades} for 999 days
+					give 5 zombie spawn eggs to {_Hades}
+					give a blaze rod named "&7Hades' Staff" to {_Hades}
+				else:
+					set {Gods::HadesScheduler::%{_Hades}%} to true
+				if {_Poseidon} is online:
+					apply water breathing to {_Poseidon} for 999 days
+					apply slowness 1 to {_Poseidon} for 999 days
+					give a diamond hoe named "&bPoseidon's Trident" to {_Poseidon}
+				else:
+					set {Gods::PoseidonScheduler::%{_Poseidon}%} to true
+				broadcast "{@P} Applied Effects!"							
+		else if arg 1 is equal to "reset":
+			loop {Gods::ZeusOfTeam::*}:
+				set {_ZeusPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_ZeusPlayer} is online:
+					remove speed from {_ZeusPlayer}
+					set maximum health of {_ZeusPlayer} to 10
+					set health of {_ZeusPlayer} to 10
+					remove stick named "&fZeus' Staff" from the inventory of {_ZeusPlayer}
+				else:
+					set {Gods::ZeusScheduleRemoveEffect::%loop-value%} to true
+			loop {Gods::ApolloOfTeam::*}:
+				set {_ApolloPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_ApolloPlayer} is online:
+					remove weakness from {_ApolloPlayer}
+					remove speed from {_ApolloPlayer}
+					remove fire resistance from {_ApolloPlayer}
+					set maximum health of {_ApolloPlayer} to 10
+					remove bow named "&8Apollo's Bow" from the inventory of {_ApolloPlayer}
+				else:
+					set {Gods::ApolloScheduleRemoveEffect::%loop-value%} to true
+			loop {Gods::ArtemisOfTeam::*}:
+				set {_ArtemisPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_ArtemisPlayer} is online:
+					remove night vision from {_ArtemisPlayer}
+					remove speed from {_ArtemisPlayer}
+					remove all wolf spawn eggs from the inventory of {_ArtemisPlayer}
+					remove bow named "&dArtemis' Bow" from the inventory of {_ArtemisPlayer}
+				else:
+					set {Gods::ArtemisScheduleRemoveEffect::%loop-value%} to true
+			loop {Gods::AresOfTeam::*}:
+				set {_AresPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_AresPlayer} is online:
+					remove strength from {_AresPlayer}
+					remove resistance from {_AresPlayer}
+					remove slowness from {_AresPlayer}
+					set maximum health of {_AresPlayer} to 10
+					set health of {_AresPlayer} to 10
+					remove diamond sword named "&3Ares' Sword" from the inventory of {_AresPlayer}
+				else:
+					set {Gods::AresScheduleRemoveEffect::%loop-value%} to true
+			loop {Gods::HadesOfTeam::*}:
+				set {_HadesPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_HadesPlayer} is online:
+					remove strength from {_HadesPlayer}
+					remove fire resistance from {_HadesPlayer}
+					remove saturation from {_HadesPlayer}
+					remove blaze rod named "&7Hades' Staff" from the inventory of {_HadesPlayer}
+					remove all zombie spawn eggs from the inventory of {_HadesPlayer}
+				else:
+					set {Gods::HadesScheduleRemoveEffect::%loop-value%} to true
+			loop {Gods::PoseidonOfTeam::*}:
+				set {_PoseidonPlayer} to ("%loop-value%" parsed as offlineplayer)
+				if {_PoseidonPlayer} is online:
+					remove water breathing from {_PoseidonPlayer}
+					remove slowness from {_PoseidonPlayer}
+					remove strength from {_PoseidonPlayer}
+					remove diamond hoe named "&bPoseidon's Trident" from the inventory of {_PoseidonPlayer}
+				else:
+					set {Gods::PoseidonScheduleRemoveEffect::%loop-value%} to true
+			loop all players:
+				execute console command "/effect %loop-player% reset"
+			delete {Gods::ZeusOfTeam::*}
+			delete {Gods::IsZeus::*}
+			delete {Gods::ApolloOfTeam::*}
+			delete {Gods::IsApollo::*}
+			delete {Gods::ArtemisOfTeam::*}
+			delete {Gods::IsArtemis::*}
+			delete {Gods::AresOfTeam::*}
+			delete {Gods::IsAres::*}
+			delete {Gods::HadesOfTeam::*}
+			delete {Gods::IsHades::*}
+			delete {Gods::PoseidonOfTeam::*}
+			delete {Gods::IsPoseidon::*}
+			delete {Gods::Stick::*}
+			delete {Gods::Staff::*}
+			delete {Gods::Trident::*}
+			broadcast "{@P} Reset Greek Gods!"
+				   
+on death of player:
+		execute console command "/effect %victim% clear"
+		set maximum health of victim to 10
+				   
+on login:
+		if {Gods::ZeusScheduler::%player%} is true:
+				give a blaze rod named "&fZeus' Staff" to the player
+				set maximum health of the player to 13
+				set health of the player to 13
+				delete {Gods::ZeusScheduler::%player%}
+		else if {Gods::ApolloScheduler::%player%} is true:
+				give a bow of power 2 and infinity 1 named "&8Apollo's Bow" to the player
+				apply weakness 1 to the player for 999 days
+				apply speed 2 to the player for 999 days
+				set maximum health of the player to 16
+				delete {Gods::ApolloScheduler::%player%}
+		else if {Gods::ArtemisScheduler::%player%} is true:
+				apply speed 2 to the player for 999 days
+				give 5 wolf spawn eggs to the player
+				give a bow of power 2 and punch 1 named "&dArtemis' Bow" to the player  
+				delete {Gods::ArtemisScheduler::%player%}
+		else if {Gods::AresScheduler::%player%} is true:
+				apply strength 1 to the player for 999 days
+				apply resistance 1 to the player for 999 days
+				apply slowness 1 to the player for 999 days
+				set maximum health of the player to 8
+				set health of the player to 8
+				give a diamond sword of sharpness 1 named "&3Ares' Sword" to the player
+				delete {Gods::AresScheduler::%player%}
+		else if {Gods::HadesScheduler::%player%} is true:
+				apply fire resistance to the player for 999 days
+				apply saturation to the player for 999 days
+				give 5 zombie spawn eggs to the player
+				give a blaze rod named "&7Hades' Staff" to the player
+				delete {Gods::HadesScheduler::%player%}
+		else if {Gods::PoseidonScheduler::%player%} is true:
+				apply water breathing to the player for 999 days
+				apply slowness 1 to the player for 999 days
+				give a diamond hoe named "&bPoseidon's Trident" to the player
+				delete {Gods::PoseidonScheduler::%player%}
+		if {Gods::ZeusScheduleRemoveEffect::%player%} is true:
+				remove speed from the player
+				set maximum health of the player to 10
+				set health of the player to 10
+				remove stick named "&fZeus' Staff" from the inventory of the player
+				delete {Gods::ZeusScheduleRemoveEffect::%player%}
+		if {Gods::ApolloScheduleRemoveEffect::%player%} is true:
+				remove weakness from the player
+				remove speed from the player
+				remove fire resistance from the player
+				set maximum health of the player to 10
+				remove bow named "&8Apollo's Bow" from the inventory of the player
+				delete {Gods::ApolloScheduleRemoveEffect::%player%}
+		if {Gods::ArtemisScheduleRemoveEffect::%player%} is true:
+				remove night vision from the player
+				remove speed from the player
+				remove all wolf spawn eggs from the inventory of the player
+				remove bow named "&dArtemis' Bow" from the inventory of the player
+				delete {Gods::ArtemisScheduleRemoveEffect::%player%}
+		if {Gods::AresScheduleRemoveEffect::%player%} is true:
+				remove strength from the player
+				remove resistance from the player
+				remove slowness from the player
+				set maximum health of the player to 10
+				set health of the player to 10
+				remove diamond sword named "&3Ares' Sword" from the inventory of the player
+				delete {Gods::AresScheduleRemoveEffect::%player%}
+		if {Gods::HadesScheduleRemoveEffect::%player%} is true:
+				remove strength from the player
+				remove fire resistance from the player
+				remove saturation from the player
+				remove blaze rod named "&7Hades' Staff" from the inventory of the player
+				remove all zombie spawn eggs from the inventory of the player
+				delete {Gods::HadesScheduleRemoveEffect::%player%}
+		if {Gods::PoseidonScheduleRemoveEffect::%player%} is true:
+				remove water breathing from the player
+				remove slowness from the player
+				remove strength from the player
+				remove diamond hoe named "&bPoseidon's Trident" from the inventory of the player
+				delete {Gods::PoseidonScheduleRemoveEffect::%player%}
+
+on rightclick:
+		if player is holding a stick named "&fZeus' Staff":
+				{Gods::IsZeus::%player%} is set
+				add 1 to {Gods::Staff::%player%}
+				set {_team} to {Teams.InTeam::%player%}
+				set {_location} to the player's location
+				loop all players:
+						distance between the loop-player and {_location} is smaller than 10
+						if {Teams.InTeam::%loop-player%} is not set:
+								strike lightning effect at the loop-player
+								damage the loop-player by 3 hearts
+						else:
+								{Teams.InTeam::%loop-player%} is not equal to {_team}
+								strike lightning effect at the loop-player
+								damage the loop-player by 3 hearts
+				if {Gods::Staff::%player%} is more than 3:
+						remove stick named "&fZeus' Staff" from the inventory of the player
+		else if player is holding a diamond hoe named "&bPoseidon's Trident":
+				{Gods::IsPoseidon::%player%} is set
+				add 1 to {Gods::Trident::%player%}
+				set {_loc} to the player's location
+				loop blocks in radius 5 around {_loc}:
+						loop-block is air
+						set block at loop-block to water
+				if {Gods::Trident::%player%} is more than 3:
+						remove diamond hoe named "&bPoseidon's Trident" from the inventory of the player
+		else if player is holding a blaze rod named "&7Hades' Staff":
+				{Gods::IsHades::%player%} is set
+				add 1 to {Gods::Stick::%player%}
+				shoot a fireball from the player
+				if {Gods::Stick::%player%} is more than 3:
+						remove blaze rod named "&7Hades' Staff" from the inventory of the player
+			
+on walk on water:
+		{Gods::IsPoseidon::%player%} is set
+		remove strength from the player
+		apply strength 1 to the player for 5 seconds
+		push the player forwards with force 0.25
+		block below the player is water:
+				player is sneaking:
+						push the player upwards with force 0.25
+				
+on damage:
+		{Gods::IsPoseidon::%victim%} is set
+		damage cause is fall
+		cancel event
+
+every 10 seconds:
+		loop {Gods::ZeusOfTeam::*}:
+				set {_Zeus} to ("%loop-value%" parsed as offlineplayer)
+				if {_Zeus}'s y-coordinate is between 100 and 256:
+						apply speed 2 to {_Zeus} for 999 days
+				else:
+						remove speed from {_Zeus}
+		loop {Gods::HadesOfTeam::*}:
+				set {_Hades} to ("%loop-value%" parsed as offlineplayer)
+				if {_Hades}'s y-coordinate is between 0 and 50:
+						apply strength 1 to {_Hades} for 999 days
+				else:
+						remove strength from {_Hades}
