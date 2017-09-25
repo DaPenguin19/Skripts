@@ -1,0 +1,6 @@
+Every time you mine a diamond you take half a heart of damage.
+
+Commands:
+Operators only:
+/blooddiamonds enable/on/true/start   - Enables the scenario
+/blooddiamonds disable/off/false/stop - Disables the scenario
