@@ -1,0 +1,6 @@
+Addition to Cutclean, made for Skyhigh. Snow blocks drop snow blocks instead of snow balls and sand drops glass.
+
+Commands:
+Operators only:
+/skyclean enable/on/true/start   - Enables the scenario
+/skyclean disable/off/false/stop - Disables the scenario
