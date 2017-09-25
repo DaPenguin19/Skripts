@@ -20,7 +20,7 @@ command /kings <text> [<player>]:
 					message "{@P} %arg-2% is not on a team"
 			else:
 				message "{@P} Please specify who you want to set as a king"
-		else if arg-1 is "removeking":
+		else if arg-1 is "remove":
 			command sender is op
 			if arg-2 is set:
 				if {Kings::Player::%arg-2%} is set:
