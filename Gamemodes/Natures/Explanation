@@ -1,0 +1,38 @@
+So, in the Pokémon games, every Pokémon is assigned a nature. These raise one stat by 10% and lower another by the same percentage. 
+The same will be applied in this scenario. The Natures assigned to players:
+Adamant: Deals more melee damage, deals less ranged damage
+Bashful: No changes
+Bold: Takes less melee damage, deals less melee damage
+Brave: Deals more melee damage, is slower
+Calm: Takes less ranged damage, deals less melee damage
+Careful: Takes less ranged damage, deals less ranged damage
+Docile: No changes
+Gentle: Takes less ranged damage, takes more melee damage
+Hardy: No changes
+Hasty: Is faster, takes more melee damage
+Impish: Takes less melee damage, deals less ranged damage
+Jolly: Is faster, deals less ranged damage
+Lax: Takes less melee damage, takes more ranged damage
+Lonely: Deals more melee damage, takes more melee damage
+Mild: Deals more ranged damage, takes more melee damage
+Modest : Deals more ranged damage, deals less melee damage
+Naive: Is faster, takes more ranged damage
+Naughty: Deals more melee damage, takes more ranged damage
+Quiet: Deals more ranged damage, is slower
+Quirky: No changes
+Rash: Deals more ranged damage, takes more ranged damage
+Relaxed: Takes less melee damage, is slower
+Sassy: Takes less ranged damage, is slower
+Serious: No changes
+Timid: Is faster, deals less melee damage
+
+Commands:
+Operators only:
+/natures extra enable/on/true     - Allows the neutral natures to be assigned as well
+/natures extra disable/off/false  - Disallows the neutral natures to be assigned
+/natures setall                   - Assigns a random nature to all online players
+/natures set <player>             - Assigns a random nature to a specified player
+/natures reset/clear              - Resets all natures
+Everyone:
+/natures <nature>                 - Tells you the abilities of a certain nature
+/natures me                       - Tells you which nature you have
