@@ -1,0 +1,15 @@
+Everyone on a team of 6 gets a (few) potion effect(s):
+Strength: strength 1
+Speed: speed 2, haste 2
+Health: 10 extra hearts
+Jump: jump boost 4, saturation, haste 2, no fall damage
+Invis: invisibilty, water breathing
+Res: resistance 2, fire resistance
+
+This skript uses variables from D4's team manager. Edits of D4's skript will probably work too.
+
+Commands:
+Operators only:
+/superheroes set    - Sets the superheroes for each team
+/superheroes apply  - Applies effects
+/superheroes reset  - Resets superheroes
