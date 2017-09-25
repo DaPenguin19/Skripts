@@ -1,0 +1,19 @@
+Every once in a while the game will tell you to run 20 blocks. If you fail to do this, half of your health will be taken, even if you
+logged off after the test started.
+
+At the top of the skript the variables for the time between tests are defined. You can change these to your liking.
+{PacerTestMinTime}  - Minimum number of minutes between tests (default is 2)
+{PacerTestMaxTime}  - Maximum number of minutes between tests (default is 7)
+
+Commands:
+Operators only:
+/pacertest enable/on/true/start   - Enables the scenario
+/pacertest disable/off/false/stop - Disables the scenario
+/pacertest run                    - The command the skript uses to execute the test
+Everyone:
+/pacertest info/help              - Tells you that The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively 
+                                    gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the 
+                                    start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] 
+                                    A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight 
+                                    line, and run as long as possible. The second time you fail to complete a lap before the sound, your 
+                                    test is over. The test will begin on the word start. On your mark, get ready, start.
