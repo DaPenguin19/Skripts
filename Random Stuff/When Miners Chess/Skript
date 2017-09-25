@@ -1,0 +1,1236 @@
+variables:
+	{WMChessSetup::KingPlayer} = "Bergasms"
+	{WMChessSetup::QueenPlayer} = "Fairyjuice"
+	{WMChessSetup::RookPlayer} = "Dibzcraft"
+	{WMChessSetup::BishopPlayer} = "shikenzaned"
+	{WMChessSetup::KnightPlayer} = "Mop19"
+	{WMChessSetup::PawnPlayer} = "nihontiger"
+	{WMChessSetup::A1} = "1.0 4 1.0"
+	{WMChessSetup::B1} = "1.0 4 3.0"
+	{WMChessSetup::C1} = "1.0 4 5.0"
+	{WMChessSetup::D1} = "1.0 4 7.0"
+	{WMChessSetup::E1} = "1.0 4 9.0"
+	{WMChessSetup::F1} = "1.0 4 11.0"
+	{WMChessSetup::G1} = "1.0 4 13.0"
+	{WMChessSetup::H1} = "1.0 4 15.0"
+	{WMChessSetup::A2} = "3.0 4 1.0"
+	{WMChessSetup::B2} = "3.0 4 3.0"
+	{WMChessSetup::C2} = "3.0 4 5.0"
+	{WMChessSetup::D2} = "3.0 4 7.0"
+	{WMChessSetup::E2} = "3.0 4 9.0"
+	{WMChessSetup::F2} = "3.0 4 11.0"
+	{WMChessSetup::G2} = "3.0 4 13.0"
+	{WMChessSetup::H2} = "3.0 4 15.0"
+	{WMChessSetup::A3} = "5.0 4 1.0"
+	{WMChessSetup::B3} = "5.0 4 3.0"
+	{WMChessSetup::C3} = "5.0 4 5.0"
+	{WMChessSetup::D3} = "5.0 4 7.0"
+	{WMChessSetup::E3} = "5.0 4 9.0"
+	{WMChessSetup::F3} = "5.0 4 11.0"
+	{WMChessSetup::G3} = "5.0 4 13.0"
+	{WMChessSetup::H3} = "5.0 4 15.0"
+	{WMChessSetup::A4} = "7.0 4 1.0"
+	{WMChessSetup::B4} = "7.0 4 3.0"
+	{WMChessSetup::C4} = "7.0 4 5.0"
+	{WMChessSetup::D4} = "7.0 4 7.0"
+	{WMChessSetup::E4} = "7.0 4 9.0"
+	{WMChessSetup::F4} = "7.0 4 11.0"
+	{WMChessSetup::G4} = "7.0 4 13.0"
+	{WMChessSetup::H4} = "7.0 4 15.0"
+	{WMChessSetup::A5} = "9.0 4 1.0"
+	{WMChessSetup::B5} = "9.0 4 3.0"
+	{WMChessSetup::C5} = "9.0 4 5.0"
+	{WMChessSetup::D5} = "9.0 4 7.0"
+	{WMChessSetup::E5} = "9.0 4 9.0"
+	{WMChessSetup::F5} = "9.0 4 11.0"
+	{WMChessSetup::G5} = "9.0 4 13.0"
+	{WMChessSetup::H5} = "9.0 4 15.0"
+	{WMChessSetup::A6} = "11.0 4 1.0"
+	{WMChessSetup::B6} = "11.0 4 3.0"
+	{WMChessSetup::C6} = "11.0 4 5.0"
+	{WMChessSetup::D6} = "11.0 4 7.0"
+	{WMChessSetup::E6} = "11.0 4 9.0"
+	{WMChessSetup::F6} = "11.0 4 11.0"
+	{WMChessSetup::G6} = "11.0 4 13.0"
+	{WMChessSetup::H6} = "11.0 4 15.0"
+	{WMChessSetup::A7} = "13.0 4 1.0"
+	{WMChessSetup::B7} = "13.0 4 3.0"
+	{WMChessSetup::C7} = "13.0 4 5.0"
+	{WMChessSetup::D7} = "13.0 4 7.0"
+	{WMChessSetup::E7} = "13.0 4 9.0"
+	{WMChessSetup::F7} = "13.0 4 11.0"
+	{WMChessSetup::G7} = "13.0 4 13.0"
+	{WMChessSetup::H7} = "13.0 4 15.0"
+	{WMChessSetup::A8} = "15.0 4 1.0"
+	{WMChessSetup::B8} = "15.0 4 3.0"
+	{WMChessSetup::C8} = "15.0 4 5.0"
+	{WMChessSetup::D8} = "15.0 4 7.0"
+	{WMChessSetup::E8} = "15.0 4 9.0"
+	{WMChessSetup::F8} = "15.0 4 11.0"
+	{WMChessSetup::G8} = "15.0 4 13.0"
+	{WMChessSetup::H8} = "15.0 4 15.0"
+
+command /wmchess <text>:
+	trigger:
+		if arg-1 is "true" or "yes":
+			add "AndrizzlePC" to {WMChess::Players::*}
+			add "Audicy" to {WMChess::Players::*}
+			add "beastboyrolf" to {WMChess::Players::*}
+			add "Bergasms" to {WMChess::Players::*}
+			add "BloodStinger745" to {WMChess::Players::*}
+			add "boyceterous" to {WMChess::Players::*}
+			add "BreakSalad" to {WMChess::Players::*}
+			add "BurningT" to {WMChess::Players::*}
+			add "bytexal" to {WMChess::Players::*}
+			add "Climbed" to {WMChess::Players::*}
+			add "CMattznes" to {WMChess::Players::*}
+			add "Rixle" to {WMChess::Players::*}
+			add "Costanza" to {WMChess::Players::*}
+			add "CrimShady5M" to {WMChess::Players::*}
+			add "dans1988" to {WMChess::Players::*}
+			add "DeRockProject" to {WMChess::Players::*}
+			add "Dibzcraft" to {WMChess::Players::*}
+			add "EddCase" to {WMChess::Players::*}
+			add "EestiCrafter" to {WMChess::Players::*}
+			add "EighteenQs" to {WMChess::Players::*}
+			add "Fairyjuice" to {WMChess::Players::*}
+			add "firefoxvulpix" to {WMChess::Players::*}
+			add "Flouzemaker" to {WMChess::Players::*}
+			add "Frostbreath" to {WMChess::Players::*}
+			add "ghowden" to {WMChess::Players::*}
+			add "Gilzor" to {WMChess::Players::*}
+			add "Heralen" to {WMChess::Players::*}
+			add "Hollymatman" to {WMChess::Players::*}
+			add "hrsn_Kowalski" to {WMChess::Players::*}
+			add "iiQuakezz" to {WMChess::Players::*}
+			add "IX10510IX" to {WMChess::Players::*}
+			add "JakeAladarSmith" to {WMChess::Players::*}
+			add "Joeykin" to {WMChess::Players::*}
+			add "Kampel125" to {WMChess::Players::*}
+			add "Kiinako_" to {WMChess::Players::*}
+			add "Kiwisauce" to {WMChess::Players::*}
+			add "Kurtit" to {WMChess::Players::*}
+			add "Learning" to {WMChess::Players::*}
+			add "LongaVita" to {WMChess::Players::*}
+			add "Lorgon111" to {WMChess::Players::*}
+			add "Mischevous" to {WMChess::Players::*}
+			add "Mop19" to {WMChess::Players::*}
+			add "MockingDude" to {WMChess::Players::*}
+			add "MrTeamRaven" to {WMChess::Players::*}
+			add "munchmo" to {WMChess::Players::*}
+			add "nihontiger" to {WMChess::Players::*}
+			add "No0neAtAll" to {WMChess::Players::*}
+			add "NTBama" to {WMChess::Players::*}
+			add "OddBaller" to {WMChess::Players::*}
+			add "OddyC" to {WMChess::Players::*}
+			add "peteyboo" to {WMChess::Players::*}
+			add "Pippiter" to {WMChess::Players::*}
+			add "Pizzadudes7" to {WMChess::Players::*}
+			add "FarmerHennesy" to {WMChess::Players::*}
+			add "Ratchet6859" to {WMChess::Players::*}
+			add "rippersteveM5" to {WMChess::Players::*}
+			add "Shadowlego" to {WMChess::Players::*}
+			add "shikenzaned" to {WMChess::Players::*}
+			add "ShutUpBrick" to {WMChess::Players::*}
+			add "SidGarcia" to {WMChess::Players::*}
+			add "silverteeth" to {WMChess::Players::*}
+			add "sonmica" to {WMChess::Players::*}
+			add "TGMB1" to {WMChess::Players::*}
+			add "TommySX" to {WMChess::Players::*}
+			add "atomynous" to {WMChess::Players::*}
+			add "Verzuh" to {WMChess::Players::*}
+			add "Wingnut45" to {WMChess::Players::*}
+			add "WintherMaw" to {WMChess::Players::*}
+			add "Xalxe" to {WMChess::Players::*}
+			add "SwiftArrowz" to {WMChess::Players::*}
+			add "zachlip98" to {WMChess::Players::*}
+			add "Zarky" to {WMChess::Players::*}
+			add "Zhuria" to {WMChess::Players::*}
+			set {WMChess::KingPlayer} to a random element of {WMChess::Players::*}
+			remove {WMChess::KingPlayer} from {WMChess::Players::*}
+			set {WMChess::QueenPlayer} to a random element of {WMChess::Players::*}
+			remove {WMChess::QueenPlayer} from {WMChess::Players::*}
+			set {WMChess::BishopPlayer} to a random element of {WMChess::Players::*}
+			remove {WMChess::BishopPlayer} from {WMChess::Players::*}
+			set {WMChess::KnightPlayer} to a random element of {WMChess::Players::*}
+			remove {WMChess::KnightPlayer} from {WMChess::Players::*}
+			set {WMChess::RookPlayer} to a random element of {WMChess::Players::*}
+			remove {WMChess::RookPlayer} from {WMChess::Players::*}
+			set {WMChess::PawnPlayer} to a random element of {WMChess::Players::*}
+			remove {WMChess::PawnPlayer} from {WMChess::Players::*}
+		else:
+			set {WMChess::KingPlayer} to {WMChessSetup::KingPlayer}
+			set {WMChess::QueenPlayer} to {WMChessSetup::QueenPlayer}
+			set {WMChess::BishopPlayer} to {WMChessSetup::BishopPlayer}
+			set {WMChess::KnightPlayer} to {WMChessSetup::KnightPlayer}
+			set {WMChess::RookPlayer} to {WMChessSetup::RookPlayer}
+			set {WMChess::PawnPlayer} to {WMChessSetup::PawnPlayer}
+		command "/summon ArmorStand %{WMChessSetup::A1}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Rook,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::RookPlayer}%}}]}"
+		set {WMChess::IronRookLocation::1} to "A1"
+		command "/summon ArmorStand %{WMChessSetup::B1}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Knight,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::KnightPlayer}%}}]}"
+		set {WMChess::IronKnightLocation::1} to "B1"
+		command "/summon ArmorStand %{WMChessSetup::C1}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Bishop,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::BishopPlayer}%}}]}"
+		set {WMChess::IronBishopLocation::1} to "C1"
+		command "/summon ArmorStand %{WMChessSetup::D1}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Queen,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::QueenPlayer}%}}]}"
+		set {WMChess::IronQueenLocation::1} to "D1"
+		command "/summon ArmorStand %{WMChessSetup::E1}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:King,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::KingPlayer}%}}]}"
+		set {WMChess::IronKingLocation} to "E1"
+		command "/summon ArmorStand %{WMChessSetup::F1}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Bishop,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::BishopPlayer}%}}]}"
+		set {WMChess::IronBishopLocation::2} to "F1"
+		command "/summon ArmorStand %{WMChessSetup::G1}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Knight,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::KnightPlayer}%}}]}"
+		set {WMChess::IronKnightLocation::2} to "G1"
+		command "/summon ArmorStand %{WMChessSetup::H1}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Rook,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::RookPlayer}%}}]}"
+		set {WMChess::IronRookLocation::2} to "H1"
+		command "/summon ArmorStand %{WMChessSetup::A2}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::IronPawnLocation::1} to "A2"
+		command "/summon ArmorStand %{WMChessSetup::B2}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::IronPawnLocation::2} to "B2"
+		command "/summon ArmorStand %{WMChessSetup::C2}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::IronPawnLocation::3} to "C2"
+		command "/summon ArmorStand %{WMChessSetup::D2}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::IronPawnLocation::4} to "D2"
+		command "/summon ArmorStand %{WMChessSetup::E2}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::IronPawnLocation::5} to "E2"
+		command "/summon ArmorStand %{WMChessSetup::F2}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::IronPawnLocation::6} to "F2"
+		command "/summon ArmorStand %{WMChessSetup::G2}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::IronPawnLocation::7} to "G2"
+		command "/summon ArmorStand %{WMChessSetup::H2}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::IronPawnLocation::8} to "H2"
+		command "/summon ArmorStand %{WMChessSetup::A8}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Rook,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::RookPlayer}%}}]}"
+		set {WMChess::DiamondRookLocation::1} to "A8"
+		command "/summon ArmorStand %{WMChessSetup::B8}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Knight,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::KnightPlayer}%}}]}"
+		set {WMChess::DiamondKnightLocation::1} to "B8"
+		command "/summon ArmorStand %{WMChessSetup::C8}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Bishop,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::BishopPlayer}%}}]}"
+		set {WMChess::DiamondBishopLocation::1} to "C8"
+		command "/summon ArmorStand %{WMChessSetup::D8}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Queen,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::QueenPlayer}%}}]}"
+		set {WMChess::DiamondQueenLocation::1} to "D8"
+		command "/summon ArmorStand %{WMChessSetup::E8}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:King,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::KingPlayer}%}}]}"
+		set {WMChess::DiamondKingLocation} to "E8"
+		command "/summon ArmorStand %{WMChessSetup::F8}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Bishop,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::BishopPlayer}%}}]}"
+		set {WMChess::DiamondBishopLocation::2} to "F8"
+		command "/summon ArmorStand %{WMChessSetup::G8}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Knight,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::KnightPlayer}%}}]}"
+		set {WMChess::DiamondKnightLocation::2} to "G8"
+		command "/summon ArmorStand %{WMChessSetup::H8}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Rook,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::RookPlayer}%}}]}"
+		set {WMChess::DiamondRookLocation::2} to "H8"
+		command "/summon ArmorStand %{WMChessSetup::A7}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::DiamondPawnLocation::1} to "A7"
+		command "/summon ArmorStand %{WMChessSetup::B7}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::DiamondPawnLocation::2} to "B7"
+		command "/summon ArmorStand %{WMChessSetup::C7}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::DiamondPawnLocation::3} to "C7"
+		command "/summon ArmorStand %{WMChessSetup::D7}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::DiamondPawnLocation::4} to "D7"
+		command "/summon ArmorStand %{WMChessSetup::E7}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::DiamondPawnLocation::5} to "E7"
+		command "/summon ArmorStand %{WMChessSetup::F7}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::DiamondPawnLocation::6} to "F7"
+		command "/summon ArmorStand %{WMChessSetup::G7}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::DiamondPawnLocation::7} to "G7"
+		command "/summon ArmorStand %{WMChessSetup::H7}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Pawn,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::PawnPlayer}%}}]}"
+		set {WMChess::DiamondPawnLocation::8} to "H7"
+		set {WMChess::Turn} to "Iron"
+		broadcast "Game started! It is Iron's turn!"
+
+command /checklegaliron <text> <text> <text>:
+	trigger:
+		set {WMChess::LegalMove} to "true"
+		loop {WMChess::IronPawnLocation::*}:
+			if arg-3 is equal to loop-value:
+				delete {WMChess::LegalMove}
+		loop {WMChess::IronRookLocation::*}:
+			if arg-3 is equal to loop-value:
+				delete {WMChess::LegalMove}
+		loop {WMChess::IronKnightLocation::*}:
+			if arg-3 is equal to loop-value:
+				delete {WMChess::LegalMove}
+		loop {WMChess::IronBishopLocation::*}:
+			if arg-3 is equal to loop-value:
+				delete {WMChess::LegalMove}
+		loop {WMChess::IronQueenLocation::*}:
+			if arg-3 is equal to loop-value:
+				delete {WMChess::LegalMove}
+		if arg-3 is equal to {WMChess::IronKingLocation}:
+			delete {WMChess::LegalMove}
+		if arg-2 contains "A":
+			set {_startsquarex} to 1
+		else if arg-2 contains "B":
+			set {_startsquarex} to 2
+		else if arg-2 contains "C":
+			set {_startsquarex} to 3
+		else if arg-2 contains "D":
+			set {_startsquarex} to 4
+		else if arg-2 contains "E":
+			set {_startsquarex} to 5
+		else if arg-2 contains "F":
+			set {_startsquarex} to 6
+		else if arg-2 contains "G":
+			set {_startsquarex} to 7
+		else if arg-2 contains "H":
+			set {_startsquarex} to 8
+		if arg-2 contains "1":
+			set {_startsquarez} to 1
+		else if arg-2 contains "2":
+			set {_startsquarez} to 2
+		else if arg-2 contains "3":
+			set {_startsquarez} to 3
+		else if arg-2 contains "4":
+			set {_startsquarez} to 4
+		else if arg-2 contains "5":
+			set {_startsquarez} to 5
+		else if arg-2 contains "6":
+			set {_startsquarez} to 6
+		else if arg-2 contains "7":
+			set {_startsquarez} to 7
+		else if arg-2 contains "8":
+			set {_startsquarez} to 8
+		if arg-3 contains "A":
+			set {_endsquarex} to 1
+		else if arg-3 contains "B":
+			set {_endsquarex} to 2
+		else if arg-3 contains "C":
+			set {_endsquarex} to 3
+		else if arg-3 contains "D":
+			set {_endsquarex} to 4
+		else if arg-3 contains "E":
+			set {_endsquarex} to 5
+		else if arg-3 contains "F":
+			set {_endsquarex} to 6
+		else if arg-3 contains "G":
+			set {_endsquarex} to 7
+		else if arg-3 contains "H":
+			set {_endsquarex} to 8
+		else:
+			delete {WMChess::LegalMove}
+		if arg-3 contains "1":
+			set {_endsquarez} to 1
+		else if arg-3 contains "2":
+			set {_endsquarez} to 2
+		else if arg-3 contains "3":
+			set {_endsquarez} to 3
+		else if arg-3 contains "4":
+			set {_endsquarez} to 4
+		else if arg-3 contains "5":
+			set {_endsquarez} to 5
+		else if arg-3 contains "6":
+			set {_endsquarez} to 6
+		else if arg-3 contains "7":
+			set {_endsquarez} to 7
+		else if arg-3 contains "8":
+			set {_endsquarez} to 8
+		else:
+			delete {WMChess::LegalMove}
+		if arg-1 is "pawn":
+			if ({_startsquarex}-{_endsquarex}) is equal to 0:
+				loop {WMChess::DiamondPawnLocation::*}:
+					if arg-3 is equal to loop-value:
+						delete {WMChess::LegalMove}
+				loop {WMChess::DiamondRookLocation::*}:
+					if arg-3 is equal to loop-value:
+						delete {WMChess::LegalMove}
+				loop {WMChess::DiamondKnightLocation::*}:
+					if arg-3 is equal to loop-value:
+						delete {WMChess::LegalMove}
+				loop {WMChess::DiamondBishopLocation::*}:
+					if arg-3 is equal to loop-value:
+						delete {WMChess::LegalMove}
+				loop {WMChess::DiamondQueenLocation::*}:
+					if arg-3 is equal to loop-value:
+						delete {WMChess::LegalMove}
+				if {WMChess::DiamondKingLocation} is equal to arg-3:
+					delete {WMChess::LegalMove}
+				if {_startsquarez} is equal to 2:
+					if ({_startsquarez}-{_endsquarez}) is not -1 or -2:
+						delete {WMChess::LegalMove}
+					else if ({_startsquarez}-{_endsquarez}) is -2:
+						if {WMChess::LegalMove} is set:
+							set {WMChess::EnPassant::3::%{_endsquarex}%} to true
+				else:
+					if ({_startsquarez}-{_endsquarez}) is not -1:
+						delete {WMChess::LegalMove}
+			else if ({_startsquarex}-{_endsquarex}) is equal to 1 or -1:
+				if ({_startsquarez}-{_endsquarez}) is not equal to -1:
+					delete {WMChess::LegalMove}
+				else:
+					if {WMChess::EnPassant::%{_endsquarez}%::%{_endsquarex}%} is not set:
+						loop {WMChess::DiamondPawnLocation::*}:
+							if arg-3 is equal to loop-value:
+								set {_capture} to true
+						loop {WMChess::DiamondRookLocation::*}:
+							if arg-3 is equal to loop-value:
+								set {_capture} to true
+						loop {WMChess::DiamondKnightLocation::*}:
+							if arg-3 is equal to loop-value:
+								set {_capture} to true
+						loop {WMChess::DiamondBishopLocation::*}:
+							if arg-3 is equal to loop-value:
+								set {_capture} to true
+						loop {WMChess::DiamondQueenLocation::*}:
+							if arg-3 is equal to loop-value:
+								set {_capture} to true
+						if {_capture} is not set:
+							delete {WMChess::LegalMove}
+					else:
+						if arg-3 contains "A":
+							loop {WMChess::DiamondPawnLocation::*}:
+								if loop-value is equal to "A5":
+									delete {WMChess::DiamondPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::A5}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "B":
+							loop {WMChess::DiamondPawnLocation::*}:
+								if loop-value is equal to "B5":
+									delete {WMChess::DiamondPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::B5}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "C":
+							loop {WMChess::DiamondPawnLocation::*}:
+								if loop-value is equal to "C5":
+									delete {WMChess::DiamondPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::C5}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "D":
+							loop {WMChess::DiamondPawnLocation::*}:
+								if loop-value is equal to "D5":
+									delete {WMChess::DiamondPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::D5}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "E":
+							loop {WMChess::DiamondPawnLocation::*}:
+								if loop-value is equal to "E5":
+									delete {WMChess::DiamondPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::E5}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "F":
+							loop {WMChess::DiamondPawnLocation::*}:
+								if loop-value is equal to "F5":
+									delete {WMChess::DiamondPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::F5}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "G":
+							loop {WMChess::DiamondPawnLocation::*}:
+								if loop-value is equal to "G5":
+									delete {WMChess::DiamondPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::G5}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "H":
+							loop {WMChess::DiamondPawnLocation::*}:
+								if loop-value is equal to "H5":
+									delete {WMChess::DiamondPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::H5}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			else:
+				delete {WMChess::LegalMove}
+			if {WMChess::LegalMove} is set:
+				if {_endsquarez} is equal to 8:
+					message "To which piece do you want to promote this pawn?" to command sender
+					command "/tellraw %command sender% [{"text":"Queen","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Queen"}},{"text":", ","underlined":"false"},{"text":"Rook","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Rook"}},{"text":", ","underlined":"false"},{"text":"Bishop","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Bishop"}},{"text":" or ","underlined":"false"},{"text":"Knight","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Knight"}},{"text":"?","underlined":"false"}]"
+		else if arg-1 is "rook":
+			if ({_startsquarex}-{_endsquarex}) is not equal to 0:
+				if ({_startsquarez}-{_endsquarez}) is not equal to 0:
+					delete {WMChess::LegalMove}
+		else if arg-1 is "knight":
+			if ({_startsquarex}-{_endsquarex}) is equal to 1 or -1:
+				if ({_startsquarez}-{_endsquarez}) is not equal to 2 or -2:
+					delete {WMChess::LegalMove}
+			else if ({_startsquarex}-{_endsquarex}) is equal to 2 or -2:
+				if ({_startsquarez}-{_endsquarez}) is not equal to 1 or -1:
+					delete {WMChess::LegalMove}
+			else:
+				delete {WMChess::LegalMove}
+		else if arg-1 is "bishop":
+			if (({_startsquarex}-{_endsquarex})-({_startsquarez}-{_endsquarez})) is not equal to 0:
+				if (({_startsquarex}-{_endsquarex})+({_startsquarez}-{_endsquarez})) is not equal to 0:
+					delete {WMChess::LegalMove}
+		else if arg-1 is "queen":
+			if ({_startsquarex}-{_endsquarex}) is not equal to 0:
+				if ({_startsquarez}-{_endsquarez}) is not equal to 0:
+					if (({_startsquarex}-{_endsquarex})-({_startsquarez}-{_endsquarez})) is not equal to 0:
+						if (({_startsquarex}-{_endsquarex})+({_startsquarez}-{_endsquarez})) is not equal to 0:
+							delete {WMChess::LegalMove}
+		else if arg-1 is "king":
+			if ({_startsquarex}-{_endsquarex}) is greater than 2:
+				delete {WMChess::LegalMove}
+			else if ({_startsquarez}-{_endsquarez}) is greater than 1:
+				delete {WMChess::LegalMove}
+			else if ({_startsquarex}-{_endsquarex}) is smaller than -2:
+				delete {WMChess::LegalMove}
+			else if ({_startsquarez}-{_endsquarez}) is smaller than -1:
+				delete {WMChess::LegalMove}
+			else if ({_startsquarex}-{_endsquarex}) is 2 or -2:
+				if {WMChess::KingMoved::Iron} is not set:
+					if {_endsquarex} is 3:
+						if {WMChess::RookAMoved::Iron} is not set:
+							loop {WMChess::IronQueenLocation::*}:
+								if loop-value is "D1" or "C1" or "B1":
+									delete {WMChess::LegalMove}
+							loop {WMChess::IronBishopLocation::*}:
+								if loop-value is "D1" or "C1" or "B1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronKnightLocation::*}:
+								if loop-value is "D1" or "C1" or "B1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronRookLocation::*}:
+								if loop-value is "D1" or "C1" or "B1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondQueenLocation::*}:
+								if loop-value is "D1" or "C1" or "B1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondBishopLocation::*}:
+								if loop-value is "D1" or "C1" or "B1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondKnightLocation::*}:
+								if loop-value is "D1" or "C1" or "B1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondRookLocation::*}:
+								if loop-value is "D1" or "C1" or "B1":
+									delete {WMChess::LegalMove}							
+							if {WMChess::DiamondKingLocation} is "D1" or "C1" or "B1":
+								delete {WMChess::LegalMove}
+							if {WMChess::LegalMove} is set:
+								command "/execute @p %{WMChessSetup::A1}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::D1}%"
+								set {WMChess::IronRookLocation::1} to "D1"
+						else:
+							delete {WMChess::LegalMove}
+					else if {_endsquarex} is 7:
+						if {WMChess::RookHMoved::Iron} is not set:
+							loop {WMChess::IronQueenLocation::*}:
+								if loop-value is "F1" or "G1":
+									delete {WMChess::LegalMove}
+							loop {WMChess::IronBishopLocation::*}:
+								if loop-value is "F1" or "G1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronKnightLocation::*}:
+								if loop-value is "F1" or "G1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronRookLocation::*}:
+								if loop-value is "F1" or "G1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondQueenLocation::*}:
+								if loop-value is "F1" or "G1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondBishopLocation::*}:
+								if loop-value is "F1" or "G1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondKnightLocation::*}:
+								if loop-value is "F1" or "G1":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondRookLocation::*}:
+								if loop-value is "F1" or "G1":
+									delete {WMChess::LegalMove}							
+							if {WMChess::DiamondKingLocation} is "F1" or "G1":
+								delete {WMChess::LegalMove}
+							if {WMChess::LegalMove} is set:
+								command "/execute @p %{WMChessSetup::H1}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::F1}%"
+								set {WMChess::IronRookLocation::2} to "F1"
+						else:
+							delete {WMChess::LegalMove}
+					else:
+						delete {WMChess::LegalMove}
+				else:
+					delete {WMChess::LegalMove}
+		if {WMChess::LegalMove} is "true":
+			loop {WMChess::DiamondPawnLocation::*}:
+				if arg-3 is equal to loop-value:
+					delete {WMChess::DiamondPawnLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%arg-3%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			loop {WMChess::DiamondRookLocation::*}:
+				if arg-3 is equal to loop-value:
+					delete {WMChess::DiamondRookLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%arg-3%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			loop {WMChess::DiamondKnightLocation::*}:
+				if arg-3 is equal to loop-value:
+					delete {WMChess::DiamondKnightLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%arg-3%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			loop {WMChess::DiamondBishopLocation::*}:
+				if arg-3 is equal to loop-value:
+					delete {WMChess::DiamondBishopLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%arg-3%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			loop {WMChess::DiamondQueenLocation::*}:
+				if arg-3 is equal to loop-value:
+					delete {WMChess::DiamondQueenLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%arg-3%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			delete {WMChess::EnPassant::6::*}
+		
+command /checklegaldiamond <text> <text> <text>:
+	trigger:
+		set {WMChess::LegalMove} to "true"
+		loop {WMChess::DiamondPawnLocation::*}:
+			if arg-3 is equal to loop-value:
+				delete {WMChess::LegalMove}
+		loop {WMChess::DiamondRookLocation::*}:
+			if arg-3 is equal to loop-value:
+				delete {WMChess::LegalMove}
+		loop {WMChess::DiamondKnightLocation::*}:
+			if arg-3 is equal to loop-value:
+				delete {WMChess::LegalMove}
+		loop {WMChess::DiamondBishopLocation::*}:
+			if arg-3 is equal to loop-value:
+				delete {WMChess::LegalMove}
+		loop {WMChess::DiamondQueenLocation::*}:
+			if arg-3 is equal to loop-value:
+				delete {WMChess::LegalMove}
+		if arg-3 is equal to {WMChess::DiamondKingLocation}:
+			delete {WMChess::LegalMove}
+		if arg-2 contains "A":
+			set {_startsquarex} to 1
+		else if arg-2 contains "B":
+			set {_startsquarex} to 2
+		else if arg-2 contains "C":
+			set {_startsquarex} to 3
+		else if arg-2 contains "D":
+			set {_startsquarex} to 4
+		else if arg-2 contains "E":
+			set {_startsquarex} to 5
+		else if arg-2 contains "F":
+			set {_startsquarex} to 6
+		else if arg-2 contains "G":
+			set {_startsquarex} to 7
+		else if arg-2 contains "H":
+			set {_startsquarex} to 8
+		if arg-2 contains "1":
+			set {_startsquarez} to 1
+		else if arg-2 contains "2":
+			set {_startsquarez} to 2
+		else if arg-2 contains "3":
+			set {_startsquarez} to 3
+		else if arg-2 contains "4":
+			set {_startsquarez} to 4
+		else if arg-2 contains "5":
+			set {_startsquarez} to 5
+		else if arg-2 contains "6":
+			set {_startsquarez} to 6
+		else if arg-2 contains "7":
+			set {_startsquarez} to 7
+		else if arg-2 contains "8":
+			set {_startsquarez} to 8
+		if arg-3 contains "A":
+			set {_endsquarex} to 1
+		else if arg-3 contains "B":
+			set {_endsquarex} to 2
+		else if arg-3 contains "C":
+			set {_endsquarex} to 3
+		else if arg-3 contains "D":
+			set {_endsquarex} to 4
+		else if arg-3 contains "E":
+			set {_endsquarex} to 5
+		else if arg-3 contains "F":
+			set {_endsquarex} to 6
+		else if arg-3 contains "G":
+			set {_endsquarex} to 7
+		else if arg-3 contains "H":
+			set {_endsquarex} to 8
+		else:
+			delete {WMChess::LegalMove}
+		if arg-3 contains "1":
+			set {_endsquarez} to 1
+		else if arg-3 contains "2":
+			set {_endsquarez} to 2
+		else if arg-3 contains "3":
+			set {_endsquarez} to 3
+		else if arg-3 contains "4":
+			set {_endsquarez} to 4
+		else if arg-3 contains "5":
+			set {_endsquarez} to 5
+		else if arg-3 contains "6":
+			set {_endsquarez} to 6
+		else if arg-3 contains "7":
+			set {_endsquarez} to 7
+		else if arg-3 contains "8":
+			set {_endsquarez} to 8
+		else:
+			delete {WMChess::LegalMove}
+		if arg-1 is "pawn":
+			if ({_startsquarex}-{_endsquarex}) is equal to 0:
+				loop {WMChess::IronPawnLocation::*}:
+					if arg-3 is equal to loop-value:
+						delete {WMChess::LegalMove}
+				loop {WMChess::IronRookLocation::*}:
+					if arg-3 is equal to loop-value:
+						delete {WMChess::LegalMove}
+				loop {WMChess::IronKnightLocation::*}:
+					if arg-3 is equal to loop-value:
+						delete {WMChess::LegalMove}
+				loop {WMChess::IronBishopLocation::*}:
+					if arg-3 is equal to loop-value:
+						delete {WMChess::LegalMove}
+				loop {WMChess::IronQueenLocation::*}:
+					if arg-3 is equal to loop-value:
+						delete {WMChess::LegalMove}
+				if {WMChess::IronKingLocation} is equal to arg-3:
+					delete {WMChess::LegalMove}
+				if {_startsquarez} is equal to 7:
+					if ({_startsquarez}-{_endsquarez}) is not 1 or 2:
+						delete {WMChess::LegalMove}
+					else if ({_startsquarez}-{_endsquarez}) is 2:
+						if {WMChess::LegalMove} is set:
+							set {WMChess::EnPassant::6::%{_endsquarex}%} to true
+				else:
+					if ({_startsquarez}-{_endsquarez}) is not 1:
+						delete {WMChess::LegalMove}
+			else if ({_startsquarex}-{_endsquarex}) is equal to 1 or -1:
+				if ({_startsquarez}-{_endsquarez}) is not equal to 1:
+					delete {WMChess::LegalMove}
+				else:
+					if {WMChess::EnPassant::%{_endsquarez}%::%{_endsquarex}%} is not set:
+						loop {WMChess::IronPawnLocation::*}:
+							if arg-3 is equal to loop-value:
+								set {_capture} to true
+						loop {WMChess::IronRookLocation::*}:
+							if arg-3 is equal to loop-value:
+								set {_capture} to true
+						loop {WMChess::IronKnightLocation::*}:
+							if arg-3 is equal to loop-value:
+								set {_capture} to true
+						loop {WMChess::IronBishopLocation::*}:
+							if arg-3 is equal to loop-value:
+								set {_capture} to true
+						loop {WMChess::IronQueenLocation::*}:
+							if arg-3 is equal to loop-value:
+								set {_capture} to true
+						if {_capture} is not set:
+							delete {WMChess::LegalMove}
+					else:
+						if arg-3 contains "A":
+							loop {WMChess::IronPawnLocation::*}:
+								if loop-value is equal to "A4":
+									delete {WMChess::IronPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::A4}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "B":
+							loop {WMChess::IronPawnLocation::*}:
+								if loop-value is equal to "B4":
+									delete {WMChess::IronPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::B4}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "C":
+							loop {WMChess::IronPawnLocation::*}:
+								if loop-value is equal to "C4":
+									delete {WMChess::IronPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::C4}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "D":
+							loop {WMChess::IronPawnLocation::*}:
+								if loop-value is equal to "D4":
+									delete {WMChess::IronPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::D4}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "E":
+							loop {WMChess::IronPawnLocation::*}:
+								if loop-value is equal to "E4":
+									delete {WMChess::IronPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::E4}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "F":
+							loop {WMChess::IronPawnLocation::*}:
+								if loop-value is equal to "F4":
+									delete {WMChess::IronPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::F4}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "G":
+							loop {WMChess::IronPawnLocation::*}:
+								if loop-value is equal to "G4":
+									delete {WMChess::IronPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::G4}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+						else if arg-3 contains "H":
+							loop {WMChess::IronPawnLocation::*}:
+								if loop-value is equal to "H4":
+									delete {WMChess::IronPawnLocation::%loop-index%}
+									command "/execute @p %{WMChessSetup::H4}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+									command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			else:
+				delete {WMChess::LegalMove}
+			if {WMChess::LegalMove} is set:
+				if {_endsquarez} is equal to 1:
+					message "To which piece do you want to promote this pawn?" to command sender
+					command "/tellraw %command sender% [{"text":"Queen","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Queen"}},{"text":", ","underlined":"false"},{"text":"Rook","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Rook"}},{"text":", ","underlined":"false"},{"text":"Bishop","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Bishop"}},{"text":" or ","underlined":"false"},{"text":"Knight","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Knight"}},{"text":"?","underlined":"false"}]"
+		else if arg-1 is "rook":
+			if ({_startsquarex}-{_endsquarex}) is not equal to 0:
+				if ({_startsquarez}-{_endsquarez}) is not equal to 0:
+					delete {WMChess::LegalMove}
+		else if arg-1 is "knight":
+			if ({_startsquarex}-{_endsquarex}) is equal to 1 or -1:
+				if ({_startsquarez}-{_endsquarez}) is not equal to 2 or -2:
+					delete {WMChess::LegalMove}
+			else if ({_startsquarex}-{_endsquarex}) is equal to 2 or -2:
+				if ({_startsquarez}-{_endsquarez}) is not equal to 1 or -1:
+					delete {WMChess::LegalMove}
+			else:
+				delete {WMChess::LegalMove}
+		else if arg-1 is "bishop":
+			if (({_startsquarex}-{_endsquarex})-({_startsquarez}-{_endsquarez})) is not equal to 0:
+				if (({_startsquarex}-{_endsquarex})+({_startsquarez}-{_endsquarez})) is not equal to 0:
+					delete {WMChess::LegalMove}
+		else if arg-1 is "queen":
+			if ({_startsquarex}-{_endsquarex}) is not equal to 0:
+				if ({_startsquarez}-{_endsquarez}) is not equal to 0:
+					if (({_startsquarex}-{_endsquarex})-({_startsquarez}-{_endsquarez})) is not equal to 0:
+						if (({_startsquarex}-{_endsquarex})+({_startsquarez}-{_endsquarez})) is not equal to 0:
+							delete {WMChess::LegalMove}
+		else if arg-1 is "king":
+			if ({_startsquarex}-{_endsquarex}) is greater than 2:
+				delete {WMChess::LegalMove}
+			else if ({_startsquarez}-{_endsquarez}) is greater than 1:
+				delete {WMChess::LegalMove}
+			else if ({_startsquarex}-{_endsquarex}) is smaller than -2:
+				delete {WMChess::LegalMove}
+			else if ({_startsquarez}-{_endsquarez}) is smaller than -1:
+				delete {WMChess::LegalMove}
+			else if ({_startsquarex}-{_endsquarex}) is 2 or -2:
+				if {WMChess::KingMoved::Diamond} is not set:
+					if {_endsquarex} is 3:
+						if {WMChess::RookAMoved::Diamond} is not set:
+							loop {WMChess::DiamondQueenLocation::*}:
+								if loop-value is "D8" or "C8" or "B8":
+									delete {WMChess::LegalMove}
+							loop {WMChess::DiamondBishopLocation::*}:
+								if loop-value is "D8" or "C8" or "B8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondKnightLocation::*}:
+								if loop-value is "D8" or "C8" or "B8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondRookLocation::*}:
+								if loop-value is "D8" or "C8" or "B8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronQueenLocation::*}:
+								if loop-value is "D8" or "C8" or "B8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronBishopLocation::*}:
+								if loop-value is "D8" or "C8" or "B8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronKnightLocation::*}:
+								if loop-value is "D8" or "C8" or "B8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronRookLocation::*}:
+								if loop-value is "D8" or "C8" or "B8":
+									delete {WMChess::LegalMove}							
+							if {WMChess::IronKingLocation} is "D8" or "C8" or "B8":
+								delete {WMChess::LegalMove}
+							if {WMChess::LegalMove} is set:
+								command "/execute @p %{WMChessSetup::A8}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::D8}%"
+								set {WMChess::DiamondRookLocation::1} to "D8"
+						else:
+							delete {WMChess::LegalMove}
+					else if {_endsquarex} is 7:
+						if {WMChess::RookHMoved::Diamond} is not set:
+							loop {WMChess::DiamondQueenLocation::*}:
+								if loop-value is "F8" or "G8":
+									delete {WMChess::LegalMove}
+							loop {WMChess::DiamondBishopLocation::*}:
+								if loop-value is "F8" or "G8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondKnightLocation::*}:
+								if loop-value is "F8" or "G8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::DiamondRookLocation::*}:
+								if loop-value is "F8" or "G8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronQueenLocation::*}:
+								if loop-value is "F8" or "G8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronBishopLocation::*}:
+								if loop-value is "F8" or "G8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronKnightLocation::*}:
+								if loop-value is "F8" or "G8":
+									delete {WMChess::LegalMove}							
+							loop {WMChess::IronRookLocation::*}:
+								if loop-value is "F8" or "G8":
+									delete {WMChess::LegalMove}							
+							if {WMChess::IronKingLocation} is "F8" or "G8":
+								delete {WMChess::LegalMove}
+							if {WMChess::LegalMove} is set:
+								command "/execute @p %{WMChessSetup::H8}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::F8}%"
+								set {WMChess::DiamondRookLocation::2} to "F8"
+						else:
+							delete {WMChess::LegalMove}
+					else:
+						delete {WMChess::LegalMove}
+				else:
+					delete {WMChess::LegalMove}
+		if {WMChess::LegalMove} is "true":
+			loop {WMChess::IronPawnLocation::*}:
+				if arg-3 is equal to loop-value:
+					delete {WMChess::IronPawnLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%arg-3%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			loop {WMChess::IronRookLocation::*}:
+				if arg-3 is equal to loop-value:
+					delete {WMChess::IronRookLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%arg-3%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			loop {WMChess::IronKnightLocation::*}:
+				if arg-3 is equal to loop-value:
+					delete {WMChess::IronKnightLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%arg-3%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			loop {WMChess::IronBishopLocation::*}:
+				if arg-3 is equal to loop-value:
+					delete {WMChess::IronBishopLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%arg-3%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			loop {WMChess::IronQueenLocation::*}:
+				if arg-3 is equal to loop-value:
+					delete {WMChess::IronQueenLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%arg-3%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			delete {WMChess::EnPassant::3::*}
+
+command /pawn <text> <text>:
+	trigger:
+		if {WMChess::Turn} is "Iron":
+			if {WMChess::Promoting::Iron} is not set:
+				loop {WMChess::IronPawnLocation::*}:
+					if arg-1 is equal to loop-value:
+						set {WMChess::MakeMove} to loop-index
+				if {WMChess::MakeMove} is set:
+					command sender command "/checklegaliron pawn %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::IronPawnLocation::%{WMChess::MakeMove}%} to arg-2
+						delete {WMChess::MakeMove}
+						if arg-2 does not contain "8":
+							set {WMChess::Turn} to "Diamond"
+							broadcast "Iron has moved his pawn from %arg-1% to %arg-2%. It is now Diamond's turn!"
+						else:
+							set {WMChess::Promoting::Iron} to arg-2
+							broadcast "Iron has moved his pawn from %arg-1% to %arg-2%."
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+		else if {WMChess::Turn} is "Diamond":
+			if {WMChess::Promoting::Diamond} is not set:
+				loop {WMChess::DiamondPawnLocation::*}:
+					if arg-1 is equal to loop-value:
+						set {WMChess::MakeMove} to loop-index
+				if {WMChess::MakeMove} is set:
+					command sender command "/checklegaldiamond pawn %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::DiamondPawnLocation::%{WMChess::MakeMove}%} to arg-2
+						delete {WMChess::MakeMove}
+						if arg-2 does not contain "1":
+							set {WMChess::Turn} to "Iron"
+							broadcast "Diamond has moved his pawn from %arg-1% to %arg-2%. It is now Iron's turn!"
+						else:
+							set {WMChess::Promoting::Diamond} to arg-2
+							broadcast "Diamond has moved his pawn from %arg-1% to %arg-2%."
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+				
+command /rook <text> <text>:
+	trigger:
+		if {WMChess::Turn} is "Iron":
+			if {WMChess::Promoting::Iron} is not set:
+				loop {WMChess::IronRookLocation::*}:
+					if arg-1 is equal to loop-value:
+						set {WMChess::MakeMove} to loop-index
+				if {WMChess::MakeMove} is set:
+					command "/checklegaliron rook %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::IronRookLocation::%{WMChess::MakeMove}%} to arg-2
+						delete {WMChess::MakeMove}
+						set {WMChess::Turn} to "Diamond"
+						broadcast "Iron has moved his rook from %arg-1% to %arg-2%. It is now Diamond's turn!"
+						if arg-1 is "A1":
+							set {WMChess::RookAMoved::Iron} to true
+						else if arg-1 is "H1":
+							set {WMChess::RookHMoved::Iron} to true
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+		else if {WMChess::Turn} is "Diamond":
+			if {WMChess::Promoting::Diamond} is not set:
+				loop {WMChess::DiamondRookLocation::*}:
+					if arg-1 is equal to loop-value:
+						set {WMChess::MakeMove} to loop-index
+				if {WMChess::MakeMove} is set:
+					command "/checklegaldiamond rook %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::DiamondRookLocation::%{WMChess::MakeMove}%} to arg-2
+						delete {WMChess::MakeMove}
+						set {WMChess::Turn} to "Iron"
+						broadcast "Diamond has moved his rook from %arg-1% to %arg-2%. It is now Iron's turn!"
+						if arg-1 is "A8":
+							set {WMChess::RookAMoved::Diamond} to true
+						else if arg-1 is "H8":
+							set {WMChess::RookHMoved::Diamond} to true
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+				
+command /knight <text> <text>:
+	trigger:
+		if {WMChess::Turn} is "Iron":
+			if {WMChess::Promoting::Iron} is not set:
+				loop {WMChess::IronKnightLocation::*}:
+					if arg-1 is equal to loop-value:
+						set {WMChess::MakeMove} to loop-index
+				if {WMChess::MakeMove} is set:
+					command "/checklegaliron knight %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::IronKnightLocation::%{WMChess::MakeMove}%} to arg-2
+						delete {WMChess::MakeMove}
+						set {WMChess::Turn} to "Diamond"
+						broadcast "Iron has moved his knight from %arg-1% to %arg-2%. It is now Diamond's turn!"
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+		else if {WMChess::Turn} is "Diamond":
+			if {WMChess::Promoting::Diamond} is not set:
+				loop {WMChess::DiamondKnightLocation::*}:
+					if arg-1 is equal to loop-value:
+						set {WMChess::MakeMove} to loop-index
+				if {WMChess::MakeMove} is set:
+					command "/checklegaldiamond knight %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::DiamondKnightLocation::%{WMChess::MakeMove}%} to arg-2
+						delete {WMChess::MakeMove}
+						set {WMChess::Turn} to "Iron"
+						broadcast "Diamond has moved his knight from %arg-1% to %arg-2%. It is now Iron's turn!"
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+				
+command /bishop <text> <text>:
+	trigger:
+		if {WMChess::Turn} is "Iron":
+			if {WMChess::Promoting::Iron} is not set:
+				loop {WMChess::IronBishopLocation::*}:
+					if arg-1 is equal to loop-value:
+						set {WMChess::MakeMove} to loop-index
+				if {WMChess::MakeMove} is set:
+					command "/checklegaliron bishop %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::IronBishopLocation::%{WMChess::MakeMove}%} to arg-2
+						delete {WMChess::MakeMove}
+						set {WMChess::Turn} to "Diamond"
+						broadcast "Iron has moved his bishop from %arg-1% to %arg-2%. It is now Diamond's turn!"
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+		else if {WMChess::Turn} is "Diamond":
+			if {WMChess::Promoting::Diamond} is not set:
+				loop {WMChess::DiamondBishopLocation::*}:
+					if arg-1 is equal to loop-value:
+						set {WMChess::MakeMove} to loop-index
+				if {WMChess::MakeMove} is set:
+					command "/checklegaldiamond bishop %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::DiamondBishopLocation::%{WMChess::MakeMove}%} to arg-2
+						delete {WMChess::MakeMove}
+						set {WMChess::Turn} to "Iron"
+						broadcast "Diamond has moved his bishop from %arg-1% to %arg-2%. It is now Iron's turn!"
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+				
+command /queen <text> <text>:
+	trigger:
+		if {WMChess::Turn} is "Iron":
+			if {WMChess::Promoting::Iron} is not set:
+				loop {WMChess::IronQueenLocation::*}:
+					if arg-1 is equal to loop-value:
+						set {WMChess::MakeMove} to loop-index
+				if {WMChess::MakeMove} is set:
+					command "/checklegaliron queen %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::IronQueenLocation::%{WMChess::MakeMove}%} to arg-2
+						delete {WMChess::MakeMove}
+						set {WMChess::Turn} to "Diamond"
+						broadcast "Iron has moved his queen from %arg-1% to %arg-2%. It is now Diamond's turn!"
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+		else if {WMChess::Turn} is "Diamond":
+			if {WMChess::Promoting::Diamond} is not set:
+				loop {WMChess::DiamondQueenLocation::*}:
+					if arg-1 is equal to loop-value:
+						set {WMChess::MakeMove} to loop-index
+				if {WMChess::MakeMove} is set:
+					command "/checklegaldiamond queen %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::DiamondQueenLocation::%{WMChess::MakeMove}%} to arg-2
+						delete {WMChess::MakeMove}
+						set {WMChess::Turn} to "Iron"
+						broadcast "Diamond has moved his queen from %arg-1% to %arg-2%. It is now Iron's turn!"
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+				
+command /king <text> <text>:
+	trigger:
+		if {WMChess::Turn} is "Iron":
+			if {WMChess::Promoting::Iron} is not set:
+				if arg-1 is equal to {WMChess::IronKingLocation}:
+					command "/checklegaliron king %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::IronKingLocation} to arg-2
+						set {WMChess::Turn} to "Diamond"
+						broadcast "Iron has moved his king from %arg-1% to %arg-2%. It is now Diamond's turn!"
+						set {WMChess::KingMoved::Iron} to true
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+		else if {WMChess::Turn} is "Diamond":
+			if {WMChess::Promoting::Diamond} is not set:
+				if arg-1 is equal to {WMChess::DiamondKingLocation}:
+					command "/checklegaldiamond king %arg-1% %arg-2%"
+					if {WMChess::LegalMove} is "true":
+						command "/execute @p %{WMChessSetup::%arg-1%}% tp @e[type=ArmorStand,r=1] %{WMChessSetup::%arg-2%}%"
+						set {WMChess::DiamondKingLocation} to arg-2
+						set {WMChess::Turn} to "Iron"
+						broadcast "Diamond has moved his king from %arg-1% to %arg-2%. It is now Iron's turn!"
+						set {WMChess::KingMoved::Diamond} to true
+					else:
+						message "That is not a legal move!"
+				else:
+					message "There is no piece on that square!"
+			else:
+				message "You need to choose to which piece you want to promote your pawn"
+				
+command /promote <text>:
+	trigger:
+		if {WMChess::Turn} is "Iron":
+			loop {WMChess::IronPawnLocation::*}:
+				if {WMChess::Promoting::Iron} is equal to loop-value:
+					delete {WMChess::IronPawnLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%{WMChess::Promoting::Iron}%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			if arg-1 is "Queen":
+				command "/summon ArmorStand %{WMChessSetup::%{WMChess::Promoting::Iron}%}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Queen,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::QueenPlayer}%}}]}"
+				set {_Counter} to 0
+				loop 10 times:
+					add 1 to {_Counter}
+					if {WMChess::IronQueenLocation::%{_Counter}%} is not set:
+						exit loop
+				set {WMChess::IronQueenLocation::%{_Counter}%} to {WMChess::Promoting::Iron}
+				broadcast "He has promoted his pawn to a queen. It is now Diamond's turn!"
+			else if arg-1 is "Rook":
+				command "/summon ArmorStand %{WMChessSetup::%{WMChess::Promoting::Iron}%}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Rook,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::RookPlayer}%}}]}"
+				set {_Counter} to 0
+				loop 10 times:
+					add 1 to {_Counter}
+					if {WMChess::IronRookLocation::%{_Counter}%} is not set:
+						exit loop
+				set {WMChess::IronRookLocation::%{_Counter}%} to {WMChess::Promoting::Iron}
+				broadcast "He has promoted his pawn to a rook. It is now Diamond's turn!"
+			else if arg-1 is "Bishop":
+				command "/summon ArmorStand %{WMChessSetup::%{WMChess::Promoting::Iron}%}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Bishop,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::BishopPlayer}%}}]}"
+				set {_Counter} to 0
+				loop 10 times:
+					add 1 to {_Counter}
+					if {WMChess::IronBishopLocation::%{_Counter}%} is not set:
+						exit loop
+				set {WMChess::IronBishopLocation::%{_Counter}%} to {WMChess::Promoting::Iron}
+				broadcast "He has promoted his pawn to a bishop. It is now Diamond's turn!"
+			else if arg-1 is "Knight":
+				command "/summon ArmorStand %{WMChessSetup::%{WMChess::Promoting::Iron}%}% {NoBasePlate:1,Rotation:[270f,0.0f],NoGravity:1b,CustomName:Knight,CustomNameVisible:1,Equipment:[{},{id:iron_boots,Count:1},{id:iron_leggings,Count:1},{id:iron_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::KnightPlayer}%}}]}"
+				set {_Counter} to 0
+				loop 10 times:
+					add 1 to {_Counter}
+					if {WMChess::IronKnightLocation::%{_Counter}%} is not set:
+						exit loop
+				set {WMChess::IronKnightLocation::%{_Counter}%} to {WMChess::Promoting::Iron}
+				broadcast "He has promoted his pawn to a knight. It is now Diamond's turn!"
+			set {WMChess::Turn} to "Diamond"
+			delete {WMChess::Promoting::Iron}
+		else if {WMChess::Turn} is "Diamond":
+			loop {WMChess::DiamondPawnLocation::*}:
+				if {WMChess::Promoting::Diamond} is equal to loop-value:
+					delete {WMChess::DiamondPawnLocation::%loop-index%}
+					command "/execute @p %{WMChessSetup::%{WMChess::Promoting::Diamond}%}% tp @e[type=ArmorStand,r=1] 0 -100 0"
+					command "/kill @e[type=ArmorStand,r=1,x=0,y=-100,z=0,r=20]"
+			if arg-1 is "Queen":
+				command "/summon ArmorStand %{WMChessSetup::%{WMChess::Promoting::Diamond}%}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Queen,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::QueenPlayer}%}}]}"
+				set {_Counter} to 0
+				loop 10 times:
+					add 1 to {_Counter}
+					if {WMChess::DiamondQueenLocation::%{_Counter}%} is not set:
+						exit loop
+				set {WMChess::DiamondQueenLocation::%{_Counter}%} to {WMChess::Promoting::Diamond}
+				broadcast "He has promoted his pawn to a queen. It is now Iron's turn!"
+			else if arg-1 is "Rook":
+				command "/summon ArmorStand %{WMChessSetup::%{WMChess::Promoting::Diamond}%}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Rook,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::RookPlayer}%}}]}"
+				set {_Counter} to 0
+				loop 10 times:
+					add 1 to {_Counter}
+					if {WMChess::DiamondRookLocation::%{_Counter}%} is not set:
+						exit loop
+				set {WMChess::DiamondRookLocation::%{_Counter}%} to {WMChess::Promoting::Diamond}
+				broadcast "He has promoted his pawn to a rook. It is now Iron's turn!"
+			else if arg-1 is "Bishop":
+				command "/summon ArmorStand %{WMChessSetup::%{WMChess::Promoting::Diamond}%}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Bishop,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::BishopPlayer}%}}]}"
+				set {_Counter} to 0
+				loop 10 times:
+					add 1 to {_Counter}
+					if {WMChess::DiamondQueenLocation::%{_Counter}%} is not set:
+						exit loop
+				set {WMChess::DiamondQueenLocation::%{_Counter}%} to {WMChess::Promoting::Diamond}
+				broadcast "He has promoted his pawn to a bishop. It is now Iron's turn!"
+			else if arg-1 is "Knight":
+				command "/summon ArmorStand %{WMChessSetup::%{WMChess::Promoting::Diamond}%}% {NoBasePlate:1,Rotation:[90f,0.0f],NoGravity:1b,CustomName:Knight,CustomNameVisible:1,Equipment:[{},{id:diamond_boots,Count:1},{id:diamond_leggings,Count:1},{id:diamond_chestplate,Count:1},{id:skull,Damage:3,tag:{SkullOwner:%{WMChess::KnightPlayer}%}}]}"
+				set {_Counter} to 0
+				loop 10 times:
+					add 1 to {_Counter}
+					if {WMChess::DiamondKnightLocation::%{_Counter}%} is not set:
+						exit loop
+				set {WMChess::DiamondKnightLocation::%{_Counter}%} to {WMChess::Promoting::Diamond}
+				broadcast "He has promoted his pawn to a knight. It is now Iron's turn!"
+			set {WMChess::Turn} to "Iron"
+			delete {WMChess::Promoting::Diamond}
+					
+command /wmclearboard:
+	trigger:
+		command "/kill @e[type=ArmorStand,r=1,x=8,y=4,z=8,r=11]"
+		delete {WMChess::*}
+		broadcast "Chess board has been cleared by %command sender%"
