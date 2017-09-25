@@ -1,0 +1,7 @@
+Every 10 minutes everyone receives a random number of a random item. This is for everyone the same.
+
+Commands:
+Operators only:
+/iteminterval enable/on/true/start   - Enables the scenario
+/iteminterval disable/off/false/stop - Disables the scenario
+/iteminterval give                   - The command the skript uses to give out the items
