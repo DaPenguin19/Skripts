@@ -1,0 +1,10 @@
+Every time someone hits a shot from a certain distance, they get a reward.
+30-50 blocks    - 1 iron
+50-100 blocks   - 1 iron and 1 gold
+100-200 blocks  - 1 iron, 1 gold and 1 diamond
+200+ blocks     - 2 iron, 3 gold and 5 diamonds
+
+Commands:
+Operators only:
+/longshots enable/on/true/start   - Enables the scenario
+/longshots disable/off/false/stop - Disables the scenario
