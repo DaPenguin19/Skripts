@@ -22,12 +22,6 @@ command /damagedodgers <text> [<integer>]:
 				broadcast "{@P} Damage Dodgers is now disabled!"
 			else:
 				message "{@P} Damage Dodgers is already disabled!"
-		else if arg-1 is "display":
-			if {DamageDodgers::Deaths} is not set:
-				message "{@P} No players have died!"
-			else:
-				message "{@P} %{DamageDodgers::Deaths}% players have died!"
-			message "{@P} %{DamageDodgers::Needed}% players must die in total!"
 		else if arg-1 is "reset":
 			delete {DamageDodgers::Deaths}
 			broadcast "{@P} Deaths have been cleared!"
