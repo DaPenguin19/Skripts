@@ -3,5 +3,5 @@ and drowning damage are off.
 
 Commands:
 Operators only:
-/dolphins  enable/on/true/start    - Enables the scenario
-/dolphins disable/off/false/stop   - Disables the scenario
+/dolphins enable/on/true/start    - Enables the scenario
+/dolphins disable/off/false/stop  - Disables the scenario
