@@ -1,0 +1,18 @@
+There are 6 types of gods: Poseidon, Zeus, Hades, Apollo, Artemis and Ares. All of these gods will receive certain things.
+Poseidon  - Gets the dolphin effect, gets waterbreathing, slowness 1 on land and he spawns with a hoe (trident) that has 4 uses and spawns
+            a ball of water with a radius of 5. And when he is underwater, he gets strength 1.
+Zeus      - Spawns with a stick that has 3 uses that shoots a lightning bolt, it leaves fire in a 5 block radius and the lightening does 
+            about 3-4 hearts per hit(Full on hit), he also receives 3 extra hearts. When over y:100 gets speed 2.
+Hades     - When below y:50 Gets Strength 1, and he also gets a blaze rod that has 4 uses and shoots a fireball. He will spawn with fire 
+            resistance and 5 spawn zombie eggs and he has infinite saturation.
+Apollo    - Spawns with a power 2 Infinity 1 bow, gets weakness 1, speed 2, fire resistance AT DAY and spawns with 6 potential hearts. 
+Artemis   - At night, gets Night-vision, she spawns with 5 spawn wolves, she gets speed 2, she also spawns with a power 2 punch 1 bow.
+Ares      - Spawns with Strength 1, Resistance 1, slowness 1 and a sharpness 1 diamond sword and has a maximum of 8 hearts.
+
+This skript uses the variables from D4's team manager. Edits of D4's skript will probably work too.
+
+Commands:
+Operators only:
+/greekgods set    - Sets the gods for each team
+/greekgods apply  - Applies effects to the gods
+/greekgods reset  - Resets all gods
