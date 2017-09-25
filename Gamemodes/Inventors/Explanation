@@ -1,0 +1,7 @@
+The first time an item gets crafted it will be broadcasted.
+
+Commands:
+Operators only:
+/inventors enable/on/true/start   - Enables the scenario and resets the list of items which have already been crafted
+/inventors disable/off/false/stop - Disables the scenario
+/inventors reset                  - Clears the list of items which have already been crafted
