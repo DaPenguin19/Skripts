@@ -1,0 +1,6 @@
+Ores and food drop in their smelted form and apple/flint rates are increased.
+
+Commands:
+Operators only:
+/cutclean enable/on/true/start   - Enables the scenario
+/cutclean disable/off/false/stop - Disables the scenario
