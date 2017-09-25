@@ -1,0 +1,7 @@
+Everyone receives a lure 3, luck of the sea 250, unbreaking 100 fishing rod and a stack of anvils. Enchantment tables are disabled.
+
+Commands:
+Operators only:
+/gonefishing enable/on/true/start   - Enables the scenario
+/gonefishing disable/off/false/stop - Disables the scenario
+/gonefishing give                   - Gives everyone their items
