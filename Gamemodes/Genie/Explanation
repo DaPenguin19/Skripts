@@ -1,0 +1,38 @@
+you have three wishes throughout the whole game, but what you can wish for depends on the amount of kills you have at the time. But, you can't wish for something from a lower kill list if you've gotten more kills than that. For example: if you wanted a golden apple from the 0 kill wishlist, but you have 1 kill, you can't. You can only wish for things from the 1 kill wishlist.
+The list of these wishes are as follows.
+0 Kill Wishes
+ Golden Apple
+ Diamond Sword
+ Anvil
+1 Kill Wishes
+ Player Head
+ Speed I Potion
+ Strength I Potion
+2 Kill Wishes
+ Enchanting Table
+ Brewing Stand
+ Fortune III Book
+3 Kill Wishes
+ 15 Bookshelves
+ 5 Diamond Ore
+ Speed II Potion
+ Nether Wart x 8
+4 Kill Wishes
+ Instant Health II Potion
+ 128 Bottles of Enchanting
+ Glowstone Block
+ Blaze Rod
+5+ Kill Wishes
+ 64 Obsidian
+ 3 Wither Skulls
+ 4 Soul Sand
+ 8 Gold Ingots
+ 
+Commands:
+Operators only:
+/genie enable/on/true/start   - Enables the scenario
+/genie disable/off/false/stop - Disables the scenario
+Everyone:
+/genie wishes [<tier>]        - Lists the wishes at (if defined) a specific tier
+/genie wish <item>            - Wishes for an item
+/genie help                   - Lists the commands
