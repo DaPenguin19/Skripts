@@ -1,0 +1,6 @@
+Everyone can only craft 1 crafting bench all game.
+
+Commands:
+Operators only:
+/benchblitz enable/on/true/start    - Enables the scenario
+/benchblitz disable/off/false/stop  - Disables the scenario
