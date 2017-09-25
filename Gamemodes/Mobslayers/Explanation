@@ -1,0 +1,39 @@
+If you are the first person to kill a type of mob, it will be announced in chat, and you will get a prize. Players do count as mobs in 
+this scenario. Here are the prizes:
+Iron golem: 16 gold
+Snow Golem: 4 gold
+Slime: 8 gold
+Chicken: 1 gold
+Cow: 1 gold
+Mooshroom: 2 diamonds
+Pig: 1 gold
+Sheep: 1 gold
+Squid: 10 iron
+Villager: 8 gold, 1 diamond
+Bat: 2 gold
+Ocelot: 4 diamonds
+Horse: 4 gold
+Wolf: 4 gold
+Enderman: 5 gold, 100% enderpearl drop rate
+Zombie pigmen: 16 gold
+Spider: 5 string, 2 gold
+Blaze: Five diamonds
+Cave Spider: 4 gold
+Creeper: 3 gold
+Ghast: 3 diamonds
+Magma Cube: Anvil
+Silverfish: 3 gold
+Skeleton: 3 gold
+Zombie: 3 gold:
+Wither skeleton: 16 gold
+Witch: 1 saddle
+Chicken Jockey: 5 gold
+Ender Dragon: 24 diamonds
+Wither: 128 Gold
+Players: Diamond axe and Diamond Shovel
+
+Commands:
+Operators only:
+/mobslayers enable/on/true/start    - Enables the scenario
+/mobslayers disable/off/false/stop  - Disables the scenario
+/mobslayers reset                   - Resets the list of the mobs that have already been killed
