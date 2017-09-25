@@ -1,0 +1,7 @@
+Every 5 minutes a certain type of damage is selected. If you take that type of damage in the next 5 minutes, you will die instantly.
+
+Commands:
+Operators only:
+/damagecycle enable/on/true/start   - Enables the scenario
+/damagecycle disable/off/false/stop - Disables the scenario
+/damagecycle cycle                  - The command the skript uses to select a type of damage
