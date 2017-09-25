@@ -1,0 +1,13 @@
+On every team there is one player who is the king. This player receives resistance 1 and 15 hearts. When the king dies, everyone on the
+team gets weakness for the rest of the game.
+
+This skript uses the variables from D4's team manager. Edits of D4's skript will probably work too.
+
+Commands:
+Operators only:
+/kings set <player>     - Sets a certain player as the king of their team
+/kings remove <player>  - Removes a certain player as the king of their team
+/kings reset            - Resets the kings
+/kings apply            - Applies effects to the kings
+Everyone:
+/kings list             - Lists the kings
