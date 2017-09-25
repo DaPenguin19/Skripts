@@ -19,8 +19,8 @@ command /damagecycle <text>:
 				broadcast "{@P} Damage Cycle is now enabled!"
 				command "/damagecycle cycle"
 		else if arg-1 is "cycle":
-			{DamageCycle::Enabled} is set
 			wait 5 minutes
+			{DamageCycle::Enabled} is set
 			set {DamageCycle::Current} to a random integer between 1 and 10
 			if {DamageCycle::Current} is 1:
 				broadcast "{@P} Damage Cycle has been swapped to skeletons!"
