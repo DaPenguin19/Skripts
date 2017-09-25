@@ -1,0 +1,7 @@
+The first X people who take damage die instantly.
+
+Commands:
+Operators only:
+/damagedodgers enable/on/true/start <number of people who have to die>  - Enables the scenario
+/damagedodgers disable/off/false/stop                                   - Disables the scenario
+/damagedodgers reset                                                    - Resets the deaths
