@@ -11,47 +11,48 @@ command /damagecycle <text>:
 				delete {DamageCycle::*}
 			else:
 				message "{@P} Damage Cycle is already disabled!"
-		if arg-1 is "on" or "enable" or "true" or "start":
+		else if arg-1 is "on" or "enable" or "true" or "start":
 			if {DamageCycle::Enabled} is set:
 				message "{@P} Damage Cycle is already enabled!"
 			else:
 				set {DamageCycle::Enabled} to true
 				broadcast "{@P} Damage Cycle is now enabled!"
-				while {DamageCycle::Enabled} is true:
-					wait 1200 ticks
-					add 1 to {DamageCycle::Minutes}
-					if {DamageCycle::Minutes} is 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100, 105, 110, 115, 120, 125, 130, 135, 140, 145 or 150:
-						set {DamageCycle::Current} to a random integer between 1 and 10
-						if {DamageCycle::Current} is 1:
-							broadcast "{@P} Damage Cycle has been swapped to skeletons!"
-							broadcast "{@P} All damage from skeletons will now OHKO you!"
-						if {DamageCycle::Current} is 2:	
-							broadcast "{@P} Damage Cycle has been swapped to fall damage!"
-							broadcast "{@P} All fall damage will now OHKO you!"	
-						if {DamageCycle::Current} is 3:
-							broadcast "{@P} Damage Cycle has been swapped to zombies!"
-							broadcast "{@P} All damage from zombies and zombie pigmen will now OHKO you!"	
-						if {DamageCycle::Current} is 4:
-							broadcast "{@P} Damage Cycle has been swapped to side effects!"
-							broadcast "{@P} All potion and poison damage will now OHKO you!"	
-						if {DamageCycle::Current} is 5:
-							broadcast "{@P} Damage Cycle has been swapped to spiders!"
-							broadcast "{@P} All damage from spiders and cave spiders will now OHKO you!"	
-						if {DamageCycle::Current} is 6:
-							broadcast "{@P} Damage Cycle has been swapped to explosions!"
-							broadcast "{@P} All damage from explosions will now OHKO you!"	
-						if {DamageCycle::Current} is 7:
-							broadcast "{@P} Damage Cycle has been swapped to suffocation!"
-							broadcast "{@P} All damage from suffocation will now OHKO you!"	
-						if {DamageCycle::Current} is 8:
-							broadcast "{@P} Damage Cycle has been swapped to stupidity!"
-							broadcast "{@P} All damage from drowning, cacti and starvation will now OHKO you!"	
-						if {DamageCycle::Current} is 9:
-							broadcast "{@P} Damage Cycle has been swapped to endermen and silverfish!"
-							broadcast "{@P} All damage from endermen and silverfish will now OHKO you!"	
-						if {DamageCycle::Current} is 10:
-							broadcast "{@P} Damage Cycle has been swapped to wolves!"
-							broadcast "{@P} All damage from wolves will now OHKO you!"
+				command "/damagecycle cycle"
+		else if arg-1 is "cycle":
+			{DamageCycle::Enabled} is set
+			wait 5 minutes
+			set {DamageCycle::Current} to a random integer between 1 and 10
+			if {DamageCycle::Current} is 1:
+				broadcast "{@P} Damage Cycle has been swapped to skeletons!"
+				broadcast "{@P} All damage from skeletons will now OHKO you!"
+			if {DamageCycle::Current} is 2:	
+				broadcast "{@P} Damage Cycle has been swapped to fall damage!"
+				broadcast "{@P} All fall damage will now OHKO you!"	
+			if {DamageCycle::Current} is 3:
+				broadcast "{@P} Damage Cycle has been swapped to zombies!"
+				broadcast "{@P} All damage from zombies and zombie pigmen will now OHKO you!"	
+			if {DamageCycle::Current} is 4:
+				broadcast "{@P} Damage Cycle has been swapped to side effects!"
+				broadcast "{@P} All potion and poison damage will now OHKO you!"	
+			if {DamageCycle::Current} is 5:
+				broadcast "{@P} Damage Cycle has been swapped to spiders!"
+				broadcast "{@P} All damage from spiders and cave spiders will now OHKO you!"	
+			if {DamageCycle::Current} is 6:
+				broadcast "{@P} Damage Cycle has been swapped to explosions!"
+				broadcast "{@P} All damage from explosions will now OHKO you!"	
+			if {DamageCycle::Current} is 7:
+				broadcast "{@P} Damage Cycle has been swapped to suffocation!"
+				broadcast "{@P} All damage from suffocation will now OHKO you!"	
+			if {DamageCycle::Current} is 8:
+				broadcast "{@P} Damage Cycle has been swapped to stupidity!"
+				broadcast "{@P} All damage from drowning, cacti and starvation will now OHKO you!"	
+			if {DamageCycle::Current} is 9:
+				broadcast "{@P} Damage Cycle has been swapped to endermen and silverfish!"
+				broadcast "{@P} All damage from endermen and silverfish will now OHKO you!"	
+			if {DamageCycle::Current} is 10:
+				broadcast "{@P} Damage Cycle has been swapped to wolves!"
+				broadcast "{@P} All damage from wolves will now OHKO you!"
+			command "/damagecycle cycle"
 
 on damage of a player:
 	{DamageCycle::Enabled} is set
