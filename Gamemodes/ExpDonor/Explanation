@@ -1,0 +1,8 @@
+Players can give each other their levels.
+
+Commands:
+Operators only:
+/expdonor enable/on/true/start        - Enables the scenario
+/expdonor disable/off/false/stop      - Disables the scenario
+Everyone:
+/expgive <player> <number of levels>  - Gives a certain number of levels to a certain player
