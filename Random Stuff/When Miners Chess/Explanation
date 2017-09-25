@@ -1,0 +1,26 @@
+This was 016Nojr and mine application for the 2017 WMC contest. It is basically chess, except all pieces are members of WMC.
+
+The default pieces are:
+King    - Bergasms
+Queen   - Fairyjuice
+Bishop  - shikenzaned
+Knight  - Mop19
+Rook    - Dibzcraft
+Pawn    - nihontiger
+
+It works on a 16x16 grid where each square of the chess board is 2x2 blocks. The corner block of the A1 square is at 0, 0 by default. The 
+coordinates of the squares can be changed in the variables.
+
+Commands:
+/wmchess true                                   - Starts the game using random pieces
+/wmchess false                                  - Starts the game using the default pieces
+/pawn <starting square> <destination square>    - Moves a pawn
+/rook <starting square> <destination square>    - Moves a rook
+/knight <starting square> <destination square>  - Moves a knight
+/bishop <starting square> <destination square>  - Moves a bishop
+/queen <starting square> <destination square>   - Moves a queen
+/king <starting square> <destination square>    - Moves a king
+/promote <piece>                                - Promotes the pawn to a specified piece
+/wmclearboard                                   - Removes all pieces from the board
+/checklegaliron <piece>                         - The command the skript uses to see if a move is legal for the iron player
+/checklegaldiamond <piece>                      - The command the skript uses to see if a move is legal for the diamond player
