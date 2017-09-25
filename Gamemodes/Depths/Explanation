@@ -1,0 +1,11 @@
+The lower you go on the y-axis the more deadly the mobs are.
+y 60-256 are normal
+y 45-59 do 1.5x damage
+y 30-44 do 2x damage
+y 15-29 do 3x damage
+y 1-14 do 5x damage
+
+Commands:
+Operators only:
+/depths enable/on/true/start    - Enables the scenario
+/depths disable/off/false/stop  - Disables the scenario
