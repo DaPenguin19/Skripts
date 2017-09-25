@@ -1,0 +1,10 @@
+At a certain point in the game, everyone has to be above y=100 or else they start taking half a heart of damage every 30 seconds. At the
+start of the game, everyone receives 128 snow blocks, 3 pumpkins, 1 diamond shovel, 2 string and 16 feathers.
+
+Commands:
+Operators only:
+/skyhigh enable/on/true/start   - Enables the scenario
+/skyhigh disable/off/false/stop - Disables the scenario
+/skyhigh give/items             - Gives everyone their items
+/skyhigh give/items <player>    - Gives the items to a certain player
+/skyhigh damage                 - The command the skript uses to damage certain players
