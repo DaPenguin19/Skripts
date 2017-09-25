@@ -1,0 +1,9 @@
+Diamonds and gold don't drop from ores. The only hostile mobs that spawn are creepers. When a creeper blows up another creeper, diamonds
+and gold may drop.
+
+At the top of the skript it lists the chances of diamond/gold dropping. You can change this to your liking; default if 80% for diamonds
+and 160% for gold.
+
+Commands:
+/creeperchristmas enable/on/true/start   - Enables the scenario
+/creeperchristmas disable/off/false/stop - Disables the scenario
