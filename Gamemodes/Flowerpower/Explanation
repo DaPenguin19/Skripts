@@ -1,0 +1,8 @@
+Every time you break a flower you have a chance to get a random amount of a random item.
+
+Commands:
+Operators only:
+/flowerpower enable/on/true/start    - Enables the scenario
+/flowerpower disable/off/false/stop  - Disables the scenario
+/setflowerpercent <percentage>       - Changes the chance of getting items from a flower (default is 100%)
+/setmaxfloweritems <number>          - Changes the maximum number of items you can get from a flower (default is 64)
