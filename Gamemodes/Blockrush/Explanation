@@ -1,0 +1,12 @@
+Every time a block type is mined for the first time, the person who mined it will receive a reward (default is gold ingot).
+
+Commands:
+Operators only:
+/blockrush enable/on/true/start   - Enables the scenario and resets the list of blocks which have already been mined
+/blockrush disable/off/false/stop - Disables the scenario
+/blockrush reset                  - Resets the list of blocks which have already been mined
+/blockrush setreward              - Sets the reward to the item you're currently holding
+Everyone:
+/blockrush list                   - Lists the blocks which have already been mined
+/blockrush reward                 - Tells you what the reward is for mining a new block type
+/blockrush help                   - Gives you a list of the commands
