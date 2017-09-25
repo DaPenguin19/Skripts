@@ -1,0 +1,7 @@
+When you're in water, you can swim faster, your helmet gets enchanted with respiration 3 and you might get some raw fish. Fall damage 
+and drowning damage are off.
+
+Commands:
+Operators only:
+/dolphins  enable/on/true/start    - Enables the scenario
+/dolphins disable/off/false/stop   - Disables the scenario
