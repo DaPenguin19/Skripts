@@ -424,7 +424,7 @@ command /checklegaliron <text> <text> <text>:
 			if {WMChess::LegalMove} is set:
 				if {_endsquarez} is equal to 8:
 					message "To which piece do you want to promote this pawn?" to command sender
-					command "/tellraw %command sender% [{"text":"Queen","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Queen"}},{"text":", ","underlined":"false"},{"text":"Rook","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Rook"}},{"text":", ","underlined":"false"},{"text":"Bishop","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Bishop"}},{"text":" or ","underlined":"false"},{"text":"Knight","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Knight"}},{"text":"?","underlined":"false"}]"
+					message "Use /promote <piece> to promote your pawn" to command sender
 		else if arg-1 is "rook":
 			if ({_startsquarex}-{_endsquarex}) is not equal to 0:
 				if ({_startsquarez}-{_endsquarez}) is not equal to 0:
@@ -749,7 +749,7 @@ command /checklegaldiamond <text> <text> <text>:
 			if {WMChess::LegalMove} is set:
 				if {_endsquarez} is equal to 1:
 					message "To which piece do you want to promote this pawn?" to command sender
-					command "/tellraw %command sender% [{"text":"Queen","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Queen"}},{"text":", ","underlined":"false"},{"text":"Rook","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Rook"}},{"text":", ","underlined":"false"},{"text":"Bishop","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Bishop"}},{"text":" or ","underlined":"false"},{"text":"Knight","underlined":"true","clickEvent":{"action":"run_command","value":"/promote Knight"}},{"text":"?","underlined":"false"}]"
+					message "Use /promote <piece> to promote your pawn" to command sender
 		else if arg-1 is "rook":
 			if ({_startsquarex}-{_endsquarex}) is not equal to 0:
 				if ({_startsquarez}-{_endsquarez}) is not equal to 0:
