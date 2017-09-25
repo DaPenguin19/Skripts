@@ -1,0 +1,7 @@
+Every time someone mines diamonds/gold, crafts a golden apple/anvil/enchantment table, eats a golden apple or dies, their coords are
+broadcasted.
+
+Commands:
+Operators only:
+/paranoia enable/on/true/start    - Enables the scenario
+/paranoia disable/off/false/stop  - Disables the scenario
