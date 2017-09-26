@@ -1,0 +1,10 @@
+Like in Out Of Orbit Mission 6, players can access a trading menu which allows them to trade minerals for several other useful items.
+
+This skript requires SkQuery to work!
+
+Commands:
+Operators only:
+/ce enable/on/true    - Enables the scenario
+/ce disable/off/false - Disables the scenario
+Everyone:
+/ce                   - Opens the trading menu
