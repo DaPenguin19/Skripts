@@ -1,0 +1,214 @@
+command /ce [<text>]:
+	trigger:
+		if arg-1 is not set:
+			if {ce} is set:
+				open chest with 1 rows named "Trading Menu" to player
+				format slot 1 of player with iron block to close then run "ce-c %player% ironblock"
+				format slot 2 of player with iron ingot to close then run "ce-c %player% ironingot"
+				format slot 3 of player with lapis block to close then run "ce-c %player% lapisblock"
+				format slot 4 of player with redstone block to close then run "ce-c %player% redstoneblock"
+				format slot 5 of player with emerald to close then run "ce-c %player% emerald"
+				format slot 6 of player with gold ingot to close then run "ce-c %player% goldingot"
+				format slot 7 of player with ender pearl to close then run "ce-c %player% enderpearl"
+			else:
+				message "Celestial Expeditionists is disabled" to command sender
+		else if arg-1 is "ironblock":
+			if {ce} is set:
+				open chest with 1 rows named "Iron Block Trading Menu" to player
+				format slot 0 of player with diamond named "15 iron blocks" to run "ce-t %player% ironblock diamond"
+				format slot 1 of player with 6 gold ingots named "10 iron blocks" to run "ce-t %player% ironblock goldingot"
+				format slot 2 of player with apple named "15 iron blocks" to run "ce-t %player% ironblock apple"
+				format slot 3 of player with 40 arrows named "5 iron blocks" to run "ce-t %player% ironblock arrow"
+				format slot 8 of player with 166 named "Go Back" to close then run "ce-c %player%"
+			else:
+				message "Celestial Expeditionists is disabled" to command sender
+		else if arg-1 is "ironingot":
+			if {ce} is set:
+				open chest with 1 rows named "Iron Ingot Trading Menu" to player
+				format slot 0 of player with string named "20 iron ingots" to run "ce-t %player% ironingot string"
+				format slot 8 of player with 166 named "Go Back" to close then run "ce-c %player%"
+			else:
+				message "Celestial Expeditionists is disabled" to command sender
+		else if arg-1 is "lapisblock":
+			if {ce} is set:
+				open chest with 1 rows named "Lapis Block Trading Menu" to player
+				format slot 0 of player with diamond named "45 lapis blocks" to run "ce-t %player% lapisblock diamond"
+				format slot 1 of player with 6 gold ingots named "10 lapis blocks" to run "ce-t %player% lapisblock goldingot"
+				format slot 2 of player with apple named "40 lapis blocks" to run "ce-t %player% lapisblock apple"
+				format slot 3 of player with string named "10 lapis blocks" to run "ce-t %player% lapisblock string"
+				format slot 4 of player with 40 arrows named "10 lapis blocks" to run "ce-t %player% lapisblock arrow"
+				format slot 8 of player with 166 named "Go Back" to close then run "ce-c %player%"
+			else:
+				message "Celestial Expeditionists is disabled" to command sender
+		else if arg-1 is "redstoneblock":
+			if {ce} is set:
+				open chest with 1 rows named "Redstone Block Trading Menu" to player
+				format slot 0 of player with diamond named "45 redstone blocks" to run "ce-t %player% redstoneblock diamond"
+				format slot 1 of player with 6 gold ingots named "25 redstone blocks" to run "ce-t %player% redstoneblock goldingot"
+				format slot 2 of player with apple named "25 redstone blocks" to run "ce-t %player% redstoneblock apple"
+				format slot 3 of player with 40 arrows named "15 redstone blocks" to run "ce-t %player% redstoneblock arrow"
+				format slot 8 of player with 166 named "Go Back" to close then run "ce-c %player%"
+			else:
+				message "Celestial Expeditionists is disabled" to command sender
+		else if arg-1 is "emerald":
+			if {ce} is set:
+				open chest with 1 rows named "Emerald Trading Menu" to player
+				format slot 0 of player with ghast tear named "10 emeralds" to run "ce-t %player% emerald extraheart"
+				format slot 8 of player with 166 named "Go Back" to close then run "ce-c %player%"
+			else:
+				message "Celestial Expeditionists is disabled" to command sender
+		else if arg-1 is "goldingot":
+			if {ce} is set:
+				open chest with 1 rows named "Gold Ingot Trading Menu" to player
+				format slot 0 of player with diamond named "35 gold ingots" to run "ce-t %player% goldingot diamond"
+				format slot 1 of player with 40 arrows named "10 gold ingots" to run "ce-t %player% goldingot arrow"
+				format slot 8 of player with 166 named "Go Back" to close then run "ce-c %player%"
+			else:
+				message "Celestial Expeditionists is disabled" to command sender
+		else if arg-1 is "enderpearl":
+			if {ce} is set:
+				open chest with 1 rows named "Enderpearl Trading Menu" to player
+				format slot 0 of player with diamond named "3 enderpearls" to run "ce-t %player% enderpearl diamond"
+				format slot 1 of player with 6 gold ingots named "1 enderpearl" to run "ce-t %player% enderpearl goldingot"
+				format slot 2 of player with apple named "2 enderpearl" to run "ce-t %player% enderpearl apple"
+				format slot 3 of player with string named "1 enderpearl" to run "ce-t %player% enderpearl string"
+				format slot 4 of player with 40 arrows named "1 enderpearl" to run "ce-t %player% enderpearl arrow"
+				format slot 8 of player with 166 named "Go Back" to close then run "ce-c %player%"
+			else:
+				message "Celestial Expeditionists is disabled" to command sender
+		else if arg-1 is "enable" or "on" or "true":
+			set {ce} to true
+			broadcast "Celestial Expeditionists Enabled"
+		else if arg-1 is "disable" or "off" or "false":
+			delete {ce}
+			broadcast "Celestial Expeditionists Disabled"
+		
+command /ce-c [<player>] [<text>]:
+	executable by: console
+	trigger:
+		wait 3 ticks
+		if arg-2 is set:
+			make the player-argument execute command "ce %arg-2%"
+		else:
+			make the player-argument execute command "ce"
+		
+command /ce-t [<player>] [<text>] [<text>]:
+	executable by: console
+	trigger:
+		if arg-2 is "ironblock":
+			if arg-3 is "diamond":
+				if player-argument has 15 iron blocks:
+					if player-argument has enough space for 1 diamond:
+						remove 15 iron blocks from player-argument
+						give player-argument 1 diamond
+			else if arg-3 is "goldingot":
+				if player-argument has 10 iron blocks:
+					if player-argument has enough space for 6 gold ingots:
+						remove 10 iron blocks from player-argument
+						give player-argument 6 gold ingots
+			else if arg-3 is "apple":
+				if player-argument has 15 iron blocks:
+					if player-argument has enough space for 1 apple:
+						remove 15 iron blocks from player-argument
+						give player-argument 1 apple
+			else if arg-3 is "arrow":
+				if player-argument has 5 iron blocks:
+					if player-argument has enough space for 40 arrows:
+						remove 5 iron blocks from player-argument
+						give player-argument 40 arrows
+		else if arg-2 is "ironingot":
+			if arg-3 is "string":
+				if player-argument has 20 iron ingots:
+					if player-argument has enough space for 1 string:
+						remove 20 iron ingots from player-argument
+						give player-argument 1 string
+		else if arg-2 is "lapisblock":
+			if arg-3 is "diamond":
+				if player-argument has 45 lapis blocks:
+					if player-argument has enough space for 1 diamond:
+						remove 45 lapis blocks from player-argument
+						give player-argument 1 diamond
+			else if arg-3 is "goldingot":
+				if player-argument has 10 lapis blocks:
+					if player-argument has enough space for 6 gold ingots:
+						remove 10 lapis blocks from player-argument
+						give player-argument 6 gold ingots
+			else if arg-3 is "apple":
+				if player-argument has 40 lapis blocks:
+					if player-argument has enough space for 1 apple:
+						remove 40 lapis blocks from player-argument
+						give player-argument 1 apple
+			else if arg-3 is "string":
+				if player-argument has 10 lapis blocks:
+					if player-argument has enough space for 1 string:
+						remove 10 lapis blocks from player-argument
+						give player-argument 1 string
+			else if arg-3 is "arrow":
+				if player-argument has 10 lapis blocks:
+					if player-argument has enough space for 40 arrows:
+						remove 10 lapis blocks from player-argument
+						give player-argument 40 arrows
+		else if arg-2 is "redstoneblock":
+			if arg-3 is "diamond":
+				if player-argument has 45 redstone blocks:
+					if player-argument has enough space for 1 diamond:
+						remove 45 redstone blocks from player-argument
+						give player-argument 1 diamond
+			else if arg-3 is "goldingot":
+				if player-argument has 25 redstone blocks:
+					if player-argument has enough space for 6 gold ingots:
+						remove 25 redstone blocks from player-argument
+						give player-argument 6 gold ingots
+			else if arg-3 is "apple":
+				if player-argument has 25 redstone blocks:
+					if player-argument has enough space for 1 apple:
+						remove 25 redstone blocks from player-argument
+						give player-argument 1 apple
+			else if arg-3 is "arrow":
+				if player-argument has 15 redstone blocks:
+					if player-argument has enough space for 40 arrows:
+						remove 15 redstone blocks from player-argument
+						give player-argument 40 arrows
+		else if arg-2 is "emerald":
+			if arg-3 is "extraheart":
+				if player-argument has 10 emeralds:
+					remove 10 emeralds from player-argument
+					set player-argument's max health to (player-argument's max health)+1
+					set player-argument's health to (player-argument's health)+1
+		else if arg-2 is "goldingot":
+			if arg-3 is "diamond":
+				if player-argument has 35 gold ingots:
+					if player-argument has enough space for 1 diamond:
+						remove 35 gold ingots from player-argument
+						give player-argument 1 diamond
+			else if arg-3 is "arrow":
+				if player-argument has 10 gold ingots:
+					if player-argument has enough space for 40 arrows:
+						remove 10 gold ingots from player-argument
+						give player-argument 40 arrows
+		else if arg-2 is "enderpearl":
+			if arg-3 is "diamond":
+				if player-argument has 3 ender pearls:
+					if player-argument has enough space for 1 diamond:
+						remove 3 ender pearls from player-argument
+						give player-argument 1 diamond
+			else if arg-3 is "goldingot":
+				if player-argument has 1 ender pearl:
+					if player-argument has enough space for 6 gold ingots:
+						remove 1 ender pearl from player-argument
+						give player-argument 6 gold ingots
+			else if arg-3 is "apple":
+				if player-argument has 2 ender pearls:
+					if player-argument has enough space for 1 apple:
+						remove 2 ender pearls from player-argument
+						give player-argument 1 apple
+			else if arg-3 is "string":
+				if player-argument has 1 ender pearl:
+					if player-argument has enough space for 1 string:
+						remove 1 ender pearl from player-argument
+						give player-argument 1 string
+			else if arg-3 is "arrow":
+				if player-argument has 1 ender pearl:
+					if player-argument has enough space for 40 arrows:
+						remove 1 ender pearl from player-argument
+						give player-argument 40 arrows
