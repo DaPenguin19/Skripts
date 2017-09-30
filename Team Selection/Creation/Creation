@@ -1,0 +1,58 @@
+command /creation [<text>] [<integer>]:
+	trigger:
+		if arg-1 is "on" or "enable":
+			if arg-2 is not set:
+				message "&cPlease define the amount of teams"
+			else:
+				if {Creation::Enabled} is set:
+					message "&cCreation is already enabled"
+				else:
+					set {Creation::Enabled} to true
+					loop {Teams::*}:
+						command "/scoreboard teams remove UHC%loop-value%"
+						delete {Team.%loop-value%::*}
+					delete {Teams.InTeam::*}
+					delete {Teams::*}
+					set {Creation::Teamamount} to arg-2
+					loop {Creation::Teamamount} times:
+						command "/scoreboard teams add UHC%loop-number%"
+						set {Teams::%loop-number%} to loop-number
+					set {Creation::Currentteam} to 1
+					delete {Creation::Backwards}
+					broadcast "<green>Creation enabled. There will be %{Creation::Teamamount}% teams"
+		else if arg-1 is "off" or "disable":
+			if {Creation::Enabled} is not set:
+				message "&cCreation is already disabled"
+			else:
+				delete {Creation::*}
+				broadcast "&cCreation disabled"
+		else:
+			if {Creation::Enabled} is set:
+				set {_Player} to ("%arg-1%" parsed as offlineplayer)
+				if {_Player} is online:
+					if {Teams.InTeam::%{_Player}%} is not set:
+						loop {Team.%{Creation::Currentteam}%::*}:
+							set {_TeamPlayer} to ("%loop-value-1%" parsed as offlineplayer)
+							if {_TeamPlayer} is online:
+								message "&6[&4UHC&6]&c &4%{_Player}% &chas been added to your team." to {_TeamPlayer}
+						set {Teams.InTeam::%{_Player}%} to {Creation::Currentteam}
+						set {Team.%{Creation::Currentteam}%::%{_Player}%} to {_Player}
+						set {TeamNumber::%{_Player}%} to {Creation::Currentteam}
+						command "/scoreboard teams join UHC%{Creation::Currentteam}% %{_Player}%"
+						message "&6[&4UHC&6]&c You were added to &4Team %{Creation::Currentteam}%" to {_Player}
+						broadcast "<gold>%{_Player}% has joined Team %{Creation::Currentteam}%"
+						if {Creation::Currentteam} is equal to {Creation::Teamamount}:
+							if {Creation::Backwards} is not set:
+								set {Creation::Backwards} to true
+							else:
+								subtract 1 from {Creation::Currentteam}
+						else if {Creation::Currentteam} is equal to 1:
+							if {Creation::Backwards} is set:
+								delete {Creation::Backwards}
+							else:
+								increase {Creation::Currentteam} by 1
+						else:
+							if {Creation::Backwards} is not set:
+								increase {Creation::Currentteam} by 1
+							else:
+								subtract 1 from {Creation::Currentteam}
