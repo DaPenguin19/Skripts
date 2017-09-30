@@ -1,0 +1,16 @@
+Just like in Desire S3, people join teams by going to a 'monument' which has a pressure plate or a button. Activating this pressure plate
+or button will add them to a team. The order of which team will get the next player is set to snake draft, meaning that first team 1 will
+get a player, then team 2, all the way until each team has a player. After this, it will go the other way.
+
+Credit to TommySX and Desire for coming up with the idea of this gamemode.
+
+This skript uses the variables from D4's team manager. Edits of D4's skript will probably work too.
+
+You need to build the monuments yourself before the game starts. Make sure you have a pressure plate or button hooked up to a command
+block with the following command: /creation @p
+
+Commands:
+Operators only:
+/creation enable/on <number of teams>   - Enables the scenario
+/creation disable/off                   - Disables the scenario (This does not delete the teams)
+/creation <player>                      - Adds a player to a team (Only use this if the command blocks don't work for some reason)
