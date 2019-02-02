@@ -1,0 +1,38 @@
+command /refill <text>:
+	permission: skript.op
+	trigger:
+		if arg-1 is "on" or "enable" or "true" or "start":
+			set {Refill} to true
+			broadcast "<grey>[<gold>Refill<grey>] <lime>Refill has been enabled"
+		else if arg-1 is "off" or "disable" or "false" or "stop":
+			delete {Refill}
+			broadcast "<grey>[<gold>Refill<grey>] <light red>Refill has been disabled"
+		else if arg-1 is "toggle":
+			if {Refill} is set:
+				command sender command "/refill off"
+			else:
+				command sender command "/refill on"
+
+on death of player:
+	if attacker is player:
+		if {Teams.InTeam::%attacker%} is set:
+			set {_healths} to 0
+			set {_playercount} to 0
+			loop {Team.%{Teams.InTeam::%attacker%}%::*}:
+				set {_player} to (loop-value parsed as offlineplayer)
+				if {_player} is online:
+					add {_player}'s health to {_healths}
+					add 1 to {_playercount}
+			set {RefillHealth} to ({_healths}/{_playercount})
+		else:
+			set {RefillHealth} to attacker's health
+		if {RefillHealth} is less than 1.5:
+			drop 10 gold ingots
+		else if {RefillHealth} is less than 3:
+			drop 8 gold ingots
+		else if {RefillHealth} is less than 4:
+			drop 6 gold ingots
+		else if {RefillHealth} is less than 6:
+			drop 4 gold ingots
+		else if {RefillHealth} is less than 8:
+			drop 2 gold ingots
