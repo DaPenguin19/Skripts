@@ -14,25 +14,33 @@ command /refill <text>:
 				command sender command "/refill on"
 
 on death of player:
-	if attacker is player:
-		if {Teams.InTeam::%attacker%} is set:
-			set {_healths} to 0
-			set {_playercount} to 0
-			loop {Team.%{Teams.InTeam::%attacker%}%::*}:
-				set {_player} to (loop-value parsed as offlineplayer)
-				if {_player} is online:
-					add {_player}'s health to {_healths}
-					add 1 to {_playercount}
-			set {RefillHealth} to ({_healths}/{_playercount})
-		else:
-			set {RefillHealth} to attacker's health
-		if {RefillHealth} is less than 1.5:
-			drop 10 gold ingots
-		else if {RefillHealth} is less than 3:
-			drop 8 gold ingots
-		else if {RefillHealth} is less than 4:
-			drop 6 gold ingots
-		else if {RefillHealth} is less than 6:
-			drop 4 gold ingots
-		else if {RefillHealth} is less than 8:
-			drop 2 gold ingots
+	{Refill} is true
+	attacker is a player
+	if {Teams.InTeam::%attacker%} is set:
+		set {healths} to 0
+		set {playercount} to 0
+		loop {Team.%{Teams.InTeam::%attacker%}%::*}:
+			#message "Hi" to ("%loop-value%" parsed as offline player)
+			set {_player} to ("%loop-value%" parsed as offline player)
+			#broadcast "%{_player}%"
+			if {_player} is online:
+				#broadcast "online"
+				add {_player}'s health to {healths}
+				add 1 to {playercount}
+		set {RefillHealth} to ({healths}/{playercount})
+		#broadcast "%{healths}% / %{playercount}% = %{RefillHealth}%"
+		delete {healths}
+		delete {playercount}
+	else:
+		set {RefillHealth} to attacker's health
+	if {RefillHealth} is less than 1.5:
+		add 10 gold ingots to the drops
+	else if {RefillHealth} is less than 3:
+		add 8 gold ingots to the drops
+	else if {RefillHealth} is less than 4:
+		add 6 gold ingots to the drops
+	else if {RefillHealth} is less than 6:
+		add 4 gold ingots to the drops
+	else if {RefillHealth} is less than 8:
+		add 2 gold ingots to the drops
+	delete {RefillHealth}
