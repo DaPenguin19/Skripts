@@ -10,6 +10,6 @@ This skript uses the variables from D4's team manager. Edits of D4's skript will
 
 Commands:
 Operators only:
-/refill enable/on/true/start  - Enables the scenario
+/refill enable/on/true/start    - Enables the scenario
 /refill disable/off/false/stop  - Disables the scenario
-/refill toggle  - Toggles the state of the scenario (enabled/disabled)
+/refill toggle                  - Toggles the state of the scenario (enabled/disabled)
